@@ -1,4 +1,4 @@
-class_name Food extends RigidBody2D
+class_name Food2D extends RigidBody2D
 ## Base class for food
 
 @export var gravity: float = 1.0 ## Speed downwards
@@ -26,7 +26,7 @@ func _physics_process(_delta: float) -> void:
 		position.y = _speared_y
 
 
-func try_get_speared(tip: Tip) -> void:
+func try_get_speared(tip: Tip2D) -> void:
 	if not tip:
 		push_error("tip null")
 		return

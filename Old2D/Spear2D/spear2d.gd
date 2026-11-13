@@ -1,4 +1,4 @@
-class_name Spear extends CharacterBody2D
+class_name Spear2D extends CharacterBody2D
 
 
 @export var speed: float = 50.0 ## Speed in x-direction
