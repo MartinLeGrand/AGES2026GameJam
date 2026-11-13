@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bsxikgq1yxyk3"]
 
-[ext_resource type="Script" uid="uid://ctnruyttnbcjh" path="res://Old2D/Spawner/spawner.gd" id="1_lk5ho"]
+[ext_resource type="Script" uid="uid://ctnruyttnbcjh" path="res://Old2D/Spawner2D/spawner2d.gd" id="1_lk5ho"]
 [ext_resource type="Texture2D" uid="uid://be4pshd6uuas0" path="res://Project/Art/icon.svg" id="2_y6nlm"]
 
 [sub_resource type="PackedScene" id="PackedScene_gb5uf"]

@@ -1,4 +1,4 @@
-class_name Spawner extends Node2D
+class_name Spawner2D extends Node2D
 ## Adds all childs from SpawnPoints and adds them as spawn points
 
 

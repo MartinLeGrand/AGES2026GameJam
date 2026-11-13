@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bpp2prij06o3"]
 
-[ext_resource type="Script" uid="uid://vc1tc10urhtm" path="res://Old2D/Spear/spear.gd" id="1_5t15v"]
+[ext_resource type="Script" uid="uid://vc1tc10urhtm" path="res://Old2D/Spear2D/spear2d.gd" id="1_5t15v"]
 [ext_resource type="Texture2D" uid="uid://be4pshd6uuas0" path="res://Project/Art/icon.svg" id="1_jmgyv"]
-[ext_resource type="PackedScene" uid="uid://cr7qseav7o1ag" path="res://Old2D/Spear/Tip/Tip.tscn" id="3_k0dl4"]
+[ext_resource type="PackedScene" uid="uid://cr7qseav7o1ag" path="res://Old2D/Spear2D/Tip2D/Tip2d.tscn" id="3_k0dl4"]
 
 [node name="Spear" type="CharacterBody2D" unique_id=360956784]
 modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
