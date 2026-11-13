@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://bsxikgq1yxyk3"]
+
+[ext_resource type="Script" uid="uid://ctnruyttnbcjh" path="res://Project/Spawner/spawner.gd" id="1_lk5ho"]
+[ext_resource type="Texture2D" uid="uid://be4pshd6uuas0" path="res://Project/Art/icon.svg" id="2_y6nlm"]
+
+[sub_resource type="PackedScene" id="PackedScene_gb5uf"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [],
+"names": PackedStringArray("Testfood", "Sprite2D", "texture"),
+"node_count": 1,
+"node_ids": PackedInt32Array(938453509),
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 1, 2, 0, 0),
+"variants": [ExtResource("2_y6nlm")],
+"version": 3
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y6nlm"]
+load_path = "res://.godot/imported/icon.svg-210dd13045e0cbeda5b0fe08b6fb32d3.ctex"
+
+[node name="Spawner" type="Node2D" unique_id=1272656414]
+script = ExtResource("1_lk5ho")
+obj_to_spawn = Array[PackedScene]([SubResource("PackedScene_gb5uf")])
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=307416435]
+one_shot = true
+autostart = true
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=825056305]
+
+[node name="SpawnPoint" type="Node2D" parent="SpawnPoints" unique_id=1579338784]
+
+[node name="Sprite2D" type="Sprite2D" parent="SpawnPoints/SpawnPoint" unique_id=375664548]
+modulate = Color(1, 0, 1, 1)
+scale = Vector2(0.075, 0.075)
+texture = SubResource("CompressedTexture2D_y6nlm")
+
+[node name="SpawnPoint2" type="Node2D" parent="SpawnPoints" unique_id=1410828235]
+position = Vector2(-20, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="SpawnPoints/SpawnPoint2" unique_id=1225462308]
+modulate = Color(1, 0, 1, 1)
+scale = Vector2(0.075, 0.075)
+texture = SubResource("CompressedTexture2D_y6nlm")
+
+[node name="SpawnPoint3" type="Node2D" parent="SpawnPoints" unique_id=1112957204]
+position = Vector2(-38, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="SpawnPoints/SpawnPoint3" unique_id=200387978]
+modulate = Color(1, 0, 1, 1)
+scale = Vector2(0.075, 0.075)
+texture = SubResource("CompressedTexture2D_y6nlm")
+
+[node name="SpawnPoint4" type="Node2D" parent="SpawnPoints" unique_id=1798718463]
+position = Vector2(20, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="SpawnPoints/SpawnPoint4" unique_id=814096580]
+modulate = Color(1, 0, 1, 1)
+scale = Vector2(0.075, 0.075)
+texture = SubResource("CompressedTexture2D_y6nlm")
+
+[node name="SpawnPoint5" type="Node2D" parent="SpawnPoints" unique_id=714431724]
+position = Vector2(43, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="SpawnPoints/SpawnPoint5" unique_id=673317286]
+modulate = Color(1, 0, 1, 1)
+scale = Vector2(0.075, 0.075)
+texture = SubResource("CompressedTexture2D_y6nlm")
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
