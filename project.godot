@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Ages 2026 Game Jam"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Project/Art/icon.svg"
 
 [display]
 
