@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://bo5t7d38dmyw3"]
 
-[ext_resource type="Script" uid="uid://cch1yxfbr62n3" path="res://Project/Food/food.gd" id="1_svuw1"]
+[ext_resource type="Script" uid="uid://cch1yxfbr62n3" path="res://Old2D/Food/food.gd" id="1_svuw1"]
 
 [node name="Food" type="RigidBody2D" unique_id=829939887]
 collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_svuw1")
 spin_randomness = 0.4

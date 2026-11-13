@@ -26,6 +26,7 @@ window/stretch/aspect="expand"
 
 2d_physics/layer_1="Hook"
 2d_physics/layer_2="Food"
+2d_physics/layer_3="Tip"
 
 [physics]
 

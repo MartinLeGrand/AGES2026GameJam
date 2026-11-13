@@ -7,7 +7,6 @@ class_name Spawner extends Node2D
 		is_spawning = value
 		if spawn_timer.is_stopped():
 			spawn_timer.start(spawn_time)
-
 @export var spawn_time: float = 1.0
 @export var obj_to_spawn: Array[PackedScene] ## Foods to spawn
 
@@ -36,7 +35,6 @@ func spawn_object() -> void:
 		add_child(obj)
 		var spawn_pos: Vector2 = spawn_points_list.pick_random().global_position
 		obj.global_position = spawn_pos
-		print("spawn")
 
 
 
