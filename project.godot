@@ -16,6 +16,8 @@ config/icon="res://Project/Art/icon.svg"
 
 [display]
 
+window/size/viewport_width=640
+window/size/viewport_height=480
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -26,3 +28,4 @@ window/stretch/aspect="expand"
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+environment/defaults/default_clear_color=Color(0.6141682, 0.48619658, 0.7579638, 1)
