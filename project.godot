@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Ages 2026 Game Jam"
+run/main_scene="uid://bk7m2ifpl8vbh"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://Project/Art/icon.svg"
 
