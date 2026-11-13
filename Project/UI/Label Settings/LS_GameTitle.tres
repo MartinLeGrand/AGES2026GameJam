@@ -1,0 +1,13 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://cipdl0onphtiv"]
+
+[ext_resource type="FontFile" uid="uid://dpvb2tp2gx5p5" path="res://Project/UI/Fonts/friendlyscribbles.ttf" id="1_e17j6"]
+
+[resource]
+font = ExtResource("1_e17j6")
+font_size = 64
+stacked_outline_count = 1
+stacked_shadow_count = 1
+stacked_outline_0/size = 24
+stacked_shadow_0/offset = Vector2(5.21, 5.905)
+stacked_shadow_0/color = Color(0.3019608, 0.3019608, 0.3019608, 1)
+stacked_shadow_0/outline_size = 27

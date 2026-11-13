@@ -1,5 +1,25 @@
 [gd_scene format=3 uid="uid://cfv8kn57cs3su"]
 
+[ext_resource type="Texture2D" uid="uid://be4pshd6uuas0" path="res://Project/Art/icon.svg" id="1_22b33"]
+[ext_resource type="LabelSettings" uid="uid://cipdl0onphtiv" path="res://Project/UI/Label Settings/LS_GameTitle.tres" id="2_ptxru"]
+[ext_resource type="LabelSettings" uid="uid://cij2mbiqocumf" path="res://Project/UI/Label Settings/LS_Button_MainMenu.tres" id="3_lm3qj"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jtttf"]
+texture = ExtResource("1_22b33")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4nwno"]
+bg_color = Color(0.89680314, 0.6497098, 0.94676155, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
 [node name="MainMenu" type="Control" unique_id=1202245050]
 layout_mode = 3
 anchors_preset = 15
@@ -7,3 +27,89 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=911958440]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_jtttf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1377915524]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.0
+offset_top = -246.0
+offset_right = 232.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 37
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer" unique_id=1229378016]
+layout_mode = 2
+text = "Kebabinator"
+label_settings = ExtResource("2_ptxru")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Panel/VBoxContainer" unique_id=547940765]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer" unique_id=2140055981]
+custom_minimum_size = Vector2(256, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_4nwno")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Button" unique_id=438123984]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "button text"
+label_settings = ExtResource("3_lm3qj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="Panel/VBoxContainer" unique_id=677605324]
+custom_minimum_size = Vector2(256, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Button2" unique_id=303645446]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "button text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button3" type="Button" parent="Panel/VBoxContainer" unique_id=1975729999]
+custom_minimum_size = Vector2(256, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Button3" unique_id=1804882241]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "button text"
+horizontal_alignment = 1
+vertical_alignment = 1
