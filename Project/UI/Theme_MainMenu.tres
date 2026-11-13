@@ -1,0 +1,9 @@
+[gd_resource type="Theme" format=3 uid="uid://bulno40k5cn04"]
+
+[ext_resource type="FontFile" uid="uid://dpvb2tp2gx5p5" path="res://Project/UI/Fonts/friendlyscribbles.ttf" id="1_30u68"]
+[ext_resource type="StyleBox" uid="uid://qixmiol0238r" path="res://Project/UI/Label Settings/StyleBoxFlat/SBF_Button_MainMenu.tres" id="2_85qoo"]
+
+[resource]
+Button/font_sizes/font_size = 18
+Button/fonts/font = ExtResource("1_30u68")
+Button/styles/normal = ExtResource("2_85qoo")

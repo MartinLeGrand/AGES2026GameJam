@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://bi14ojy2jrq43"]
+
+[ext_resource type="Texture2D" uid="uid://bqcofw1yjm68s" path="res://Project/UI/Inkscape/Button_Background_HQ.svg" id="1_h2tbk"]
+
+[resource]
+texture = ExtResource("1_h2tbk")
+texture_margin_left = 115.0
+texture_margin_right = 164.0
+expand_margin_left = 115.0
+expand_margin_right = 165.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 534, 190)
