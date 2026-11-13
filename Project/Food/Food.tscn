@@ -5,3 +5,4 @@
 [node name="Food" type="RigidBody2D" unique_id=829939887]
 collision_layer = 2
 script = ExtResource("1_svuw1")
+spin_randomness = 0.4
