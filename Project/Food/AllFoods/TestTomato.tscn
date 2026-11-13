@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b5gnkyegdvdgc"]
+
+[ext_resource type="Script" uid="uid://cch1yxfbr62n3" path="res://Project/Food/food.gd" id="1_8vd38"]
+[ext_resource type="Texture2D" uid="uid://be4pshd6uuas0" path="res://Project/Art/icon.svg" id="2_r5quu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1tv0x"]
+radius = 61.13101
+
+[node name="TestTomato" type="RigidBody2D" unique_id=1332164324]
+script = ExtResource("1_8vd38")
+metadata/_custom_type_script = "uid://cch1yxfbr62n3"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1316841588]
+modulate = Color(0.75316525, 0, 0.184115, 1)
+texture = ExtResource("2_r5quu")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D" unique_id=1724300989]
+modulate = Color(0.28886497, 0.4588647, 0, 1)
+position = Vector2(2, -62)
+scale = Vector2(0.3046875, 0.28125)
+texture = ExtResource("2_r5quu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=535491629]
+shape = SubResource("CircleShape2D_1tv0x")
