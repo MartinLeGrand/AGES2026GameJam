@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bsxikgq1yxyk3"]
 
-[ext_resource type="Script" uid="uid://ctnruyttnbcjh" path="res://Project/Spawner/spawner.gd" id="1_lk5ho"]
+[ext_resource type="Script" uid="uid://ctnruyttnbcjh" path="res://Old2D/Spawner2D/spawner2d.gd" id="1_lk5ho"]
 [ext_resource type="Texture2D" uid="uid://be4pshd6uuas0" path="res://Project/Art/icon.svg" id="2_y6nlm"]
 
 [sub_resource type="PackedScene" id="PackedScene_gb5uf"]
@@ -39,7 +39,7 @@ scale = Vector2(0.075, 0.075)
 texture = SubResource("CompressedTexture2D_y6nlm")
 
 [node name="SpawnPoint2" type="Node2D" parent="SpawnPoints" unique_id=1410828235]
-position = Vector2(-20, 0)
+position = Vector2(-29, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="SpawnPoints/SpawnPoint2" unique_id=1225462308]
 modulate = Color(1, 0, 1, 1)
@@ -47,7 +47,7 @@ scale = Vector2(0.075, 0.075)
 texture = SubResource("CompressedTexture2D_y6nlm")
 
 [node name="SpawnPoint3" type="Node2D" parent="SpawnPoints" unique_id=1112957204]
-position = Vector2(-38, 0)
+position = Vector2(-56, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="SpawnPoints/SpawnPoint3" unique_id=200387978]
 modulate = Color(1, 0, 1, 1)
@@ -55,7 +55,7 @@ scale = Vector2(0.075, 0.075)
 texture = SubResource("CompressedTexture2D_y6nlm")
 
 [node name="SpawnPoint4" type="Node2D" parent="SpawnPoints" unique_id=1798718463]
-position = Vector2(20, 0)
+position = Vector2(34, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="SpawnPoints/SpawnPoint4" unique_id=814096580]
 modulate = Color(1, 0, 1, 1)
@@ -63,7 +63,7 @@ scale = Vector2(0.075, 0.075)
 texture = SubResource("CompressedTexture2D_y6nlm")
 
 [node name="SpawnPoint5" type="Node2D" parent="SpawnPoints" unique_id=714431724]
-position = Vector2(43, 0)
+position = Vector2(65, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="SpawnPoints/SpawnPoint5" unique_id=673317286]
 modulate = Color(1, 0, 1, 1)

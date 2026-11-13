@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bpp2prij06o3"]
+
+[ext_resource type="Script" uid="uid://vc1tc10urhtm" path="res://Old2D/Spear2D/spear2d.gd" id="1_5t15v"]
+[ext_resource type="Texture2D" uid="uid://be4pshd6uuas0" path="res://Project/Art/icon.svg" id="1_jmgyv"]
+[ext_resource type="PackedScene" uid="uid://cr7qseav7o1ag" path="res://Old2D/Spear2D/Tip2D/Tip2d.tscn" id="3_k0dl4"]
+
+[node name="Spear" type="CharacterBody2D" unique_id=360956784]
+modulate = Color(0.288518, 0.28851798, 0.28851798, 1)
+scale = Vector2(1.735, 0.104)
+collision_mask = 2
+script = ExtResource("1_5t15v")
+max_move_x = 200.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=247355015]
+texture = ExtResource("1_jmgyv")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=126442770]
+polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
+
+[node name="Tip" parent="." unique_id=974245047 node_paths=PackedStringArray("spear") instance=ExtResource("3_k0dl4")]
+position = Vector2(-12.680114, 0)
+spear = NodePath("..")
