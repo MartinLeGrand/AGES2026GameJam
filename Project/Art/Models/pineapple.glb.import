@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://336hje2qf853"
+uid="uid://1iuuk5khj6ms"
 path="res://.godot/imported/pineapple.glb-a81ed6cf1fb50d3f12349f98faf0598c.scn"
 
 [deps]
@@ -40,9 +40,11 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
-"nodes": {
-"PATH:Pineapple": {
-"generate/physics": true
+"materials": {
+"Material.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Project/Materials/vertex_unshaded.tres",
+"use_external/path": "uid://cx6utliwik3uh"
 }
 }
 }

@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dnhdh7vnmp27t"
+uid="uid://bv57kehcbtjeh"
 path="res://.godot/imported/mushroom.glb-01ab0cabfa961db5b98fa6cb2426b3aa.scn"
 
 [deps]
@@ -40,9 +40,11 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
-"nodes": {
-"PATH:Mushroom": {
-"generate/physics": true
+"materials": {
+"Material.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Project/Materials/vertex_unshaded.tres",
+"use_external/path": "uid://cx6utliwik3uh"
 }
 }
 }

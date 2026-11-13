@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c26x0f5g2svqp"
+uid="uid://d20vipx6rt5av"
 path="res://.godot/imported/zucchini.glb-f83534c9c89e060dcc80e7685e18b63c.scn"
 
 [deps]
@@ -40,9 +40,11 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
-"nodes": {
-"PATH:Zucchini": {
-"generate/physics": true
+"materials": {
+"Material.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Project/Materials/vertex_unshaded.tres",
+"use_external/path": "uid://cx6utliwik3uh"
 }
 }
 }

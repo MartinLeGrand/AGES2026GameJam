@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d4eckp0oqhoss"
+uid="uid://1n2vwlgjxhhs"
 path="res://.godot/imported/spit.glb-6c3b7a6a39fbe7a9cb244aa752d30b95.scn"
 
 [deps]
@@ -40,9 +40,11 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
-"nodes": {
-"PATH:Spit": {
-"generate/physics": true
+"materials": {
+"Material.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Project/Materials/vertex_unshaded.tres",
+"use_external/path": "uid://cx6utliwik3uh"
 }
 }
 }

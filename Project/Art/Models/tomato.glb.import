@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://crqxl64dcnakv"
+uid="uid://cs2lnyrjuhyq7"
 path="res://.godot/imported/tomato.glb-d67b006e60763f976e0ca412805e73ee.scn"
 
 [deps]
@@ -40,9 +40,11 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
-"nodes": {
-"PATH:Tomato": {
-"generate/physics": true
+"materials": {
+"Material.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Project/Materials/vertex_unshaded.tres",
+"use_external/path": "uid://cx6utliwik3uh"
 }
 }
 }
