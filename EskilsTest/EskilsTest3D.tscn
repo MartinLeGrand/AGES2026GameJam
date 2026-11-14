@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b6dr524q5n8oo"]
+
+[ext_resource type="PackedScene" uid="uid://b228nggyl5wud" path="res://Project/GameObjects/Spawner/Spawner.tscn" id="1_8a214"]
+[ext_resource type="PackedScene" uid="uid://clta7w2jsxbq4" path="res://Project/GameObjects/Spit/Spit.tscn" id="2_4pw7l"]
+[ext_resource type="PackedScene" uid="uid://dr6dff44m6wmu" path="res://Project/GameObjects/Fire/Fire.tscn" id="3_yvps1"]
+[ext_resource type="AudioStream" uid="uid://drwvhb2grpkqs" path="res://Project/Audio/Music/placeholder_goofy_ah_music.wav" id="4_e6dk0"]
+
+[node name="EskilsTest3d" type="Node3D" unique_id=2089918958]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1540585718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7792206, 0, 15.6774)
+
+[node name="Spawner" parent="." unique_id=1467685239 instance=ExtResource("1_8a214")]
+
+[node name="Spear" parent="." unique_id=1700181818 instance=ExtResource("2_4pw7l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.456499, -8.3254795, 0)
+collision_mask = 0
+max_speed = 30.0
+max_move_x = 20.0
+
+[node name="Fire" parent="." unique_id=88479697 instance=ExtResource("3_yvps1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.215246, -9.985636, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1835584803]
+stream = ExtResource("4_e6dk0")
+autoplay = true
