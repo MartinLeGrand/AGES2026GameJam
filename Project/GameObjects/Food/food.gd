@@ -80,9 +80,9 @@ func _ready() -> void:
 		if child is MeshInstance3D:
 			for mesh_child: Node3D in child.get_children():
 				if mesh_child is MeshInstance3D:
-					outline_material = mesh_child.get_active_material(0).duplicate()
+					outline_material = mesh_child.get_surface_override_material(0).duplicate()
 					outline_clr = outline_material.albedo_color
-					mesh_child.mesh = outline_material
+					mesh_child.set_surface_override_material(0, outline_material)
 			
 			child.mesh = child.mesh.duplicate_deep()
 			food_material = STANDARD_MATERIAL.duplicate()
@@ -172,11 +172,11 @@ func set_cooked_color() -> void:
 	if cooked_amount <= cook_time:
 			var t: float = clampf(cooked_amount / cook_time, 0.0, 1.0)
 			food_material.albedo_color = start_color.lerp(cooked_color, t)
-			outline_material.albedo_color = outline_clr.lerp(cooked_color, t)
+			outline_material.albedo_color = outline_clr.lerp(cooked_color*outline_clr, t)
 	else:
 		var t: float = clampf((cooked_amount - cook_time) / cook_time, 0.0, 1.0)
 		food_material.albedo_color = cooked_color.lerp(burnt_color, t)
-		outline_material.albedo_color = cooked_color.lerp(burnt_color, t)
+		outline_material.albedo_color = (cooked_color*outline_clr).lerp(burnt_color*outline_clr, t)
 
 func set_prepared_status() -> void:
 	if cooked_amount <= (cook_time * (0.25)):
