@@ -15,11 +15,12 @@ enum Type {
 ## Max precentage of cook_time until next stage
 ## 
 enum Prepared {
-	RAW = 25,
-	MEDIUM_RARE = 50,
-	COOKED = 100, ## Cook_time
-	BURNT = 150,
-	COAL = 200 ## Twice cook_time
+	NULL = 0,
+	RAW = 1,
+	MEDIUM_RARE = 2,
+	COOKED = 3, ## Cook_time
+	BURNT = 4,
+	COAL = 5 ## Twice cook_time
 }
 
 @export var type: Type
@@ -48,6 +49,8 @@ var prepared: Prepared = Prepared.RAW ## How the food was cooked
 
 var food_mesh: MeshInstance3D = null
 var food_material: StandardMaterial3D = null ## 
+var outline_material: StandardMaterial3D = null
+var outline_clr: Color = Color.WHITE
 var start_color: Color = Color.WHITE
 var cooked_amount: float = 0: ## Seconds food has been cooked/over the fire
 	set(value):
@@ -75,8 +78,15 @@ func _ready() -> void:
 	## Förlåt mig gud för detta. Gör mesh och material unikt
 	for child: Node3D in get_children():
 		if child is MeshInstance3D:
+			for mesh_child: Node3D in child.get_children():
+				if mesh_child is MeshInstance3D:
+					outline_material = mesh_child.get_active_material(0).duplicate()
+					outline_clr = outline_material.albedo_color
+					mesh_child.mesh = outline_material
+			
 			child.mesh = child.mesh.duplicate_deep()
 			food_material = STANDARD_MATERIAL.duplicate()
+			
 			child.mesh.surface_set_material(0, food_material)
 			start_color = food_material.albedo_color ## it's just white my dude
 			break
@@ -162,18 +172,38 @@ func set_cooked_color() -> void:
 	if cooked_amount <= cook_time:
 			var t: float = clampf(cooked_amount / cook_time, 0.0, 1.0)
 			food_material.albedo_color = start_color.lerp(cooked_color, t)
+			outline_material.albedo_color = outline_clr.lerp(cooked_color, t)
 	else:
 		var t: float = clampf((cooked_amount - cook_time) / cook_time, 0.0, 1.0)
 		food_material.albedo_color = cooked_color.lerp(burnt_color, t)
+		outline_material.albedo_color = cooked_color.lerp(burnt_color, t)
 
 func set_prepared_status() -> void:
-	if cooked_amount <= (cook_time * (float(Prepared.RAW)/100)):
+	if cooked_amount <= (cook_time * (0.25)):
 			prepared = Prepared.RAW
-	elif cooked_amount <= (cook_time * (float(Prepared.MEDIUM_RARE)/100)):
+	elif cooked_amount <= (cook_time * 0.5):
 		prepared = Prepared.MEDIUM_RARE
-	elif cooked_amount <= (cook_time * (float(Prepared.COOKED)/100)):
+	elif cooked_amount <= (cook_time * (1.0)):
 		prepared = Prepared.COOKED
-	elif cooked_amount <= (cook_time * (float(Prepared.BURNT)/100)):
+	elif cooked_amount <= (cook_time * (1.5)):
 		prepared = Prepared.BURNT
-	elif cooked_amount <= (cook_time * (float(Prepared.COAL)/100)):
+	elif cooked_amount <= (cook_time * (2.0)):
 		prepared = Prepared.COAL
+
+
+class Request extends RefCounted:
+	const MAX_AMOUNT: int = 5
+	var type: Type = Type.TOMATO
+	var amount: int = 1
+	var prepared: Prepared = Prepared.COOKED
+	
+	## Förlåt för denna kod
+	static func rnd_request(specific_type: int = -1) -> Request:
+		var req: Request = Request.new()
+		req.amount = randi_range(1, MAX_AMOUNT)
+		if specific_type == -1:
+			req.type = Type.values().pick_random()
+		else:
+			req.type = Type.values()[specific_type]
+		req.prepared = Prepared.values().pick_random()
+		return req

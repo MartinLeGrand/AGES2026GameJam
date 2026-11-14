@@ -7,6 +7,7 @@ class_name Spit extends CharacterBody3D
 @export var brake_force: float = 2.0  ## NOTE: Slidy brakes must be true
 @export var max_move_x: float = 10.0 ## Nr of meters allowed to move in x-direction from start pos.
 
+
 var _max_x: float = 0.0 ## Max local x
 var _min_x: float = 0.0 ## Min local x
 var lock_y: float = 0.0
