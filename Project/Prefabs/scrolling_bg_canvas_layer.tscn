@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ceujt10bqw625"]
+
+[ext_resource type="Shader" uid="uid://du1lmn53057dr" path="res://Project/Shaders/tiled_bg.gdshader" id="1_exj6m"]
+[ext_resource type="Texture2D" uid="uid://cfjjxlq6owcfs" path="res://Project/UI/Sprites/checkerboard.png" id="2_2dowo"]
+[ext_resource type="Script" uid="uid://bxaewrvylvphk" path="res://Project/Scripts/scrolling_bg.gd" id="3_snjgh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lysfm"]
+shader = ExtResource("1_exj6m")
+shader_parameter/checkerboard_texture = ExtResource("2_2dowo")
+shader_parameter/offset = 0.0
+shader_parameter/background_color = Color(0.6156863, 0.4862745, 0.75686276, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1184656298]
+layer = -1
+
+[node name="ScrollingBG" type="TextureRect" parent="." unique_id=811657579]
+texture_filter = 1
+material = SubResource("ShaderMaterial_lysfm")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2dowo")
+stretch_mode = 1
+script = ExtResource("3_snjgh")
