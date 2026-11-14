@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://clta7w2jsxbq4"]
+
+[ext_resource type="Script" uid="uid://doxyyns3r0prm" path="res://Project/GameObjects/Spear/spear.gd" id="1_k2vkn"]
+[ext_resource type="PackedScene" uid="uid://cxxka62yq5xnt" path="res://Project/GameObjects/Spear/Tip/Tip.tscn" id="2_roqmr"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_k2vkn"]
+size = Vector3(5.703, 0.515, 0.44)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_k2vkn"]
+points = PackedVector3Array(-2.896195, -0.3027619, -0.26526195, 2.896195, 0.33090478, 0.27788097, 2.896195, 0.33090478, -0.26526195, -2.896195, 0.33090478, 0.27788097, 2.896195, -0.3027619, 0.27788097, 2.896195, -0.3027619, -0.26526195, -2.896195, 0.33090478, -0.26526195, -2.896195, -0.3027619, 0.27788097)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wd5ij"]
+size = Vector3(3.8391724, 2.4069977, 2.7470703)
+
+[node name="Spear" type="CharacterBody3D" unique_id=1700181818]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_k2vkn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1835137537]
+mesh = SubResource("BoxMesh_k2vkn")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1565224944]
+shape = SubResource("ConvexPolygonShape3D_k2vkn")
+
+[node name="Tip" parent="." unique_id=77485423 node_paths=PackedStringArray("spear") instance=ExtResource("2_roqmr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.843487, 0.020763278, 0)
+spear = NodePath("..")
+
+[node name="HookBlock" type="StaticBody3D" parent="." unique_id=1889978815]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4726458, -0.006015897, 0)
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HookBlock" unique_id=950106190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5974426, -0.16347504, 0)
+shape = SubResource("BoxShape3D_wd5ij")
