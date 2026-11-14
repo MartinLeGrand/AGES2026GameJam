@@ -6,9 +6,8 @@ class_name Spit extends CharacterBody3D
 @export var slidy_brakes: bool = true ## FIXME: Shakes. False: Instant brakes. True sliiidy
 @export var brake_force: float = 2.0  ## NOTE: Slidy brakes must be true
 @export var max_move_x: float = 10.0 ## Nr of meters allowed to move in x-direction from start pos.
-@export var allow_inputs: bool = true
 
-var feeding: bool = false
+
 var _max_x: float = 0.0 ## Max local x
 var _min_x: float = 0.0 ## Min local x
 var lock_y: float = 0.0
@@ -27,17 +26,14 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	## PLAYER INPUT
-	if feeding:
-		velocity.x = 2
+	var dir: float = Input.get_axis("ui_left", "ui_right")
+	if dir:
+		velocity.x += speed * dir * GameManager.spit_speed_mult
+		velocity.x = clampf(velocity.x, -max_speed * GameManager.spit_speed_mult, max_speed * GameManager.spit_speed_mult) 
+	elif abs(velocity.x) > 0 and slidy_brakes:
+		velocity.x = move_toward(velocity.x, 0, brake_force) 
 	else:
-		var dir: float = Input.get_axis("ui_left", "ui_right")
-		if dir:
-			velocity.x += speed * dir * GameManager.spit_speed_mult
-			velocity.x = clampf(velocity.x, -max_speed * GameManager.spit_speed_mult, max_speed * GameManager.spit_speed_mult) 
-		elif abs(velocity.x) > 0 and slidy_brakes:
-			velocity.x = move_toward(velocity.x, 0, brake_force) 
-		else:
-			velocity.x = 0
+		velocity.x = 0
 	move_and_slide()
 	
 	
@@ -50,14 +46,3 @@ func _physics_process(_delta: float) -> void:
 	position.y = lock_y
 	position.z = lock_z
 	#print(velocity)
-
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		move_to_feed()
-
-func move_to_feed() -> void:
-	feeding = !feeding
-	if feeding:
-		var tween: Tween = create_tween()
-		tween.tween_property(self, "rotation_degrees", Vector3(0,180,0), 0.5).as_relative()

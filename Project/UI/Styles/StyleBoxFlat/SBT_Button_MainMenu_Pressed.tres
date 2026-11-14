@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://c84ownxv4rlmy"]
+
+[ext_resource type="Texture2D" uid="uid://b8eyb1urj1uxb" path="res://Project/UI/Inkscape/Button_Background.svg" id="1_cwtvx"]
+
+[resource]
+texture = ExtResource("1_cwtvx")
+texture_margin_left = 29.0
+texture_margin_right = 42.0
+expand_margin_left = 29.0
+expand_margin_right = 41.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+modulate_color = Color(0.80049086, 0.80049074, 0.80049074, 1)
