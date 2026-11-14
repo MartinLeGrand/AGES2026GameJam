@@ -216,7 +216,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -5)
 
 [node name="Spear" parent="." unique_id=1700181818 instance=ExtResource("3_d62tq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -3.5, -5)
-max_speed = 30.0
 max_move_x = 20.0
 
 [node name="TextEffectSpawner" parent="Spear" unique_id=902985388 node_paths=PackedStringArray("canvasLayer") instance=ExtResource("4_e8hnt")]

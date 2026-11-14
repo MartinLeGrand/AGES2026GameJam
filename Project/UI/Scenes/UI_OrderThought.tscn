@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dk6kbpeod80hb"]
 
 [ext_resource type="Texture2D" uid="uid://cw6lg7x7s01oa" path="res://Project/UI/Inkscape/Order.png" id="1_6e0gk"]
+[ext_resource type="Script" uid="uid://blcsxa6ewbujf" path="res://Project/UI/Scenes/ui_order_thought.gd" id="1_ugtut"]
 
 [node name="UiOrderThought" type="Control" unique_id=1780630391]
 self_modulate = Color(1, 1, 1, 0)
@@ -10,19 +11,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ugtut")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=661760367]
 layout_mode = 0
 offset_left = 33.0
 offset_top = 32.0
-offset_right = 220.0
-offset_bottom = 219.0
+offset_right = 254.0
+offset_bottom = 253.0
 texture = ExtResource("1_6e0gk")
 expand_mode = 1
 
-[node name="ItemList" type="ItemList" parent="TextureRect" unique_id=656972209]
+[node name="GridContainer" type="GridContainer" parent="TextureRect" unique_id=1390121343]
 layout_mode = 0
-offset_left = 63.0
-offset_top = 32.0
-offset_right = 127.0
-offset_bottom = 90.0
+offset_left = 35.0
+offset_top = 22.0
+offset_right = 185.0
+offset_bottom = 122.0
+columns = 3
