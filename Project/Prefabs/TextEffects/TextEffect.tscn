@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://pa30kao54nkt"]
+
+[ext_resource type="Script" uid="uid://20jj3r7wksi" path="res://Project/Scripts/TextEffects/TextEffectScript.gd" id="1_ju441"]
+[ext_resource type="FontFile" uid="uid://dpvb2tp2gx5p5" path="res://Project/UI/Fonts/friendlyscribbles.ttf" id="2_imycl"]
+
+[node name="TextEffect" type="Control" unique_id=539782631]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ju441")
+metadata/_custom_type_script = "uid://20jj3r7wksi"
+
+[node name="Label" type="Label" parent="." unique_id=79652143]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 0.8666667, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0.62352943, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_imycl")
+text = "text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=945059002]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
