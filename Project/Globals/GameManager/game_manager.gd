@@ -1,5 +1,10 @@
 extends Node
 
+const CRUNCH_RANDOMIZER = preload("uid://b56g15d71rpr7")
+
+
+signal order_created
+
 
 @export_category("Modifiers")
 @export var use_modifiers: bool = false
@@ -63,7 +68,7 @@ func eat_food(food: Food) -> void:
 	else:
 		print("Not in order at all!")
 		## Await something
-	
+	FXManager.play_eat()
 	food.queue_free()
 
 
@@ -90,7 +95,8 @@ func create_order() -> void:
 	print(order)
 	for r: Food.Request in order:
 		print("%s, %s, %d" % [Food.Type.keys()[r.type], Food.Prepared.keys()[r.prepared], r.amount])
-
+	
+	order_created.emit()
 
 func is_food_in_request(food: Food, request: Food.Request) -> bool:
 	if food.type == request.type:

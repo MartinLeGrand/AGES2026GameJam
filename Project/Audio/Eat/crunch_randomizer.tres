@@ -1,0 +1,15 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://b56g15d71rpr7"]
+
+[ext_resource type="AudioStream" uid="uid://d37n1idvm42nh" path="res://Project/Audio/Eat/crunch - Part_1.wav" id="1_6t52b"]
+[ext_resource type="AudioStream" uid="uid://c6uisfye4x7cq" path="res://Project/Audio/Eat/crunch - Part_2.wav" id="2_ldpkk"]
+[ext_resource type="AudioStream" uid="uid://dn7rh5palof3n" path="res://Project/Audio/Eat/crunch - Part_3.wav" id="3_wif8a"]
+[ext_resource type="AudioStream" uid="uid://cq83v0i76rnmu" path="res://Project/Audio/Eat/crunch - Part_4.wav" id="4_w7kyk"]
+[ext_resource type="AudioStream" uid="uid://c0padgs1dvfyo" path="res://Project/Audio/Eat/crunch - Part_5.wav" id="5_wp8qy"]
+
+[resource]
+streams_count = 5
+stream_0/stream = ExtResource("1_6t52b")
+stream_1/stream = ExtResource("2_ldpkk")
+stream_2/stream = ExtResource("3_wif8a")
+stream_3/stream = ExtResource("4_w7kyk")
+stream_4/stream = ExtResource("5_wp8qy")

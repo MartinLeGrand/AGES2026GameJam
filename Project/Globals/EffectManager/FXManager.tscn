@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bylkvkff4qi5g"]
+
+[ext_resource type="Script" uid="uid://hu6o6gttl1bu" path="res://Project/Globals/EffectManager/fx_manager.gd" id="1_n5l7t"]
+[ext_resource type="AudioStream" uid="uid://b56g15d71rpr7" path="res://Project/Audio/Eat/crunch_randomizer.tres" id="2_x5b0v"]
+
+[node name="EffectManager" type="Node" unique_id=1494129916]
+process_mode = 3
+script = ExtResource("1_n5l7t")
+combo_increment = 0.3
+
+[node name="ResetTimer" type="Timer" parent="." unique_id=2108583334]
+process_mode = 1
+wait_time = 0.5
+
+[node name="CrunchSound" type="AudioStreamPlayer" parent="." unique_id=1358505565]
+stream = ExtResource("2_x5b0v")
+
+[connection signal="timeout" from="ResetTimer" to="." method="_on_reset_timer_timeout"]

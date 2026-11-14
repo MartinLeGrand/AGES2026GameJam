@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cq83v0i76rnmu"
+path="res://.godot/imported/crunch - Part_4.wav-fe84a344052ee6063d7f3ea1ce27ef37.sample"
+
+[deps]
+
+source_file="res://Project/Audio/Eat/crunch - Part_4.wav"
+dest_files=["res://.godot/imported/crunch - Part_4.wav-fe84a344052ee6063d7f3ea1ce27ef37.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

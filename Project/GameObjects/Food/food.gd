@@ -11,7 +11,6 @@ enum Type {
 	ZUCCHINI,
 }
 
-
 ## Max precentage of cook_time until next stage
 ## 
 enum Prepared {
@@ -116,8 +115,8 @@ func _process(delta: float) -> void:
 	
 
 func _physics_process(_delta: float) -> void:
-	position.z = _start_z ## Lock z axis
 	if is_speared:
+		position.z = _start_z ## Lock z axis
 		linear_velocity.y = 0
 		position.y = _speared_y
 		if follow_spear:
