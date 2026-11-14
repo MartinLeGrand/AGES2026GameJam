@@ -3,6 +3,6 @@ extends TextureRect
 var passed_time: float = 0.0
 
 func _process(delta: float) -> void:
-	passed_time += delta
+	passed_time += delta * 0.3
 	
-	set_instance_shader_parameter("offset", passed_time)
+	material.set_shader_parameter("offset", passed_time)

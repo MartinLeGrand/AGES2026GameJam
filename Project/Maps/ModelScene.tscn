@@ -258,7 +258,7 @@ _surfaces = [{
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hatxp"]
 shading_mode = 0
-albedo_color = Color(0, 0.42352942, 0, 1)
+albedo_color = Color(0.26459998, 0.42, 0.26459998, 1)
 
 [sub_resource type="Environment" id="Environment_rxjn2"]
 background_mode = 3
@@ -276,7 +276,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 current = true
 
 [node name="spit" type="Node3D" parent="." unique_id=2006706760]
-transform = Transform3D(-0.55633414, 0.67715144, -0.48162043, -0.10444971, 0.5180129, 0.84897166, 0.824368, 0.52261704, -0.21745995, -0.32838553, 0, -1.942029)
+transform = Transform3D(0.42747235, 0.76505494, -0.48162043, 0.4441876, 0.28625938, 0.84897166, 0.7873784, -0.57684183, -0.21745995, -0.32838553, 0, -1.942029)
 
 [node name="Spit" type="MeshInstance3D" parent="spit" unique_id=329897218]
 mesh = SubResource("ArrayMesh_c8d7f")
