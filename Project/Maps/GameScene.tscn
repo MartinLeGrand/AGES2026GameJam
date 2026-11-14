@@ -255,4 +255,4 @@ libraries/ = SubResource("AnimationLibrary_gctcx")
 autoplay = &"croc_idle"
 
 [node name="Fire" parent="." unique_id=88479697 instance=ExtResource("10_q8uac")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.4289975, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.6969757, -5)
