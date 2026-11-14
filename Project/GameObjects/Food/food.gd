@@ -49,6 +49,8 @@ var prepared: Prepared = Prepared.RAW ## How the food was cooked
 
 var food_mesh: MeshInstance3D = null
 var food_material: StandardMaterial3D = null ## 
+var outline_material: StandardMaterial3D = null
+var outline_clr: Color = Color.WHITE
 var start_color: Color = Color.WHITE
 var cooked_amount: float = 0: ## Seconds food has been cooked/over the fire
 	set(value):
@@ -76,8 +78,15 @@ func _ready() -> void:
 	## Förlåt mig gud för detta. Gör mesh och material unikt
 	for child: Node3D in get_children():
 		if child is MeshInstance3D:
+			for mesh_child: Node3D in child.get_children():
+				if mesh_child is MeshInstance3D:
+					outline_material = mesh_child.get_active_material(0).duplicate()
+					outline_clr = outline_material.albedo_color
+					mesh_child.mesh = outline_material
+			
 			child.mesh = child.mesh.duplicate_deep()
 			food_material = STANDARD_MATERIAL.duplicate()
+			
 			child.mesh.surface_set_material(0, food_material)
 			start_color = food_material.albedo_color ## it's just white my dude
 			break
@@ -163,9 +172,11 @@ func set_cooked_color() -> void:
 	if cooked_amount <= cook_time:
 			var t: float = clampf(cooked_amount / cook_time, 0.0, 1.0)
 			food_material.albedo_color = start_color.lerp(cooked_color, t)
+			outline_material.albedo_color = outline_clr.lerp(cooked_color, t)
 	else:
 		var t: float = clampf((cooked_amount - cook_time) / cook_time, 0.0, 1.0)
 		food_material.albedo_color = cooked_color.lerp(burnt_color, t)
+		outline_material.albedo_color = cooked_color.lerp(burnt_color, t)
 
 func set_prepared_status() -> void:
 	if cooked_amount <= (cook_time * (0.25)):
@@ -186,9 +197,13 @@ class Request extends RefCounted:
 	var amount: int = 1
 	var prepared: Prepared = Prepared.COOKED
 	
-	func rnd_request() -> Request:
+	## Förlåt för denna kod
+	static func rnd_request(specific_type: int = -1) -> Request:
 		var req: Request = Request.new()
 		req.amount = randi_range(1, MAX_AMOUNT)
-		req.type = Type.keys().pick_random()
-		req.prepared = Prepared.keys().pick_random()
+		if specific_type == -1:
+			req.type = Type.values().pick_random()
+		else:
+			req.type = Type.values()[specific_type]
+		req.prepared = Prepared.values().pick_random()
 		return req
