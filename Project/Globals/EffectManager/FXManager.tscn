@@ -36,5 +36,6 @@ volume_db = -10.0
 
 [node name="FryingSound" type="AudioStreamPlayer" parent="." unique_id=917541814]
 stream = ExtResource("6_mns4h")
+volume_db = -2.5
 
 [connection signal="timeout" from="ResetTimer" to="." method="_on_reset_timer_timeout"]
