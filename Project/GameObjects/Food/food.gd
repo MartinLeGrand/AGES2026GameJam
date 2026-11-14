@@ -4,6 +4,7 @@ class_name Food extends RigidBody3D
 
 const STANDARD_MATERIAL = preload("uid://cx6utliwik3uh")
 
+
 enum Type {
 	MUSHROOM,
 	PINEAPPLE,
@@ -33,6 +34,7 @@ enum Prepared {
 @export_category("Spit")
 @export_range(0.0, 100.0, 1.0) var spit_velocity_needed: float = 50.0 ## Velocity needed to penetrate food 
 @export var spit_grace_period: float = 0.1 ## Time before position follows spear
+@export var slide_off_resistance: float = 0.6 ## Less is more
 
 @export_category("Spawn")
 @export var gravity: float = 1.0 ## Speed downwards
@@ -41,7 +43,7 @@ enum Prepared {
 
 
 var falling_collision_mask: int = 7 ## Detect TIP 1, SPIT 2, FOOD 3,
-var speared_collision_mask: int = 5 ## Detect TIP, FOOD
+var speared_collision_mask: int = 13 ## Detect TIP, FOOD, BLOCK
 
 var over_fire: bool = false ## Set by fire when food collides with fire area
 var prepared: Prepared = Prepared.RAW ## How the food was cooked
@@ -58,9 +60,6 @@ var cooked_amount: float = 0: ## Seconds food has been cooked/over the fire
 		cooked_amount = value
 		set_cooked_color()
 		set_prepared_status()
-
-
-
 
 
 ## Used to control food when speared
@@ -121,6 +120,8 @@ func _physics_process(_delta: float) -> void:
 		position.y = _speared_y
 		if follow_spear:
 			linear_velocity.x = spit.velocity.x
+			if linear_velocity.x < 0:
+				linear_velocity.x *= slide_off_resistance
 		else:
 			linear_velocity.x = 0
 		pass
