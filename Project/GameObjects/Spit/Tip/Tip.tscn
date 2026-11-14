@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cxxka62yq5xnt"]
 
-[ext_resource type="Script" uid="uid://caksjeexbwke2" path="res://Project/GameObjects/Spear/Tip/tip.gd" id="1_gtu8r"]
+[ext_resource type="Script" uid="uid://caksjeexbwke2" path="res://Project/GameObjects/Spit/Tip/tip.gd" id="1_gtu8r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wd5ij"]
 size = Vector3(5.69133, 0.2619629, 0.24047852)

@@ -1,4 +1,4 @@
-class_name Spear extends CharacterBody3D
+class_name Spit extends CharacterBody3D
 
 
 @export var max_speed: float = 100
@@ -12,6 +12,8 @@ var _max_x: float = 0.0 ## Max local x
 var _min_x: float = 0.0 ## Min local x
 var lock_y: float = 0.0
 var lock_z: float = 0.0
+
+@onready var pivot: Node3D = $Pivot
 
 
 func _ready() -> void:

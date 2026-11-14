@@ -3,10 +3,13 @@
 [ext_resource type="Script" uid="uid://c6mqh4buldy52" path="res://Project/GameObjects/Spawner/spawner.gd" id="1_p0dqy"]
 [ext_resource type="Texture2D" uid="uid://be4pshd6uuas0" path="res://Project/Art/icon.svg" id="2_7h8im"]
 [ext_resource type="PackedScene" uid="uid://5m8yyn36cxq0" path="res://Project/GameObjects/Food/AllFoods/Mushroom.tscn" id="2_pi4o5"]
+[ext_resource type="PackedScene" uid="uid://df25d51a1i5cb" path="res://Project/GameObjects/Food/AllFoods/Tomato.tscn" id="3_fq86e"]
+[ext_resource type="PackedScene" uid="uid://ciojiwtycis0b" path="res://Project/GameObjects/Food/AllFoods/Zucchini.tscn" id="4_5327y"]
+[ext_resource type="PackedScene" uid="uid://cpovv3b8p7m0j" path="res://Project/GameObjects/Food/AllFoods/Pineapple.tscn" id="5_0l4ot"]
 
 [node name="Spawner" type="Node3D" unique_id=1467685239]
 script = ExtResource("1_p0dqy")
-obj_to_spawn = Array[PackedScene]([ExtResource("2_pi4o5")])
+obj_to_spawn = Array[PackedScene]([ExtResource("2_pi4o5"), ExtResource("3_fq86e"), ExtResource("4_5327y"), ExtResource("5_0l4ot")])
 
 [node name="SpawnPoints" type="Node3D" parent="." unique_id=1330467995]
 

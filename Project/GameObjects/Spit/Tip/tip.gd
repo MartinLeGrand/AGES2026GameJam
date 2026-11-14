@@ -1,7 +1,7 @@
 class_name Tip extends Area3D
 
 
-@export var spear: Spear = null
+@export var spit: Spit = null
 
 
 func _on_body_entered(body: Node3D) -> void:

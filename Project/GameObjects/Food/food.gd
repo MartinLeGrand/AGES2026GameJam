@@ -1,14 +1,23 @@
 class_name Food extends RigidBody3D
 ## Base class for food
 
+enum Type {
+	MUSHROOM,
+	PINEAPPLE,
+	TOMATO,
+	ZUCCHINI,
+}
+
+
+@export var type: Type
 @export var gravity: float = 1.0 ## Speed downwards
 @export var max_spin_force: float = 1 ## Food spins, but how much?
 @export_range(0.0, 1.0) var spin_randomness: float = 1.0 ## Zero means no spin. This is stupid. Should be 1.
-@export var spear_velocity_needed: float = 1.0 ## Velocity needed to penetrate food
-@export var speared_grace_period: float = 0.1 ## Time before position follows spear
+@export_range(0.0, 100.0, 1.0) var spit_velocity_needed: float = 50.0 ## Velocity needed to penetrate food 
+@export var spit_grace_period: float = 0.1 ## Time before position follows spear
 
 var grace_timer: Timer = null
-var spear: Spear = null
+var spit: Spit = null
 var is_speared: bool = false
 var follow_spear = false
 
@@ -40,7 +49,7 @@ func _physics_process(_delta: float) -> void:
 		linear_velocity.y = 0
 		position.y = _speared_y
 		if follow_spear:
-			linear_velocity.x = spear.velocity.x
+			linear_velocity.x = spit.velocity.x
 		else:
 			linear_velocity.x = 0
 		pass
@@ -50,13 +59,13 @@ func try_get_speared(tip: Tip) -> void:
 	if not tip:
 		push_error("tip null")
 		return
-	if not is_speared and absf(tip.spear.velocity.x + tip.spear.velocity.x) > spear_velocity_needed:
+	if not is_speared and absf(tip.spit.velocity.x + tip.spit.velocity.x) > spit_velocity_needed:
 		is_speared = true
 		#freeze = true
 		_speared_y = position.y
 		collision_mask = speared_collision_mask
-		spear = tip.spear
-		grace_timer.start(speared_grace_period)
+		spit = tip.spit
+		grace_timer.start(spit_grace_period)
 		
 		lock_rotation = true
 
