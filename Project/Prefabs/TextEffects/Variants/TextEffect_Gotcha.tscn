@@ -4,7 +4,8 @@
 
 [node name="TextEffect" unique_id=2137470932 instance=ExtResource("1_5db3a")]
 
-[node name="Label" parent="." index="0" unique_id=79652143]
+[node name="Label" parent="Panel" parent_id_path=PackedInt32Array(673913689) index="0" unique_id=79652143]
+offset_right = 56.0
 theme_override_colors/font_color = Color(0.2795378, 0.7499368, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0.44549382, 0.6595698, 1)
 theme_override_constants/outline_size = 6

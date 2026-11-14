@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://d8ujyhbg6cec" path="res://Project/Scripts/TextEffects/TextEffectSpawnerScript.gd" id="1_ghrqp"]
 
-[node name="TextEffectSpawner" type="Node2D" unique_id=453065139]
+[node name="TextEffectSpawner" type="Node3D" unique_id=902985388]
 script = ExtResource("1_ghrqp")
