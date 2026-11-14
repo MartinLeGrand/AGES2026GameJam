@@ -18,8 +18,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	#print(foods_on_spit)
-	if not foods_on_spit.is_empty():
-		foods_on_spit[0].cooked_score()
+	#if not foods_on_spit.is_empty():
+		#foods_on_spit[0].cooked_score()
+	pass
 
 func spitted_food_count() -> void:
 	return foods_on_spit.size()

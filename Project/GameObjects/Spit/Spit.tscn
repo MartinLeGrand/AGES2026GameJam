@@ -25,8 +25,11 @@ points = PackedVector3Array(-0.1290573, -0.08072378, 4.1053095, 0.11251573, 0.01
 
 [node name="Spit" type="CharacterBody3D" unique_id=1700181818]
 collision_layer = 2
-collision_mask = 4
+collision_mask = 0
 script = ExtResource("1_k2vkn")
+max_speed = 80.0
+speed = 2.5
+brake_force = 5.0
 max_move_x = 15.0
 
 [node name="Pivot" type="Node3D" parent="." unique_id=820222577]

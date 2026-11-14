@@ -41,8 +41,8 @@ enum Prepared {
 @export_range(0.0, 1.0) var spin_randomness: float = 1.0 ## Zero means no spin. This is stupid. Should be 1.
 
 
-var falling_collision_mask: int = 7 ## Detect HOOK 1, SPIT 2, FOOD 3,
-var speared_collision_mask: int = 13 ## Detect HOOK, FOOD
+var falling_collision_mask: int = 7 ## Detect TIP 1, SPIT 2, FOOD 3,
+var speared_collision_mask: int = 5 ## Detect TIP, FOOD
 
 var over_fire: bool = false ## Set by fire when food collides with fire area
 var prepared: Prepared = Prepared.RAW ## How the food was cooked
