@@ -13,3 +13,4 @@ axis_lock_angular_z = true
 mass = 0.2
 continuous_cd = true
 script = ExtResource("1_j05b8")
+slide_off_resistance = 0.865
