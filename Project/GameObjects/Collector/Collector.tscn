@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://jhui4717qmye"]
+
+[ext_resource type="Script" uid="uid://b5mlkiswjyark" path="res://Project/GameObjects/Collector/collector.gd" id="1_fg040"]
+
+[node name="Collector" type="Area3D" unique_id=1923489956]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_fg040")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

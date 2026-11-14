@@ -30,6 +30,10 @@ func food_spitted(food: Food) -> void:
 			apply_modifier(food, true)
 
 
+func food_collected(food: Food) -> void:
+	pass
+
+
 ## Called by Food when food falls off spit
 func food_fell_off(food: Food) -> void:
 	if foods_on_spit.has(food):
