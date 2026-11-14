@@ -7,6 +7,7 @@
 process_mode = 3
 script = ExtResource("1_n5l7t")
 combo_increment = 0.3
+eat_pause = 0.4
 
 [node name="ResetTimer" type="Timer" parent="." unique_id=2108583334]
 process_mode = 1

@@ -34,6 +34,7 @@ func play_eat() -> void:
 func request_screenshake() -> void:
 	screenshake_requested.emit()
 
+
 func _add_to_combo() -> void:
 	combo_mult += combo_increment
 	reset_timer.start(reset_time)
