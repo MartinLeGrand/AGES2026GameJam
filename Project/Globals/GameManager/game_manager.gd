@@ -15,10 +15,12 @@ signal order_created
 var foods_on_spit: Array[Food] = [] ## Could just be array of enum...
 var spawned_food_counter: int = 0 ## Updated by Food when it's added to tree
 var order: Array[Food.Request] = []
+var camera: ShakyCamera = null
 
 
 func _ready() -> void:
 	create_order()
+	camera = get_viewport().get_camera_3d()
 
 
 func _process(delta: float) -> void:
@@ -33,7 +35,18 @@ func spitted_food_count() -> void:
 
 ## Called by Food when food is added to spit
 func food_spitted(food: Food) -> void:
-	## NOTE: ADD SCREEN SHAKE HERE 
+	var fx: FXManager.FX
+	match food.type:
+		Food.Type.MUSHROOM:
+			fx = FXManager.FX.SPITTED_SHROOM
+		Food.Type.PINEAPPLE:
+			fx = FXManager.FX.SPITTED_PINE
+		Food.Type.TOMATO:
+			fx = FXManager.FX.SPITTED_TOMATO
+		Food.Type.ZUCCHINI:
+			fx = FXManager.FX.SPITTED_ZUCC
+	FXManager.request_fx(fx)
+	
 	
 	if not foods_on_spit.has(food):
 		foods_on_spit.append(food)
@@ -68,7 +81,7 @@ func eat_food(food: Food) -> void:
 	else:
 		print("Not in order at all!")
 		## Await something
-	FXManager.play_eat()
+	FXManager.request_fx(FXManager.FX.EAT)
 	food.queue_free()
 
 

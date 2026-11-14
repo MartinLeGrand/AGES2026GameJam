@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://da7gfv4moyhpl"]
+
+[ext_resource type="AudioStream" uid="uid://c8skvpr8tjcgo" path="res://Project/Audio/Spitted/SpittedTomato/impale_tomato_1.wav" id="1_fwyjm"]
+[ext_resource type="AudioStream" uid="uid://cddx53cfilnvo" path="res://Project/Audio/Spitted/SpittedTomato/impale_tomato_2.wav" id="2_rwfr3"]
+[ext_resource type="AudioStream" uid="uid://byljjgwetaae2" path="res://Project/Audio/Spitted/SpittedTomato/impale_tomato_3.wav" id="3_hqccj"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_fwyjm")
+stream_1/stream = ExtResource("2_rwfr3")
+stream_2/stream = ExtResource("3_hqccj")

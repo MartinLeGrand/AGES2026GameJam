@@ -141,6 +141,8 @@ func try_get_spitted(tip: Tip) -> void:
 		
 		lock_rotation = true
 		GameManager.food_spitted(self)
+	else:
+		FXManager.request_fx(FXManager.FX.BOUNCE_ON_SPIT)
 
 
 func release_from_spit() -> void:
