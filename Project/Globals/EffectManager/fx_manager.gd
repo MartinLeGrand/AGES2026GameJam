@@ -1,5 +1,9 @@
 extends Node
 
+
+signal screenshake_requested
+
+
 const BASE_MULT: float = 1.0
 
 @export var reset_time: float = 0.5
@@ -15,8 +19,10 @@ var combo_mult: float = BASE_MULT
 @onready var reset_timer: Timer = $ResetTimer
 
 
+## Freezes cam and plays audio
 func play_eat() -> void:
 	get_tree().paused = true
+	screenshake_requested.emit()
 	crunch_sound.pitch_scale = combo_mult
 	crunch_sound.play()
 	await get_tree().create_timer(eat_pause / combo_mult).timeout
@@ -25,9 +31,13 @@ func play_eat() -> void:
 	_add_to_combo()
 
 
+func request_screenshake() -> void:
+	screenshake_requested.emit()
+
 func _add_to_combo() -> void:
 	combo_mult += combo_increment
 	reset_timer.start(reset_time)
+
 
 func _on_reset_timer_timeout() -> void:
 	combo_mult = BASE_MULT
