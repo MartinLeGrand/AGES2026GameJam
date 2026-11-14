@@ -29,6 +29,8 @@ var _start_z: float = 0
 
 
 func _ready() -> void:
+	GameManager.spawned_food_counter += 1
+	
 	grace_timer = Timer.new()
 	grace_timer.timeout.connect(move_with_spear)
 	add_child(grace_timer)
@@ -55,7 +57,7 @@ func _physics_process(_delta: float) -> void:
 		pass
 
 
-func try_get_speared(tip: Tip) -> void:
+func try_get_spitted(tip: Tip) -> void:
 	if not tip:
 		push_error("tip null")
 		return
@@ -68,13 +70,15 @@ func try_get_speared(tip: Tip) -> void:
 		grace_timer.start(spit_grace_period)
 		
 		lock_rotation = true
+		GameManager.food_added(self)
 
 
-func try_release_spear() -> void:
+func release_from_spit() -> void:
 	is_speared = false
 	#freeze = false
 	collision_mask = falling_collision_mask
 	lock_rotation = false
+	GameManager.food_fell_off(self)
 
 
 func rnd_float(min_max: float = max_spin_force) -> float:
