@@ -2,9 +2,21 @@
 
 [ext_resource type="Script" uid="uid://b5mlkiswjyark" path="res://Project/GameObjects/Collector/collector.gd" id="1_fg040"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_wd5ij"]
+size = Vector3(2.2888184, 4.576172, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wd5ij"]
+size = Vector3(2.4060059, 5.333008, 1)
+
 [node name="Collector" type="Area3D" unique_id=1923489956]
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_fg040")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2007510254]
+shape = SubResource("BoxShape3D_wd5ij")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=210411626]
+mesh = SubResource("BoxMesh_wd5ij")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
