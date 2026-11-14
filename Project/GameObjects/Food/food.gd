@@ -70,7 +70,7 @@ func try_get_spitted(tip: Tip) -> void:
 		grace_timer.start(spit_grace_period)
 		
 		lock_rotation = true
-		GameManager.food_added(self)
+		GameManager.food_spitted(self)
 
 
 func release_from_spit() -> void:
