@@ -28,10 +28,10 @@ func _physics_process(_delta: float) -> void:
 	## PLAYER INPUT
 	var dir: float = Input.get_axis("ui_left", "ui_right")
 	if dir:
-		velocity.x += speed * dir
-		velocity.x = clampf(velocity.x, -max_speed, max_speed)
+		velocity.x += speed * dir * GameManager.spit_speed_mult
+		velocity.x = clampf(velocity.x, -max_speed * GameManager.spit_speed_mult, max_speed * GameManager.spit_speed_mult) 
 	elif abs(velocity.x) > 0 and slidy_brakes:
-		velocity.x -= brake_force * sign(velocity.x)
+		velocity.x = move_toward(velocity.x, 0, brake_force) 
 	else:
 		velocity.x = 0
 	move_and_slide()

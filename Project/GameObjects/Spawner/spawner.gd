@@ -43,4 +43,4 @@ func _on_spawn_timer_timeout() -> void:
 	
 	## Restart Timer
 	if is_spawning:
-		spawn_timer.start(spawn_time)
+		spawn_timer.start(spawn_time * GameManager.spawn_speed_mult)
