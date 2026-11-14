@@ -5,7 +5,3 @@
 [node name="GameManager" type="Node" unique_id=84281026]
 process_mode = 3
 script = ExtResource("1_vb1cc")
-use_modifiers = null
-gravity_mult = null
-spawn_speed_mult = null
-spit_speed_mult = null
