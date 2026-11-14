@@ -1,39 +1,24 @@
 [gd_scene format=3 uid="uid://cfv8kn57cs3su"]
 
-[ext_resource type="StyleBox" uid="uid://qixmiol0238r" path="res://Project/UI/Styles/StyleBoxFlat/SBF_Button_MainMenu.tres" id="2_22b33"]
 [ext_resource type="StyleBox" uid="uid://bor18it3ljgy8" path="res://Project/UI/Styles/StyleBoxFlat/SBT_Button_MainMenu.tres" id="2_lm3qj"]
 [ext_resource type="LabelSettings" uid="uid://cipdl0onphtiv" path="res://Project/UI/Styles/Labels/LS_GameTitle.tres" id="2_ptxru"]
-[ext_resource type="StyleBox" uid="uid://bi14ojy2jrq43" path="res://Project/UI/Styles/StyleBoxFlat/SBT_Button_MainMenu_HQ.tres" id="3_2j7ew"]
+[ext_resource type="Texture2D" uid="uid://bqcofw1yjm68s" path="res://Project/UI/Inkscape/Button_Background_HQ.svg" id="3_2j7ew"]
 [ext_resource type="LabelSettings" uid="uid://cij2mbiqocumf" path="res://Project/UI/Styles/Labels/LS_Button_MainMenu.tres" id="3_lm3qj"]
+[ext_resource type="StyleBox" uid="uid://c84ownxv4rlmy" path="res://Project/UI/Styles/StyleBoxFlat/SBT_Button_MainMenu_Pressed.tres" id="3_unq55"]
+[ext_resource type="StyleBox" uid="uid://csmqufy16n5j2" path="res://Project/UI/Styles/StyleBoxFlat/SBT_Button_MainMenu_Hovered.tres" id="4_jj44d"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhk5j"]
 bg_color = Color(0.5169873, 0.67330265, 0.88143444, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fydg2"]
-bg_color = Color(0.8844203, 0.6037837, 0.93816966, 1)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
-border_color = Color(0.89492244, 0.89492244, 0.8949223, 1)
-border_blend = true
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ci4ob"]
-bg_color = Color(0.9103136, 0.686756, 0.9533799, 1)
-border_width_left = 9
-border_width_top = 9
-border_width_right = 9
-border_width_bottom = 9
-border_color = Color(1, 1, 1, 1)
-border_blend = true
-corner_radius_top_left = 12
-corner_radius_top_right = 12
-corner_radius_bottom_right = 12
-corner_radius_bottom_left = 12
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_unq55"]
+texture = ExtResource("3_2j7ew")
+texture_margin_left = 115.0
+texture_margin_right = 164.0
+expand_margin_left = 115.0
+expand_margin_right = 165.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 534, 190)
 
 [node name="MainMenu" type="Control" unique_id=1202245050]
 layout_mode = 3
@@ -60,9 +45,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -171.0
-offset_top = -180.5
+offset_top = -155.0
 offset_right = 171.0
-offset_bottom = 180.5
+offset_bottom = 125.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 37
@@ -74,13 +59,16 @@ label_settings = ExtResource("2_ptxru")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Control" type="Control" parent="Panel/VBoxContainer" unique_id=1743853282]
+layout_mode = 2
+
 [node name="Button" type="Button" parent="Panel/VBoxContainer" unique_id=1467320028]
 custom_minimum_size = Vector2(256, 52)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_styles/normal = ExtResource("2_lm3qj")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fydg2")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ci4ob")
+theme_override_styles/pressed = ExtResource("3_unq55")
+theme_override_styles/hover = ExtResource("4_jj44d")
 metadata/_edit_group_ = true
 
 [node name="Panel" type="Panel" parent="Panel/VBoxContainer/Button" unique_id=1279832282]
@@ -98,7 +86,7 @@ offset_bottom = 182.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.25, 0.25)
-theme_override_styles/panel = ExtResource("3_2j7ew")
+theme_override_styles/panel = SubResource("StyleBoxTexture_unq55")
 
 [node name="Label" type="Label" parent="Panel/VBoxContainer/Button" unique_id=1037669693]
 layout_mode = 1
@@ -109,21 +97,21 @@ offset_top = 1.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "brahhhhh"
+text = "Cook Kebab"
 label_settings = ExtResource("3_lm3qj")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button3" type="Button" parent="Panel/VBoxContainer" unique_id=673497782]
+[node name="Button2" type="Button" parent="Panel/VBoxContainer" unique_id=237977096]
 custom_minimum_size = Vector2(256, 52)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_styles/normal = ExtResource("3_2j7ew")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fydg2")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ci4ob")
+theme_override_styles/normal = ExtResource("2_lm3qj")
+theme_override_styles/pressed = ExtResource("3_unq55")
+theme_override_styles/hover = ExtResource("4_jj44d")
 metadata/_edit_group_ = true
 
-[node name="Panel" type="Panel" parent="Panel/VBoxContainer/Button3" unique_id=836185539]
+[node name="Panel" type="Panel" parent="Panel/VBoxContainer/Button2" unique_id=993632056]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -138,9 +126,9 @@ offset_bottom = 182.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.25, 0.25)
-theme_override_styles/panel = ExtResource("3_2j7ew")
+theme_override_styles/panel = SubResource("StyleBoxTexture_unq55")
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/Button3" unique_id=496482449]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Button2" unique_id=1564590825]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -149,30 +137,7 @@ offset_top = 1.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "brahhhhh"
-label_settings = ExtResource("3_lm3qj")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Button2" type="Button" parent="Panel/VBoxContainer" unique_id=1104374960]
-custom_minimum_size = Vector2(256, 52)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_styles/normal = ExtResource("2_22b33")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fydg2")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ci4ob")
-metadata/_edit_group_ = true
-
-[node name="Label" type="Label" parent="Panel/VBoxContainer/Button2" unique_id=1111731925]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 1.0
-offset_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "button text"
+text = "No Cook Kebab"
 label_settings = ExtResource("3_lm3qj")
 horizontal_alignment = 1
 vertical_alignment = 1
