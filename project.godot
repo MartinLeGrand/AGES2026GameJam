@@ -31,10 +31,11 @@ window/stretch/aspect="expand"
 2d_physics/layer_1="Hook"
 3d_physics/layer_1="Tip"
 2d_physics/layer_2="Food"
-3d_physics/layer_2="Hook"
+3d_physics/layer_2="Spit"
 2d_physics/layer_3="Tip"
 3d_physics/layer_3="Food"
 3d_physics/layer_4="Blocker"
+3d_physics/layer_5="Fire"
 
 [physics]
 

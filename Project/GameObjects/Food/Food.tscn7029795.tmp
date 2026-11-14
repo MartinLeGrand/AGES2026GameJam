@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://mockdxe25x83"]
+
+[ext_resource type="Script" uid="uid://ccyllul52jtme" path="res://Project/GameObjects/Food/food.gd" id="1_j05b8"]
+
+[node name="Food" type="RigidBody3D" unique_id=500534496]
+collision_layer = 4
+collision_mask = 7
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+mass = 0.2
+continuous_cd = true
+script = ExtResource("1_j05b8")
+type = null
+cook_time = null
+burn_time = null
+cooked_color = Color(0.54509807, 0.27058825, 0.07450981, 1)
+burnt_color = null
+spit_velocity_needed = null
+spit_grace_period = null
+gravity = null
+max_spin_force = null
+spin_randomness = null

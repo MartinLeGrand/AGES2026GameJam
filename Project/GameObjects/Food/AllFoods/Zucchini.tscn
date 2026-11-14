@@ -1,7 +1,10 @@
 [gd_scene format=4 uid="uid://ciojiwtycis0b"]
 
 [ext_resource type="Script" uid="uid://ccyllul52jtme" path="res://Project/GameObjects/Food/food.gd" id="1_6i2ah"]
-[ext_resource type="Material" uid="uid://cx6utliwik3uh" path="res://Project/Materials/vertex_unshaded.tres" id="2_ratih"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6i2ah"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_g7lrv"]
 _surfaces = [{
@@ -27,7 +30,7 @@ _surfaces = [{
 "index_count": 234,
 "index_data": PackedByteArray("AAASADAAEgAxADIAAAAxABIAMQAzAAIAMQABADMAAAABADEAMwABADQANQAAADYAAwAAADUAAQAAAAMAAwA1ADcAAQADABMAEwADADgAAQATADkABAAGADoABgA7ADwABAA7AAYAOwA9AAUAOwAHAD0ABAAHADsAPQAHAD4APwAEAEAACAAEAD8ABwAEAAgACAA/AEEABwAIABQAFAAIAEIABwAUAEMARAAKABcAFwAKAEUARABGAAoAFwBFAEcASABGAEQARwBFAAsASABJAEYARwALAAkADQBJAEgACQALAEoADQBLAEkACQBKAEwATQBLAA0ATABKAE4ATQAPAEsATABOAE8AUAAPAE0ATwBOAAwAUABRAA8ATwAMAFIAEQBRAFAAUgAMAFMAEQAWAFEAUgBTAA4AVAAWABEADgBTAFUAVABWABYADgBVAFcAFQBWAFQAVwBVABAAFQAQAFYAVwAQABUAGAAZABoAGAAbABkAGQAbABwAGwAYAB0AHQAYAB4AGwAdAB8AIAAhACIAIAAjACEAIQAjACQAIwAgACUAJQAgACYAIwAlACcAKAApACoAKAArACkAKQArACwAKwAoAC0ALQAoAC4AKwAtAC8A"),
 "lods": [0.1311064, PackedByteArray("AAACABIAAAABAAIAAQAAAAMAAQADABMABAAFAAYABAAHAAUABwAEAAgABwAIABQAFQAQABEADgAQABUAEQAQABYADgAMABAAEQAWAA8ACQAMAA4AEQAPAA0ACQALAAwADQAPAAoACQAKAAsADQAKABcAFwAKAAkAGAAZABoAGAAbABkAGQAbABwAGwAYAB0AHQAYAB4AGwAdAB8AIAAhACIAIAAjACEAIQAjACQAIwAgACUAJQAgACYAIwAlACcAKAApACoAKAArACkAKQArACwAKwAoAC0ALQAoAC4AKwAtAC8A"), 0.23327713, PackedByteArray("AAABAAIAAQAAAAMABAAFAAYABAAHAAUABwAEAAgACQAKAAsACQALAAwADQAKAAkACQAMAA4ADQAPAAoADgAMABAAEQAPAA0ADgAQABEAEQAQAA8A")],
-"material": ExtResource("2_ratih"),
+"material": SubResource("StandardMaterial3D_6i2ah"),
 "name": "Material.001",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -42,7 +45,7 @@ points = PackedVector3Array(0.3455635, -0.16526774, -0.30680677, -0.21929003, -0
 
 [node name="Zucchini" type="RigidBody3D" unique_id=1175484253]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 0
 script = ExtResource("1_6i2ah")
 type = 3
 metadata/_custom_type_script = "uid://ccyllul52jtme"

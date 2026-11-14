@@ -6,7 +6,9 @@ var spawned_food_counter: int = 0 ## Updated by Food when it's added to tree
 
 
 func _process(delta: float) -> void:
-	print(foods_on_spit)
+	#print(foods_on_spit)
+	if not foods_on_spit.is_empty():
+		foods_on_spit[0].cooked_score()
 
 func spitted_food_count() -> void:
 	return foods_on_spit.size()
