@@ -4,10 +4,11 @@
 
 [resource]
 texture = ExtResource("1_hrram")
-texture_margin_left = 29.0
-texture_margin_right = 42.0
+texture_margin_left = 51.0
+texture_margin_right = 50.0
 expand_margin_left = 29.0
 expand_margin_right = 41.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
-modulate_color = Color(0.86036915, 0.8603692, 0.8603692, 1)
+region_rect = Rect2(0, 0, 166, 51)
+modulate_color = Color(0.9340804, 0.9340805, 0.9340802, 1)

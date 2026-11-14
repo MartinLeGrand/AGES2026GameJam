@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ypxnvbi6hnto" path="res://Project/UI/Inkscape/Ingredient_Zuchini.png" id="4_a4vlu"]
 [ext_resource type="StyleBox" uid="uid://csmqufy16n5j2" path="res://Project/UI/Styles/StyleBoxFlat/SBT_Button_MainMenu_Hovered.tres" id="4_jj44d"]
 [ext_resource type="Texture2D" uid="uid://ylau7d2xph3x" path="res://Project/UI/Inkscape/Ingredient_Tomat.png" id="7_a4vlu"]
-[ext_resource type="Texture2D" uid="uid://curml0v581que" path="res://Project/UI/Inkscape/Ingredient_Pineapple.png" id="8_plj7o"]
+[ext_resource type="Texture2D" uid="uid://bxqnfexv410f5" path="res://Project/UI/Inkscape/Ingredient_Pineapple.png" id="8_plj7o"]
 [ext_resource type="Texture2D" uid="uid://c675ka82qhofj" path="res://Project/UI/Inkscape/Ingredient_Mushroom.png" id="9_w0bjs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhk5j"]
@@ -174,7 +174,7 @@ label_settings = ExtResource("3_lm3qj")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button2" type="Button" parent="Panel/VBoxContainer" unique_id=237977096]
+[node name="Button2" type="Button" parent="Panel/VBoxContainer" unique_id=1551539278]
 custom_minimum_size = Vector2(256, 52)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -183,7 +183,7 @@ theme_override_styles/pressed = ExtResource("3_unq55")
 theme_override_styles/hover = ExtResource("4_jj44d")
 metadata/_edit_group_ = true
 
-[node name="Panel" type="Panel" parent="Panel/VBoxContainer/Button2" unique_id=993632056]
+[node name="Panel" type="Panel" parent="Panel/VBoxContainer/Button2" unique_id=468297583]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -200,7 +200,7 @@ grow_vertical = 2
 scale = Vector2(0.25, 0.25)
 theme_override_styles/panel = SubResource("StyleBoxTexture_unq55")
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/Button2" unique_id=1564590825]
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Button2" unique_id=1825906802]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
