@@ -205,5 +205,6 @@ class Request extends RefCounted:
 			req.type = Type.values().pick_random()
 		else:
 			req.type = Type.values()[specific_type]
-		req.prepared = Prepared.values().pick_random()
+		var rand_nr: int = randi_range(1, Prepared.size() - 1)
+		req.prepared = Prepared.values()[rand_nr]
 		return req
