@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4bdloghh7thg"
-path="res://.godot/imported/Ingredient_Zucchini.png-dbc0691ae75c4fc7c79798061feb4731.ctex"
+uid="uid://ypxnvbi6hnto"
+path="res://.godot/imported/Ingredient_Zuchini.png-162ec230746d0255d2e55b6cecee38e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Project/UI/Inkscape/Ingredient_Zucchini.png"
-dest_files=["res://.godot/imported/Ingredient_Zucchini.png-dbc0691ae75c4fc7c79798061feb4731.ctex"]
+source_file="res://Project/UI/Inkscape/Ingredient_Zuchini.png"
+dest_files=["res://.godot/imported/Ingredient_Zuchini.png-162ec230746d0255d2e55b6cecee38e9.ctex"]
 
 [params]
 
