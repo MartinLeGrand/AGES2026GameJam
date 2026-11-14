@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://7l1281kgpcec"]
 
+[ext_resource type="PackedScene" uid="uid://b228nggyl5wud" path="res://Project/GameObjects/Spawner/Spawner.tscn" id="2_upol4"]
+[ext_resource type="PackedScene" uid="uid://clta7w2jsxbq4" path="res://Project/GameObjects/Spit/Spit.tscn" id="3_xnlif"]
 [ext_resource type="PackedScene" uid="uid://ceujt10bqw625" path="res://Project/Prefabs/scrolling_bg_canvas_layer.tscn" id="6_3bf4a"]
 
 [sub_resource type="Environment" id="Environment_rxjn2"]
@@ -10,8 +12,18 @@ background_mode = 3
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1149370548]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 current = true
+fov = 90.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=574010415]
 environment = SubResource("Environment_rxjn2")
 
 [node name="CanvasLayer" parent="." unique_id=1184656298 instance=ExtResource("6_3bf4a")]
+
+[node name="Spawner" parent="." unique_id=1467685239 instance=ExtResource("2_upol4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -5)
+
+[node name="Spear" parent="." unique_id=1700181818 instance=ExtResource("3_xnlif")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -3.5, -5)
+collision_mask = 0
+max_speed = 30.0
+max_move_x = 20.0
