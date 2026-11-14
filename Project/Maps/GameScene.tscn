@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://na5ryfkm6iaj" path="res://Project/Scripts/text_test.gd" id="5_q8uac"]
 [ext_resource type="Material" uid="uid://cx6utliwik3uh" path="res://Project/Materials/vertex_unshaded.tres" id="6_p7xys"]
 [ext_resource type="PackedScene" uid="uid://jhui4717qmye" path="res://Project/GameObjects/Collector/Collector.tscn" id="9_e8hnt"]
+[ext_resource type="PackedScene" uid="uid://dr6dff44m6wmu" path="res://Project/GameObjects/Fire/Fire.tscn" id="10_q8uac"]
 
 [sub_resource type="Environment" id="Environment_d2qli"]
 background_mode = 3
@@ -218,8 +219,8 @@ environment = SubResource("Environment_d2qli")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -5)
 
 [node name="Spear" parent="." unique_id=1700181818 instance=ExtResource("3_d62tq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -3.5, -5)
-max_move_x = 20.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.72889566, -3.8391643, -5)
+max_move_x = 14.0
 
 [node name="TextEffectSpawner" parent="Spear" unique_id=902985388 node_paths=PackedStringArray("canvasLayer") instance=ExtResource("4_e8hnt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
@@ -252,3 +253,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_bcaam")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1465568509]
 libraries/ = SubResource("AnimationLibrary_gctcx")
 autoplay = &"croc_idle"
+
+[node name="Fire" parent="." unique_id=88479697 instance=ExtResource("10_q8uac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.4289975, -5)

@@ -12,7 +12,11 @@ enum FX{
 	SPITTED_ZUCC,
 	SPITTED_TOMATO,
 	SPITTED_PINE,
+	START_COOKING,
+	STOP_COOKING,
 }
+
+const FRYING_LOOP = preload("uid://b0cf30v31j0j7")
 
 const SPITTED_SHROOM = preload("uid://d1lshd1msyf85")
 const SPITTED_RANDOMIZER = preload("uid://cvvur8xb5k2xv")
@@ -31,10 +35,20 @@ var combo_mult: float = BASE_MULT
 var _fx_queue: Array[FX] = []
 var _fx_available: bool = true
 
+var frying_poly_playback: AudioStreamPlaybackPolyphonic
+var _playing_frying: Array[int] = []
+
 @onready var reset_timer: Timer = $ResetTimer
 @onready var crunch_sound: AudioStreamPlayer = $CrunchSound
 @onready var spitted_sound: AudioStreamPlayer = $SpittedSound
 @onready var bouncing_on_spit: AudioStreamPlayer = $BouncingOnSpit
+
+@onready var frying_sound: AudioStreamPlayer = $FryingSound
+
+
+func _ready() -> void:
+	frying_sound.play()
+	frying_poly_playback = frying_sound.get_stream_playback()
 
 
 ## Freezes cam and plays audio
@@ -56,6 +70,12 @@ func _play_spitted(type: FX) -> void:
 		FX.BOUNCE_ON_SPIT:
 			GameManager.camera.add_trauma(0.1)
 			bouncing_on_spit.play()
+			return
+		FX.START_COOKING:
+			play_a_frying_sound()
+			return
+		FX.STOP_COOKING:
+			stop_a_frying_sound()
 			return
 		FX.SPITTED_SHROOM:
 			spitted_sound.stream = SPITTED_SHROOM
@@ -95,3 +115,13 @@ func _add_to_combo() -> void:
 
 func _on_reset_timer_timeout() -> void:
 	combo_mult = BASE_MULT
+
+
+func play_a_frying_sound() -> void:
+	_playing_frying.append(frying_poly_playback.play_stream(FRYING_LOOP, randf_range(0, FRYING_LOOP.get_length()))) 
+
+
+func stop_a_frying_sound() -> void:
+	if _playing_frying.is_empty():
+		return
+	frying_poly_playback.stop_stream(_playing_frying.pop_front())

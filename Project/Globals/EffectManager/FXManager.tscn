@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://hu6o6gttl1bu" path="res://Project/Globals/EffectManager/fx_manager.gd" id="1_n5l7t"]
 [ext_resource type="AudioStream" uid="uid://b56g15d71rpr7" path="res://Project/Audio/Eat/crunch_randomizer.tres" id="2_x5b0v"]
 [ext_resource type="AudioStream" uid="uid://cvvur8xb5k2xv" path="res://Project/Audio/Spitted/SpittedPineapple/spitted_random.tres" id="3_x5b0v"]
-[ext_resource type="AudioStream" uid="uid://drwvhb2grpkqs" path="res://Project/Audio/Music/placeholder_goofy_ah_music.wav" id="4_ular8"]
+[ext_resource type="AudioStream" uid="uid://dfkx3vqkqe3qg" path="res://Project/Audio/Music/chill_guitar.wav" id="4_tpnj6"]
 [ext_resource type="AudioStream" uid="uid://dhasbkfvn7fde" path="res://Project/Audio/Spitted/CollidingWithSpit/spit_collide.tres" id="5_tpnj6"]
+[ext_resource type="AudioStream" uid="uid://top5ufireixr" path="res://Project/Audio/Cooking/frying_poly.tres" id="6_mns4h"]
 
 [node name="EffectManager" type="Node" unique_id=1494129916]
 process_mode = 3
@@ -25,12 +26,15 @@ stream = ExtResource("3_x5b0v")
 bus = &"Spitted"
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=2077785328]
-stream = ExtResource("4_ular8")
+stream = ExtResource("4_tpnj6")
 autoplay = true
 bus = &"Music"
 
 [node name="BouncingOnSpit" type="AudioStreamPlayer" parent="." unique_id=213160974]
 stream = ExtResource("5_tpnj6")
 volume_db = -10.0
+
+[node name="FryingSound" type="AudioStreamPlayer" parent="." unique_id=917541814]
+stream = ExtResource("6_mns4h")
 
 [connection signal="timeout" from="ResetTimer" to="." method="_on_reset_timer_timeout"]
