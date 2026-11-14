@@ -12,8 +12,8 @@ enum FX{
 	SPITTED_ZUCC,
 	SPITTED_TOMATO,
 	SPITTED_PINE,
-	START_COOKING,
-	STOP_COOKING,
+	#START_COOKING,
+	#STOP_COOKING,
 }
 
 const FRYING_LOOP = preload("uid://b0cf30v31j0j7")
@@ -71,12 +71,12 @@ func _play_spitted(type: FX) -> void:
 			GameManager.camera.add_trauma(0.1)
 			bouncing_on_spit.play()
 			return
-		FX.START_COOKING:
-			play_a_frying_sound()
-			return
-		FX.STOP_COOKING:
-			stop_a_frying_sound()
-			return
+		#FX.START_COOKING:
+			#play_a_frying_sound()
+			#return
+		#FX.STOP_COOKING:
+			#stop_a_frying_sound()
+			#return
 		FX.SPITTED_SHROOM:
 			spitted_sound.stream = SPITTED_SHROOM
 		FX.SPITTED_ZUCC:
@@ -98,6 +98,18 @@ func _process(delta: float) -> void:
 				_play_eat()
 			_: 
 				_play_spitted(fx)
+	
+	## Förlåt för detta. Det är för att stoppa bugg som gör att den playar hela tiden
+	## Play fry sound :()
+	var frying_food: = 0
+	for food: Food in GameManager.foods_on_spit:
+		if food.is_speared and food.over_fire:
+			frying_food += 1
+	var pf: = _playing_frying.size()
+	if frying_food > pf:
+		play_a_frying_sound()
+	elif frying_food < pf:
+		stop_a_frying_sound()
 
 
 func request_fx(fx: FX) -> void:

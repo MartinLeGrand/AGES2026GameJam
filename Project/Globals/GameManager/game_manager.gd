@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 		#foods_on_spit[0].cooked_score()
 	pass
 
-func spitted_food_count() -> void:
+func spitted_food_count() -> int:
 	return foods_on_spit.size()
 
 
