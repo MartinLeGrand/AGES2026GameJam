@@ -15,11 +15,12 @@ enum Type {
 ## Max precentage of cook_time until next stage
 ## 
 enum Prepared {
-	RAW = 25,
-	MEDIUM_RARE = 50,
-	COOKED = 100, ## Cook_time
-	BURNT = 150,
-	COAL = 200 ## Twice cook_time
+	NULL = 0,
+	RAW = 1,
+	MEDIUM_RARE = 2,
+	COOKED = 3, ## Cook_time
+	BURNT = 4,
+	COAL = 5 ## Twice cook_time
 }
 
 @export var type: Type
@@ -167,13 +168,27 @@ func set_cooked_color() -> void:
 		food_material.albedo_color = cooked_color.lerp(burnt_color, t)
 
 func set_prepared_status() -> void:
-	if cooked_amount <= (cook_time * (float(Prepared.RAW)/100)):
+	if cooked_amount <= (cook_time * (0.25)):
 			prepared = Prepared.RAW
-	elif cooked_amount <= (cook_time * (float(Prepared.MEDIUM_RARE)/100)):
+	elif cooked_amount <= (cook_time * 0.5):
 		prepared = Prepared.MEDIUM_RARE
-	elif cooked_amount <= (cook_time * (float(Prepared.COOKED)/100)):
+	elif cooked_amount <= (cook_time * (1.0)):
 		prepared = Prepared.COOKED
-	elif cooked_amount <= (cook_time * (float(Prepared.BURNT)/100)):
+	elif cooked_amount <= (cook_time * (1.5)):
 		prepared = Prepared.BURNT
-	elif cooked_amount <= (cook_time * (float(Prepared.COAL)/100)):
+	elif cooked_amount <= (cook_time * (2.0)):
 		prepared = Prepared.COAL
+
+
+class Request extends RefCounted:
+	const MAX_AMOUNT: int = 5
+	var type: Type = Type.TOMATO
+	var amount: int = 1
+	var prepared: Prepared = Prepared.COOKED
+	
+	func rnd_request() -> Request:
+		var req: Request = Request.new()
+		req.amount = randi_range(1, MAX_AMOUNT)
+		req.type = Type.keys().pick_random()
+		req.prepared = Prepared.keys().pick_random()
+		return req

@@ -61,6 +61,7 @@ points = PackedVector3Array(-0.1290573, -0.08072378, 4.1053095, 0.11251573, 0.01
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_k2vkn")
+max_move_x = 15.0
 
 [node name="Pivot" type="Node3D" parent="." unique_id=820222577]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4000592, 0, 0)
