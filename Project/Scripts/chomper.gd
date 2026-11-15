@@ -20,17 +20,16 @@ func _ready() -> void:
 	hover_tween.set_loops(-1)
 	angle_tween.set_loops(-1)
 	
-	hover_tween.tween_property(croc_top, "global_position:y", start_y + 0.4, 2.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	hover_tween.tween_property(croc_top, "global_position:y", start_y, 2.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	hover_tween.tween_property(self, "global_position:y", start_y + 0.4, 2.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	hover_tween.tween_property(self, "global_position:y", start_y, 2.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	
-	angle_tween.tween_property(croc_top, "global_rotation:z", deg_to_rad(3.0), 4.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	angle_tween.tween_property(croc_top, "global_rotation:z", deg_to_rad(-3.0), 4.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	angle_tween.tween_property(self, "global_rotation:z", deg_to_rad(3.0), 4.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	angle_tween.tween_property(self, "global_rotation:z", deg_to_rad(-3.0), 4.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func open_jaw():
-	print("open")
-	get_tree().create_tween().tween_property(croc_top, "global_rotation:x", deg_to_rad(14.0), 1.0).set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
-	get_tree().create_tween().tween_property(croc_bottom, "global_rotation:x", deg_to_rad(-14.0), 1.0).set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
+	get_tree().create_tween().tween_property(croc_top, "global_rotation_degrees:x", 14.0, 1.0).set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
+	get_tree().create_tween().tween_property(croc_bottom, "global_rotation_degrees:x", -14.0, 1.0).set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
 
 func close_jaw():
-	get_tree().create_tween().tween_property(croc_top, "global_rotation:x", deg_to_rad(0.0), 0.7).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
-	get_tree().create_tween().tween_property(croc_bottom, "global_rotation:x", deg_to_rad(2.0), 0.7).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	get_tree().create_tween().tween_property(croc_top, "global_rotation_degrees:x", 0.0, 0.7).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	get_tree().create_tween().tween_property(croc_bottom, "global_rotation_degrees:x", 2.0, 0.7).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)

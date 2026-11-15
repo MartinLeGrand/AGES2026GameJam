@@ -121,7 +121,7 @@ environment = SubResource("Environment_rxjn2")
 [node name="CanvasLayer" parent="." unique_id=1184656298 instance=ExtResource("6_3bf4a")]
 
 [node name="Crocodile" type="Node3D" parent="." unique_id=1544025095 node_paths=PackedStringArray("croc_top", "croc_bottom")]
-transform = Transform3D(-4.3651482e-08, -2.2876774e-09, -1, -0.05233596, 0.9986295, 0, 0.9986295, 0.05233596, -4.371139e-08, -17.863564, -3.855, -5)
+transform = Transform3D(-4.3651482e-08, -2.2876774e-09, -1, -0.05233596, 0.9986295, 0, 0.9986295, 0.05233596, -4.371139e-08, -8.454817, -3.855, -5)
 script = ExtResource("3_rr3j8")
 croc_top = NodePath("Croc_Top")
 croc_bottom = NodePath("Croc_Top/Croc_Bottom")

@@ -201,6 +201,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.6969757, -5)
 
 [node name="Fire2" parent="." unique_id=1384899858 instance=ExtResource("10_q8uac")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8637524, -6.6969757, -5)
-
-[node name="Fire3" parent="." unique_id=917897789 instance=ExtResource("10_q8uac")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.607111, -6.6969757, -5)

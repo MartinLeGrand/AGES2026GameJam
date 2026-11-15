@@ -7,6 +7,7 @@ extends Node3D
 func _ready() -> void:
 	GameManager.init_game()
 	GameManager.game_started.connect(ui_order_thought.show)
+	GameManager.game_ended.connect(func(): get_tree().change_scene_to_file("res://Project/Maps/EndScene.tscn"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
