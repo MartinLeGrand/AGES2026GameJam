@@ -24,7 +24,7 @@ enum Prepared {
 }
 
 @export var type: Type
-@export var points: float = 1000 ## Value of food when calculating score
+@export var points: int = 1000 ## Value of food when calculating score
 @export var cook_time: float = 5.0 ## Seconds until perfectly cooked
 #@export var burn_time: float  2.0 ## Seconds after cooked until burnt.
 @export var cooked_color: Color = Color(0.804, 0.45, 0.27, 1.0)
@@ -161,13 +161,7 @@ func move_with_spear(follow: bool = true) -> void:
 	follow_spear = follow
 
 
-## 1000 is best. Get points. Dunno bout this one
-func cooked_score() -> float:
-	#print(prepared)
-	
-	var cooked: float = absf(cooked_amount - (cook_time))
-	#print(100.0 / float(prepared))
-	return points - (points * cooked)
+
 
 
 func set_cooked_color() -> void:
@@ -210,3 +204,12 @@ class Request extends RefCounted:
 		var rand_nr: int = randi_range(1, Prepared.size() - 1)
 		req.prepared = Prepared.values()[rand_nr]
 		return req
+		
+		
+		### 1000 is best. Get points. Dunno bout this one
+#func cooked_score() -> float:
+	##print(prepared)
+	#
+	#var cooked: float = absf(cooked_amount - (cook_time))
+	##print(100.0 / float(prepared))
+	#return points - (points * cooked)
