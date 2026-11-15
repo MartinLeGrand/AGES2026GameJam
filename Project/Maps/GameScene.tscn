@@ -210,6 +210,7 @@ script = ExtResource("1_d62tq")
 environment = SubResource("Environment_d2qli")
 
 [node name="CanvasLayerForeground" type="CanvasLayer" parent="." unique_id=1095764003]
+process_mode = 3
 
 [node name="UiOrderThought" parent="CanvasLayerForeground" unique_id=1780630391 instance=ExtResource("1_wot6h")]
 

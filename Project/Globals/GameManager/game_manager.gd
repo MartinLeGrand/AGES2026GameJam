@@ -142,7 +142,7 @@ func eat_food(food: Food) -> void:
 		order[req_index].amount -= 1 ## Remove one amount from order
 		if order[req_index].amount <= 0:
 			order.remove_at(req_index)
-			order_changed.emit()
+		order_changed.emit()
 	else:
 		## Not in order at all!
 		feed_combo = 0

@@ -2,6 +2,7 @@ extends Control
 
 func _ready() -> void:
 	GameManager.order_created.connect(_on_order_created)
+	GameManager.order_changed.connect(_on_order_created) ## Eskil was here
 	
 	# behövs för att gamemanager skapar första ordern innan uien ens hinner instantiata.
 	if not GameManager.order.is_empty():
@@ -12,7 +13,8 @@ func _on_order_created() -> void:
 		child.queue_free()
 	print_debug("Order Received")
 	for request in GameManager.order:
-		var requestItem = OrderItem.new()
-		requestItem.setFoodType(request.type)
-		requestItem.setTargetPrepared(request.prepared)
-		$TextureRect/GridContainer.add_child(requestItem)
+		for amount: int in request.amount:
+			var requestItem = OrderItem.new()
+			requestItem.setFoodType(request.type)
+			requestItem.setTargetPrepared(request.prepared)
+			$TextureRect/GridContainer.add_child(requestItem)
