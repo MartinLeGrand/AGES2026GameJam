@@ -57,7 +57,9 @@ func _ready() -> void:
 func _play_forced() -> void:
 	_fx_available = false
 	get_tree().paused = true
+	GameManager.countdown_timer.paused = true
 	await _forced_callables.pop_front().call()
+	GameManager.countdown_timer.paused = false
 	get_tree().paused = false
 	_fx_available = true
 
@@ -69,7 +71,9 @@ func _play_eat() -> void:
 	screenshake_requested.emit()
 	crunch_sound.pitch_scale = combo_mult
 	crunch_sound.play()
+	GameManager.countdown_timer.paused = true
 	await get_tree().create_timer(eat_pause / combo_mult).timeout
+	GameManager.countdown_timer.paused = false
 	get_tree().paused = false
 	_add_to_combo()
 	_fx_available = true
