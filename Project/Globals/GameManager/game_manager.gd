@@ -11,11 +11,15 @@ enum Review {
 
 
 ## Man idk man whats this even
+signal food_got_spitted ## bad name
+
 signal timer_finished ## When countdown timer finished. Use game end instead!
 signal game_started ## When gameplay part of game starts
 signal game_ended ## When gameplay part of game ends
+
 signal order_created ## When order is created
 signal order_changed ## Hopefully when order is changed
+
 signal food_eaten(food: Food, review: Review) ## When a food is eaten
 signal score_added(gained: int) ## When points are gained
 
@@ -92,6 +96,8 @@ func food_spitted(food: Food) -> void:
 	
 	if not foods_on_spit.has(food):
 		foods_on_spit.append(food)
+	
+	food_got_spitted.emit()
 
 
 ## Called by Food when food falls off spit

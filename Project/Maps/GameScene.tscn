@@ -224,7 +224,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.72889566, -3.8391643, -5)
 max_move_x = 14.0
 
 [node name="TextEffectSpawner" parent="Spear" unique_id=902985388 node_paths=PackedStringArray("canvasLayer") instance=ExtResource("4_e8hnt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3413887, 0, 0)
 canvasLayer = NodePath("../../CanvasLayerForeground")
 
 [node name="Node3D" type="Node3D" parent="." unique_id=1527390588]

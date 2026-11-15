@@ -13,7 +13,7 @@ func _on_order_created() -> void:
 		child.queue_free()
 	print_debug("Order Received")
 	for request in GameManager.order:
-		for amount: int in request.amount:
+		for amount: int in request.amount: ## Eskil was here
 			var requestItem = OrderItem.new()
 			requestItem.setFoodType(request.type)
 			requestItem.setTargetPrepared(request.prepared)
