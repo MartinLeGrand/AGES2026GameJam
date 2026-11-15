@@ -44,6 +44,7 @@ var _playing_frying: Array[int] = []
 @onready var crunch_sound: AudioStreamPlayer = $CrunchSound
 @onready var spitted_sound: AudioStreamPlayer = $SpittedSound
 @onready var bouncing_on_spit: AudioStreamPlayer = $BouncingOnSpit
+@onready var empty_spit: AudioStreamPlayer = $EmptySpit
 
 @onready var frying_sound: AudioStreamPlayer = $FryingSound
 
@@ -62,6 +63,12 @@ func _play_forced() -> void:
 	GameManager.countdown_timer.paused = false
 	get_tree().paused = false
 	_fx_available = true
+
+
+func play_empty_spit() -> void:
+	if not empty_spit.playing:
+		empty_spit.play()
+
 
 ## Freezes cam and plays audio
 func _play_eat() -> void:
