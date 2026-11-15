@@ -41,14 +41,14 @@ signal combo_mult_applied ## When mult is applied at the end
 @export var review_mult: float = 1.25 ## Food_new_value = Food_base_value * (review_score * review_mult)
 
 ## Once player feeds the croc it'll eat everything on the spit, then create a new order.
-@export var time_to_feed: float = 0.5 ## Grace period until new order, once feed has started
+@export var time_to_feed: float = 0.2 ## Grace period until new order, once feed has started
 @export var feed_combo: int = 0: ## Multiplied to score when final food is eaten. +1 When feeding correct food, else set to zero
 	set(value):
 		feed_combo = value
-		if feed_combo <= 0:
-			feed_combo_reset.emit()
-		else:
-			feed_combo_gain.emit()
+		#if feed_combo <= 0:
+			#feed_combo_reset.emit()
+		#else:
+			#feed_combo_gain.emit()
 
 @export_category("Request")
 @export var max_order_size: int = 6
@@ -78,8 +78,11 @@ var score: int = 0
 
 func _ready() -> void:
 	camera = get_viewport().get_camera_3d()
-	start_game()
+	
 
+
+func init_game() -> void:
+	get_tree().create_timer(1).timeout.connect(start_game)
 
 func _process(_delta: float) -> void:
 	if not _food_queue.is_empty() and eat_available:
@@ -132,7 +135,7 @@ func spitted_food_count() -> int:
 
 #region Feeding
 func _eat_food(food: Food) -> void:
-	eat_available = false
+	var entire_eaten: bool = false
 	
 	if feed_event_timer.is_stopped():
 		feed_event_timer.start(time_to_feed)
@@ -171,7 +174,7 @@ func _eat_food(food: Food) -> void:
 		if order[req_index].amount <= 0:
 			order.remove_at(req_index)
 			if order.is_empty():
-				wrap_up_eat_phase.call_deferred()
+				entire_eaten = true
 		order_changed.emit()
 	else:
 		## Not in order at all!
@@ -180,7 +183,9 @@ func _eat_food(food: Food) -> void:
 	
 	
 	food_eaten.emit(food, review)
+	
 	food.queue_free()
+	
 	eat_available = true
 
 
@@ -215,8 +220,9 @@ func wrap_up_eat_phase() -> void:
 
 ## Called on FeedEventTimer timeout (function way down here)
 func end_feeding() -> void:
+	if _food_queue.is_empty() and foods_on_spit.is_empty():
+		wrap_up_eat_phase()
 	feed_combo = 0
-	create_order()
 
 
 func add_score(gained: int, multiply: bool = false) -> void:
@@ -231,9 +237,9 @@ func add_score(gained: int, multiply: bool = false) -> void:
 	print(score)
 
 
-func apply_combo_mult_to_score() -> void:
-	var actual_feed_combo: int = feed_combo if feed_combo > 0 else 1
-	add_score(actual_feed_combo, true)
+#func apply_combo_mult_to_score() -> void:
+	#var actual_feed_combo: int = feed_combo if feed_combo > 0 else 1
+	#add_score(actual_feed_combo, true)
 	
 #endregion
 
@@ -289,4 +295,5 @@ func _on_countdown_timer_timeout() -> void:
 
 
 func _on_feed_event_timer_timeout() -> void:
+	
 	end_feeding()

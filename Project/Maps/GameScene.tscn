@@ -1,13 +1,17 @@
 [gd_scene format=4 uid="uid://bk7m2ifpl8vbh"]
 
+[ext_resource type="Script" uid="uid://dt7n3xavbffry" path="res://Project/Maps/game_scene.gd" id="1_0odvm"]
 [ext_resource type="Script" uid="uid://crroxg6q5ov43" path="res://Project/Scripts/shaker.gd" id="1_d62tq"]
 [ext_resource type="PackedScene" uid="uid://ceujt10bqw625" path="res://Project/Prefabs/scrolling_bg_canvas_layer.tscn" id="1_mg1f3"]
 [ext_resource type="PackedScene" uid="uid://dk6kbpeod80hb" path="res://Project/UI/Scenes/UI_OrderThought.tscn" id="1_wot6h"]
 [ext_resource type="PackedScene" uid="uid://b228nggyl5wud" path="res://Project/GameObjects/Spawner/Spawner.tscn" id="2_wot6h"]
+[ext_resource type="LabelSettings" uid="uid://cij2mbiqocumf" path="res://Project/UI/Styles/Labels/LS_Button_MainMenu.tres" id="3_d2qli"]
 [ext_resource type="PackedScene" uid="uid://clta7w2jsxbq4" path="res://Project/GameObjects/Spit/Spit.tscn" id="3_d62tq"]
+[ext_resource type="Script" uid="uid://m4flvqqgldkv" path="res://Project/Scripts/timer_label.gd" id="4_6opy2"]
 [ext_resource type="PackedScene" uid="uid://crkma5gafw4qf" path="res://Project/Prefabs/text_effect_spawner.tscn" id="4_e8hnt"]
 [ext_resource type="Script" uid="uid://na5ryfkm6iaj" path="res://Project/Scripts/text_test.gd" id="5_q8uac"]
 [ext_resource type="Material" uid="uid://cx6utliwik3uh" path="res://Project/Materials/vertex_unshaded.tres" id="6_p7xys"]
+[ext_resource type="PackedScene" uid="uid://cw0vqtjsfb54s" path="res://Project/UI/Scenes/Scorer/Scorer.tscn" id="6_wy34v"]
 [ext_resource type="Script" uid="uid://bhuyt7axr0w2s" path="res://Project/Scripts/chomper.gd" id="8_p7xys"]
 [ext_resource type="PackedScene" uid="uid://jhui4717qmye" path="res://Project/GameObjects/Collector/Collector.tscn" id="9_e8hnt"]
 [ext_resource type="PackedScene" uid="uid://dr6dff44m6wmu" path="res://Project/GameObjects/Fire/Fire.tscn" id="10_q8uac"]
@@ -114,6 +118,7 @@ _surfaces = [{
 }]
 
 [node name="GameScene" type="Node3D" unique_id=111185863]
+script = ExtResource("1_0odvm")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1676383726]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
@@ -129,6 +134,24 @@ process_mode = 3
 
 [node name="UiOrderThought" parent="CanvasLayerForeground" unique_id=1780630391 instance=ExtResource("1_wot6h")]
 process_mode = 1
+visible = false
+
+[node name="TimerLabel" type="Label" parent="CanvasLayerForeground" unique_id=811185736]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.0
+offset_top = 24.0
+offset_right = 67.0
+offset_bottom = 47.0
+grow_horizontal = 2
+text = "60:00"
+label_settings = ExtResource("3_d2qli")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_6opy2")
+
+[node name="Scorer" parent="CanvasLayerForeground" unique_id=1543845486 instance=ExtResource("6_wy34v")]
 
 [node name="CanvasLayerBackground" parent="." unique_id=1184656298 instance=ExtResource("1_mg1f3")]
 

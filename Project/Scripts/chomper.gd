@@ -27,6 +27,7 @@ func _ready() -> void:
 	angle_tween.tween_property(croc_top, "global_rotation:z", deg_to_rad(-3.0), 4.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func open_jaw():
+	print("open")
 	get_tree().create_tween().tween_property(croc_top, "global_rotation:x", deg_to_rad(14.0), 1.0).set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
 	get_tree().create_tween().tween_property(croc_bottom, "global_rotation:x", deg_to_rad(-14.0), 1.0).set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
 
