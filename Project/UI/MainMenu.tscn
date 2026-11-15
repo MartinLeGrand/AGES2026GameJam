@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cfv8kn57cs3su"]
 
+[ext_resource type="Script" uid="uid://bdfxts8jgb1o" path="res://Project/UI/Script_main_menu.gd" id="1_w0bjs"]
 [ext_resource type="StyleBox" uid="uid://bor18it3ljgy8" path="res://Project/UI/Styles/StyleBoxFlat/SBT_Button_MainMenu.tres" id="2_lm3qj"]
 [ext_resource type="LabelSettings" uid="uid://cipdl0onphtiv" path="res://Project/UI/Styles/Labels/LS_GameTitle.tres" id="2_ptxru"]
 [ext_resource type="Texture2D" uid="uid://bqcofw1yjm68s" path="res://Project/UI/Inkscape/Button_Background_HQ.svg" id="3_2j7ew"]
@@ -10,9 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://ylau7d2xph3x" path="res://Project/UI/Inkscape/Ingredient_Tomat.png" id="7_a4vlu"]
 [ext_resource type="Texture2D" uid="uid://bxqnfexv410f5" path="res://Project/UI/Inkscape/Ingredient_Pineapple.png" id="8_plj7o"]
 [ext_resource type="Texture2D" uid="uid://c675ka82qhofj" path="res://Project/UI/Inkscape/Ingredient_Mushroom.png" id="9_w0bjs"]
+[ext_resource type="PackedScene" uid="uid://ceujt10bqw625" path="res://Project/Prefabs/scrolling_bg_canvas_layer.tscn" id="11_plj7o"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhk5j"]
-bg_color = Color(0.5169873, 0.67330265, 0.88143444, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1cydk"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_unq55"]
 texture = ExtResource("3_2j7ew")
@@ -31,6 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_w0bjs")
 
 [node name="Panel" type="Panel" parent="." unique_id=911958440]
 layout_mode = 1
@@ -39,7 +41,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_uhk5j")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1cydk")
 
 [node name="Particles_Tomato" type="CPUParticles2D" parent="Panel" unique_id=925414578]
 position = Vector2(317, -49)
@@ -213,3 +215,8 @@ text = "No Cook Kebab"
 label_settings = ExtResource("3_lm3qj")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CanvasLayerBackground" parent="." unique_id=1184656298 instance=ExtResource("11_plj7o")]
+
+[connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
