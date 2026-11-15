@@ -32,7 +32,7 @@ enum Prepared {
 
 
 @export_category("Spit")
-@export_range(0.0, 100.0, 1.0) var spit_velocity_needed: float = 15.0 ## Velocity needed to penetrate food 
+@export_range(0.0, 100.0, 1.0) var spit_velocity_needed: float = 30.0 ## Velocity needed to penetrate food 
 @export var spit_grace_period: float = 0.1 ## Time before position follows spear
 @export var slide_off_resistance: float = 0.6 ## Less is more
 
