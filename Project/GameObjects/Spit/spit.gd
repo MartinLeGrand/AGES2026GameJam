@@ -2,7 +2,8 @@ class_name Spit extends CharacterBody3D
 
 
 @export var max_speed: float = 30
-@export var speed: float = 2.5 ## Speed in x-direction
+@export var speed: float = 2.0 ## Speed in x-direction
+@export var left_speed_mult: float = 1.4
 @export var slidy_brakes: bool = true ## FIXME: Shakes. False: Instant brakes. True sliiidy
 @export var brake_force: float = 10.0  ## NOTE: Slidy brakes must be true
 @export var max_move_x: float = 14.0 ## Nr of meters allowed to move in x-direction from start pos.
@@ -28,7 +29,9 @@ func _physics_process(_delta: float) -> void:
 	var dir: float = Input.get_axis("ui_left", "ui_right")
 	if dir:
 		velocity.x += speed * dir * GameManager.spit_speed_mult
-		velocity.x = clampf(velocity.x, -max_speed * GameManager.spit_speed_mult, max_speed * GameManager.spit_speed_mult) 
+		if dir < 0:
+			velocity.x *= left_speed_mult
+		velocity.x = clampf(velocity.x, -max_speed * GameManager.spit_speed_mult * left_speed_mult, max_speed * GameManager.spit_speed_mult) 
 	elif abs(velocity.x) > 0 and slidy_brakes:
 		velocity.x = move_toward(velocity.x, 0, brake_force) 
 	else:

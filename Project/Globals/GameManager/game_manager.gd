@@ -27,6 +27,9 @@ signal food_eaten(food: Food, review: Review) ## When a food is eaten
 signal score_added(gained: int) ## When points are gained
 signal feed_combo_gain ## When nr is added to feed_combo
 signal feed_combo_reset ## When feed combo is reset
+signal entire_spit_eaten ## When last food was eaten
+signal combo_mult_applied ## When mult is applied at the end
+
 
 
 @export_category("Game")
@@ -39,7 +42,7 @@ signal feed_combo_reset ## When feed combo is reset
 
 ## Once player feeds the croc it'll eat everything on the spit, then create a new order.
 @export var time_to_feed: float = 0.5 ## Grace period until new order, once feed has started
-@export var feed_combo: int = 0: ## Multiplied to score. +1 When feeding correct food, else set to zero
+@export var feed_combo: int = 0: ## Multiplied to score when final food is eaten. +1 When feeding correct food, else set to zero
 	set(value):
 		feed_combo = value
 		if feed_combo <= 0:
@@ -61,6 +64,8 @@ var spawned_food_counter: int = 0 ## Updated by Food when it's added to tree
 var order: Array[Food.Request] = []
 var camera: ShakyCamera = null
 
+var eat_available: bool = true
+var _food_queue: Array[Food]
 
 #region Player
 var score: int = 0
@@ -75,6 +80,10 @@ func _ready() -> void:
 	camera = get_viewport().get_camera_3d()
 	start_game()
 
+
+func _process(_delta: float) -> void:
+	if not _food_queue.is_empty() and eat_available:
+		_eat_food(_food_queue.pop_front())
 
 func start_game() -> void:
 	create_order()
@@ -122,10 +131,12 @@ func spitted_food_count() -> int:
 #endregion
 
 #region Feeding
-func eat_food(food: Food) -> void:
+func _eat_food(food: Food) -> void:
+	eat_available = false
+	
 	if feed_event_timer.is_stopped():
 		feed_event_timer.start(time_to_feed)
-	
+	FXManager.request_fx(FXManager.FX.EAT)
 	## Is in order?
 	var food_in_order: bool = false
 	var req_index: int = 0
@@ -159,15 +170,22 @@ func eat_food(food: Food) -> void:
 		order[req_index].amount -= 1 ## Remove one amount from order
 		if order[req_index].amount <= 0:
 			order.remove_at(req_index)
+			if order.is_empty():
+				wrap_up_eat_phase.call_deferred()
 		order_changed.emit()
 	else:
 		## Not in order at all!
 		feed_combo = 0
 		calculate_and_add_score(food, Review.WRONG_FOOD)
 	
-	FXManager.request_fx(FXManager.FX.EAT)
+	
 	food_eaten.emit(food, review)
 	food.queue_free()
+	eat_available = true
+
+
+func request_eat_food(food: Food) -> void:
+	_food_queue.append(food)
 
 
 func calculate_and_add_score(food: Food, review: Review) -> void:
@@ -185,25 +203,42 @@ func calculate_and_add_score(food: Food, review: Review) -> void:
 		_:
 			pass ## Error!
 	
-	var actual_feed_combo: int = feed_combo if feed_combo > 0 else 1
-	s = int(float(s) * mult * actual_feed_combo)
+	
+	s = int(float(s) * mult)
 	add_score(s)
+
+
+func wrap_up_eat_phase() -> void:
+	#apply_combo_mult_to_score()
+	entire_spit_eaten.emit()
 
 
 ## Called on FeedEventTimer timeout (function way down here)
 func end_feeding() -> void:
+	feed_combo = 0
 	create_order()
 
 
-func add_score(gained: int) -> void:
-	score += gained
-	score_added.emit(gained)
+func add_score(gained: int, multiply: bool = false) -> void:
+	if not multiply:
+		score += gained
+		score_added.emit(gained)
+	else:
+		var old_score: int = score
+		score *= gained
+		combo_mult_applied.emit()
+		#score_added.emit(score - old_score)
 	print(score)
+
+
+func apply_combo_mult_to_score() -> void:
+	var actual_feed_combo: int = feed_combo if feed_combo > 0 else 1
+	add_score(actual_feed_combo, true)
+	
 #endregion
 
 #region Order
 func create_order() -> void:
-	
 	var new_order: Array[Food.Request]
 	var foods_in_order: int = 0
 	for r: int in randi_range(1, 4):
