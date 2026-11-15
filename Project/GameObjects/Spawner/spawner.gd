@@ -14,6 +14,8 @@ class_name Spawner extends Node3D
 @onready var spawn_points: Node3D = $SpawnPoints
 @onready var spawn_timer: Timer = $SpawnTimer
 
+var last_spawn: Node3D = null
+var last_last_spawn: Node3D = null
 var spawn_points_list: Array[Node3D] = []
 
 # Called when the node enters the scene tree for the first time.
@@ -24,18 +26,18 @@ func _ready() -> void:
 			spawn_points_list.append(point)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 
 func spawn_object() -> void:
 	var obj := obj_to_spawn.pick_random().instantiate() as Node3D
 	if obj:
 		add_child(obj)
-		var spawn_pos: Vector3 = spawn_points_list.pick_random().global_position
+		var spawn_node: Node3D = spawn_points_list.pick_random()
+		while spawn_node == last_spawn or spawn_node == last_last_spawn:
+			spawn_node = spawn_points_list.pick_random()
+		last_last_spawn = last_spawn
+		last_spawn = spawn_node
+		var spawn_pos: Vector3 = spawn_node.global_position
 		obj.global_position = spawn_pos
-
 
 
 func _on_spawn_timer_timeout() -> void:
