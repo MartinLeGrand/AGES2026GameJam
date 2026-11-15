@@ -41,7 +41,7 @@ signal combo_mult_applied ## When mult is applied at the end
 @export var review_mult: float = 1.25 ## Food_new_value = Food_base_value * (review_score * review_mult)
 
 ## Once player feeds the croc it'll eat everything on the spit, then create a new order.
-@export var time_to_feed: float = 0.3 ## Grace period until new order, once feed has started
+@export var time_to_feed: float = 0.4 ## Grace period until new order, once feed has started
 @export var feed_combo: int = 0: ## Multiplied to score when final food is eaten. +1 When feeding correct food, else set to zero
 	set(value):
 		feed_combo = value
