@@ -4,6 +4,7 @@ var trauma: float = 0.0
 var start_position: Vector3
 
 func _ready() -> void:
+	GameManager.camera = self
 	if not process_mode == ProcessMode.PROCESS_MODE_ALWAYS:
 		process_mode = ProcessMode.PROCESS_MODE_ALWAYS
 
