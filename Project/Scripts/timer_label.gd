@@ -1,11 +1,13 @@
 extends Label
 
-var time_left: float = 0.0
+var time_left: float = 0
 
 func _process(delta: float) -> void:
-	time_left = clampf(GameManager.countdown_timer.time_left, 0.0, INF)
-	
-	text = get_formatted_time(time_left)
+	if GameManager.countdown_timer.is_stopped():
+		text = get_formatted_time(GameManager.game_time)
+	else:
+		time_left = clampf(GameManager.countdown_timer.time_left, 0.0, INF)
+		text = get_formatted_time(time_left)
 
 func get_formatted_time(input_time: int):
 	var minutes: int = floori(input_time / 60.0)

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cx5hi4xwxhar7"]
+
+[ext_resource type="Script" uid="uid://c3q36s41qogog" path="res://Project/UI/Scenes/TotalScore/total_score.gd" id="1_d82kh"]
+
+[node name="TotalScore" type="Control" unique_id=937630094]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_d82kh")

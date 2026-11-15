@@ -14,6 +14,7 @@ enum FX{
 	SPITTED_PINE,
 	#START_COOKING,
 	#STOP_COOKING,
+	FORCED,
 }
 
 const FRYING_LOOP = preload("uid://b0cf30v31j0j7")
@@ -29,10 +30,11 @@ const BASE_MULT: float = 1.0
 @export var combo_increment: float = 0.2
 
 @export_category("Eat")
-@export var eat_pause: float = 0.7
+@export var eat_pause: float = 0.4
 
 var combo_mult: float = BASE_MULT
 var _fx_queue: Array[FX] = []
+var _forced_callables: Array[Callable] = []
 var _fx_available: bool = true
 
 var frying_poly_playback: AudioStreamPlaybackPolyphonic
@@ -52,6 +54,12 @@ func _ready() -> void:
 	
 	GameManager.feed_combo_reset.connect(reset_combo)
 
+func _play_forced() -> void:
+	_fx_available = false
+	get_tree().paused = true
+	await _forced_callables.pop_front().call()
+	get_tree().paused = false
+	_fx_available = true
 
 ## Freezes cam and plays audio
 func _play_eat() -> void:
@@ -96,6 +104,8 @@ func _process(delta: float) -> void:
 	if not _fx_queue.is_empty() and _fx_available:
 		var fx: FX = _fx_queue.pop_front()
 		match fx:
+			FX.FORCED:
+				_play_forced()
 			FX.EAT:
 				_play_eat()
 			_: 
@@ -119,6 +129,11 @@ func request_fx(fx: FX, force_first: bool = false) -> void:
 		_fx_queue.insert(0, fx)
 	else:
 		_fx_queue.append(fx)
+
+
+func callable_fx(fx_callable: Callable, force: bool = false) -> void:
+	_forced_callables.append(fx_callable)
+	request_fx(FX.FORCED, force)
 
 
 func request_screenshake() -> void:
