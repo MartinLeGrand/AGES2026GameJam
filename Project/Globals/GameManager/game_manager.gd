@@ -4,7 +4,11 @@ const CRUNCH_RANDOMIZER = preload("uid://b56g15d71rpr7")
 
 
 signal order_created
+signal food_eaten(food: Food)
 
+
+@export_category("Request")
+@export var max_order_size: int = 6
 
 @export_category("Modifiers")
 @export var use_modifiers: bool = false
@@ -82,13 +86,19 @@ func eat_food(food: Food) -> void:
 		print("Not in order at all!")
 		## Await something
 	FXManager.request_fx(FXManager.FX.EAT)
+	food_eaten.emit(food)
 	food.queue_free()
 
 
 func create_order() -> void:
+	
 	var new_order: Array[Food.Request]
+	var foods_in_order: int = 0
 	for r: int in randi_range(1, 4):
 		for attempt: int in 40:
+			if foods_in_order >= max_order_size:
+				break
+			
 			var ingredient: int = randi_range(0, Food.Type.size()-1)
 			var is_used: bool = false
 			for request: Food.Request in new_order:
@@ -96,8 +106,8 @@ func create_order() -> void:
 					is_used = true
 					break
 			if not is_used:
-				print(ingredient)
-				var request: Food.Request = Food.Request.rnd_request(ingredient)
+				var request: Food.Request = Food.Request.rnd_request(ingredient, max_order_size-foods_in_order)
+				foods_in_order += request.amount
 				new_order.append(request)
 				break
 	if new_order.is_empty():

@@ -194,15 +194,15 @@ func set_prepared_status() -> void:
 
 
 class Request extends RefCounted:
-	const MAX_AMOUNT: int = 5
+	const MAX_AMOUNT: int = 3
 	var type: Type = Type.TOMATO
 	var amount: int = 1
 	var prepared: Prepared = Prepared.COOKED
 	
 	## Förlåt för denna kod
-	static func rnd_request(specific_type: int = -1) -> Request:
+	static func rnd_request(specific_type: int = -1, max_count: int = MAX_AMOUNT) -> Request:
 		var req: Request = Request.new()
-		req.amount = randi_range(1, MAX_AMOUNT)
+		req.amount = randi_range(1, max_count)
 		if specific_type == -1:
 			req.type = Type.values().pick_random()
 		else:
