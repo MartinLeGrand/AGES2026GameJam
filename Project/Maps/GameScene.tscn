@@ -285,7 +285,7 @@ canvasLayer = NodePath("../../CanvasLayerForeground")
 script = ExtResource("5_q8uac")
 
 [node name="Crocodile" type="Node3D" parent="." unique_id=1778846069 node_paths=PackedStringArray("croc_top", "croc_bottom")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12, -3.855, -5)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12.254111, -3.855, -5)
 script = ExtResource("8_p7xys")
 croc_top = NodePath("Croc_Top")
 croc_bottom = NodePath("Croc_Top/Croc_Bottom")
@@ -310,7 +310,7 @@ mesh = SubResource("ArrayMesh_y80wx")
 surface_material_override/0 = SubResource("StandardMaterial3D_bcaam")
 
 [node name="Fire" parent="." unique_id=88479697 instance=ExtResource("10_q8uac")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4493499, -6.6969757, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2460845, -6.6969757, -5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1259900917]
 libraries/ = SubResource("AnimationLibrary_gctcx")
