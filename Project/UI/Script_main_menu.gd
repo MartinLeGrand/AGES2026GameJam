@@ -13,6 +13,9 @@ func _on_button_pressed() -> void:
 	animPlayer.play("anim_mainmenu_gamestart")
 	print_debug("Start Game")
 
+func on_credits_pressed() -> void:
+	get_tree().change_scene_to_file("res://Project/Maps/CreditsScene.tscn")
+
 func _on_button_2_pressed() -> void:
 	animPlayer.play("anim_mainmenu_quit")
 	print_debug("Quit Game")

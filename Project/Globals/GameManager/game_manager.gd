@@ -79,8 +79,7 @@ var score: int = 0
 func _ready() -> void:
 	camera = get_viewport().get_camera_3d()
 	
-	entire_spit_eaten.connect(func(): countdown_timer.start(countdown_timer.time_left + 15))
-
+	entire_spit_eaten.connect(func(): try_add_time())
 
 func init_game() -> void:
 	get_tree().create_timer(1).timeout.connect(start_game)
@@ -101,6 +100,16 @@ func end_game() -> void:
 	game_ended.emit()
 	game_running = false
 
+#region georgisar
+func is_order_satisfied() -> bool:
+	return foods_on_spit.is_empty() and _food_queue.is_empty() and order.is_empty()
+
+func try_add_time() -> void:
+	if !is_order_satisfied():
+		return
+	
+	countdown_timer.start(countdown_timer.time_left + 15)
+#endregion
 
 #region spit
 ## Called by Food when food is added to spit

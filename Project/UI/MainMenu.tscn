@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bxqnfexv410f5" path="res://Project/UI/Inkscape/Ingredient_Pineapple.png" id="8_plj7o"]
 [ext_resource type="Texture2D" uid="uid://c675ka82qhofj" path="res://Project/UI/Inkscape/Ingredient_Mushroom.png" id="9_w0bjs"]
 [ext_resource type="PackedScene" uid="uid://ceujt10bqw625" path="res://Project/Prefabs/scrolling_bg_canvas_layer.tscn" id="11_plj7o"]
+[ext_resource type="FontFile" uid="uid://dpvb2tp2gx5p5" path="res://Project/UI/Fonts/friendlyscribbles.ttf" id="12_rwcad"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1cydk"]
 
@@ -24,6 +25,15 @@ expand_margin_right = 165.0
 axis_stretch_horizontal = 2
 axis_stretch_vertical = 2
 region_rect = Rect2(0, 0, 534, 190)
+
+[sub_resource type="LabelSettings" id="LabelSettings_urpi8"]
+font = ExtResource("12_rwcad")
+font_size = 12
+outline_size = 12
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 12
+shadow_color = Color(0.3019608, 0.3019608, 0.3019608, 0.3137255)
+shadow_offset = Vector2(2.5, 2)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1cydk"]
 bg_color = Color(0, 0, 0, 1)
@@ -64,7 +74,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.017453292519943295]
+"values": [0.01745329251994329]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -612,13 +622,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -171.0
-offset_top = -155.0
+offset_top = -205.0
 offset_right = 171.0
-offset_bottom = 125.0
+offset_bottom = 211.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_constants/separation = 37
+theme_override_constants/separation = 16
+alignment = 1
 
 [node name="Control2" type="Control" parent="Panel/VBoxContainer" unique_id=792245355]
 custom_minimum_size = Vector2(0, 65)
@@ -645,6 +656,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Control" type="Control" parent="Panel/VBoxContainer" unique_id=1743853282]
+custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 
 [node name="Button" type="Button" parent="Panel/VBoxContainer" unique_id=1467320028]
@@ -683,6 +695,46 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Cook Kebab"
+label_settings = ExtResource("3_lm3qj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button3" type="Button" parent="Panel/VBoxContainer" unique_id=279058391]
+custom_minimum_size = Vector2(256, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/normal = ExtResource("2_lm3qj")
+theme_override_styles/pressed = ExtResource("3_unq55")
+theme_override_styles/hover = ExtResource("4_jj44d")
+metadata/_edit_group_ = true
+
+[node name="Panel" type="Panel" parent="Panel/VBoxContainer/Button3" unique_id=1608782095]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -26.0
+offset_right = 896.0
+offset_bottom = 182.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+theme_override_styles/panel = SubResource("StyleBoxTexture_unq55")
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/Button3" unique_id=166382975]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Credits"
 label_settings = ExtResource("3_lm3qj")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -727,6 +779,16 @@ label_settings = ExtResource("3_lm3qj")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Control3" type="Control" parent="Panel/VBoxContainer" unique_id=1520508769]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer" unique_id=1089350936]
+layout_mode = 2
+text = "©2026 Glögg Stain Studios"
+label_settings = SubResource("LabelSettings_urpi8")
+horizontal_alignment = 1
+
 [node name="CanvasLayerBackground" parent="." unique_id=1184656298 instance=ExtResource("11_plj7o")]
 
 [node name="Fader" type="Panel" parent="." unique_id=568981270]
@@ -745,4 +807,5 @@ libraries/ = SubResource("AnimationLibrary_rwcad")
 autoplay = &"anim_mainmenu_start"
 
 [connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Button3" to="." method="on_credits_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

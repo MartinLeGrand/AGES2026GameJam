@@ -1,0 +1,206 @@
+[gd_scene format=3 uid="uid://csqoqboarm0ia"]
+
+[ext_resource type="Script" uid="uid://ddmbkwhcwtqw4" path="res://Project/Maps/end_scene.gd" id="1_y6f0l"]
+[ext_resource type="Script" uid="uid://crroxg6q5ov43" path="res://Project/Scripts/shaker.gd" id="2_3hsji"]
+[ext_resource type="FontFile" uid="uid://dpvb2tp2gx5p5" path="res://Project/UI/Fonts/friendlyscribbles.ttf" id="3_lyd6g"]
+[ext_resource type="StyleBox" uid="uid://bor18it3ljgy8" path="res://Project/UI/Styles/StyleBoxFlat/SBT_Button_MainMenu.tres" id="5_msoa7"]
+[ext_resource type="StyleBox" uid="uid://c84ownxv4rlmy" path="res://Project/UI/Styles/StyleBoxFlat/SBT_Button_MainMenu_Pressed.tres" id="6_od8xg"]
+[ext_resource type="StyleBox" uid="uid://csmqufy16n5j2" path="res://Project/UI/Styles/StyleBoxFlat/SBT_Button_MainMenu_Hovered.tres" id="7_drurp"]
+[ext_resource type="Texture2D" uid="uid://bqcofw1yjm68s" path="res://Project/UI/Inkscape/Button_Background_HQ.svg" id="8_q37px"]
+[ext_resource type="LabelSettings" uid="uid://cij2mbiqocumf" path="res://Project/UI/Styles/Labels/LS_Button_MainMenu.tres" id="9_71d4h"]
+[ext_resource type="PackedScene" uid="uid://ceujt10bqw625" path="res://Project/Prefabs/scrolling_bg_canvas_layer.tscn" id="10_5cr7s"]
+
+[sub_resource type="Environment" id="Environment_rxjn2"]
+background_mode = 3
+
+[sub_resource type="LabelSettings" id="LabelSettings_uholm"]
+font = ExtResource("3_lyd6g")
+font_size = 39
+stacked_outline_count = 1
+stacked_shadow_count = 1
+stacked_outline_0/size = 19
+stacked_shadow_0/offset = Vector2(5.21, 5.905)
+stacked_shadow_0/color = Color(0.3019608, 0.3019608, 0.3019608, 1)
+stacked_shadow_0/outline_size = 27
+
+[sub_resource type="LabelSettings" id="LabelSettings_fvqyn"]
+font = ExtResource("3_lyd6g")
+font_size = 25
+outline_size = 13
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 12
+shadow_color = Color(0.3019608, 0.3019608, 0.3019608, 0.3137255)
+shadow_offset = Vector2(2.5, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eccc7"]
+font = ExtResource("3_lyd6g")
+font_color = Color(0.8537685, 0.73433244, 0, 1)
+outline_size = 13
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 12
+shadow_color = Color(0.3019608, 0.3019608, 0.3019608, 0.3137255)
+shadow_offset = Vector2(2.5, 2)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yf058"]
+texture = ExtResource("8_q37px")
+texture_margin_left = 115.0
+texture_margin_right = 164.0
+expand_margin_left = 115.0
+expand_margin_right = 165.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 534, 190)
+
+[node name="ModelScene" type="Node3D" unique_id=2061389642]
+script = ExtResource("1_y6f0l")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1149370548]
+transform = Transform3D(1, 0, 0, 0, 0.9892021, 0.14655793, 0, -0.14655793, 0.9892021, 0, 0.48813534, 9.769174)
+current = true
+fov = 90.0
+script = ExtResource("2_3hsji")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=574010415]
+environment = SubResource("Environment_rxjn2")
+
+[node name="CanvasLayerAbove" type="CanvasLayer" parent="." unique_id=2073006829]
+
+[node name="Control2" type="Control" parent="CanvasLayerAbove" unique_id=1272907432]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 56.0
+offset_bottom = 121.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="CanvasLayerAbove/Control2" unique_id=193157179]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.0
+offset_top = -33.5
+offset_right = 199.0
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 1)
+text = "Credits"
+label_settings = SubResource("LabelSettings_uholm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control3" type="Control" parent="CanvasLayerAbove" unique_id=388356327]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 120.0
+offset_bottom = 242.0
+grow_horizontal = 2
+
+[node name="CreditsLabel" type="Label" parent="CanvasLayerAbove/Control3" unique_id=205537617]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.0
+offset_top = -41.5
+offset_right = 199.0
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 1)
+text = "UI/UX: Martin Kasper le Grand
+Programming & Audio: Eskil Börjesson
+Modelling & Animation: Georg Lindholm"
+label_settings = SubResource("LabelSettings_fvqyn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control4" type="Control" parent="CanvasLayerAbove" unique_id=475824337]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 225.0
+offset_bottom = 347.0
+grow_horizontal = 2
+
+[node name="CreditsLabel" type="Label" parent="CanvasLayerAbove/Control4" unique_id=1248209034]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.0
+offset_top = -41.5
+offset_right = 199.0
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 1)
+text = "Made for the AGES Fall of 2026 Game Jam <3"
+label_settings = SubResource("LabelSettings_eccc7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayerAbove" unique_id=2035447405]
+custom_minimum_size = Vector2(256, 52)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -205.0
+offset_top = -97.0
+offset_right = 205.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_styles/normal = ExtResource("5_msoa7")
+theme_override_styles/pressed = ExtResource("6_od8xg")
+theme_override_styles/hover = ExtResource("7_drurp")
+metadata/_edit_group_ = true
+
+[node name="Panel" type="Panel" parent="CanvasLayerAbove/Button" unique_id=1803277953]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -26.0
+offset_right = 896.0
+offset_bottom = 182.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+theme_override_styles/panel = SubResource("StyleBoxTexture_yf058")
+
+[node name="Label" type="Label" parent="CanvasLayerAbove/Button" unique_id=1006104095]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Return to Main Menu"
+label_settings = ExtResource("9_71d4h")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CanvasLayer" parent="." unique_id=1184656298 instance=ExtResource("10_5cr7s")]
+
+[connection signal="pressed" from="CanvasLayerAbove/Button" to="." method="_on_button_pressed"]
