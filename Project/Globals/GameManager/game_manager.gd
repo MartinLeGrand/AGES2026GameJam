@@ -41,7 +41,7 @@ signal combo_mult_applied ## When mult is applied at the end
 @export var review_mult: float = 1.25 ## Food_new_value = Food_base_value * (review_score * review_mult)
 
 ## Once player feeds the croc it'll eat everything on the spit, then create a new order.
-@export var time_to_feed: float = 0.2 ## Grace period until new order, once feed has started
+@export var time_to_feed: float = 0.3 ## Grace period until new order, once feed has started
 @export var feed_combo: int = 0: ## Multiplied to score when final food is eaten. +1 When feeding correct food, else set to zero
 	set(value):
 		feed_combo = value
@@ -230,8 +230,8 @@ func wrap_up_eat_phase() -> void:
 
 ## Called on FeedEventTimer timeout (function way down here)
 func end_feeding() -> void:
-	if _food_queue.is_empty() and foods_on_spit.is_empty():
-		wrap_up_eat_phase()
+	#if _food_queue.is_empty() and foods_on_spit.is_empty():
+	wrap_up_eat_phase()
 	feed_combo = 0
 
 
@@ -305,5 +305,4 @@ func _on_countdown_timer_timeout() -> void:
 
 
 func _on_feed_event_timer_timeout() -> void:
-	
 	end_feeding()

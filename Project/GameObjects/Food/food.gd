@@ -114,6 +114,12 @@ func _process(delta: float) -> void:
 	
 
 func _physics_process(_delta: float) -> void:
+	if Input.is_action_just_pressed("empty_spit"):
+		if is_speared:
+			FXManager.play_empty_spit()
+			is_speared = false
+			collision_mask = 0
+			linear_velocity.x = -50
 	if is_speared:
 		position.z = _start_z ## Lock z axis
 		linear_velocity.y = 0
@@ -159,9 +165,6 @@ func rnd_float(min_max: float = max_spin_force) -> float:
 
 func move_with_spear(follow: bool = true) -> void:
 	follow_spear = follow
-
-
-
 
 
 func set_cooked_color() -> void:

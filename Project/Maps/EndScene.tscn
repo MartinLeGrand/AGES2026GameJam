@@ -144,6 +144,207 @@ _surfaces = [{
 "vertex_data": PackedByteArray("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8LB/vyiQG0DEHQTATr/pvvqdGkB4egvAZjUAv0QfJEBPDxrAfb8Ovi9XGUClnxDAjqH2vZrzNUBN1BLAa5WPvRbPKEAu/BvAzN2eveTALECdtwTAdM+7vOJ8IEBzag3Ab2ggv3FnIEAkFBLAf9Etv7GPG0BQxBPApxAiv+mRGUAoIBbABggvv57aIECLixDAW/kQv9HTH0BYwxPAjpwVv/+1GkBrnxbAlLISv09DJUDlJxDA+dodv4coJ0BZKA7AEQQqv9TzJUA4+Q3Aqv4AAP///79Zz6ql////PyLG+jJiLkaeVv1/NFF8v4LS94Vxg3e1hMsq45b///8/pwJ+NP///7+kMKql////PysIhXF7iEl7HBungB6Bz3uPIaV2A4xNeP9/qOxk/cy/dlJ4xvDJPdeHrXjGDjbBKDPV45b///8/4eSngOB+L4Rv3qV2+3Owhy+SAACe/6o+Ce/0o////7/cOfoynNG4YZ9HGtClzrraqjMI0v///7+pxRIubypAoGDybKX///+/8rTM1OYseSdfuBrQWDFDJbOGAADK/ws+iRc30P///7/1EPSj////v1Q6Ei4t1aZfWccAALQCbcJUzAjSdygaH9O5///RBW5GhJP//0D/jb0MS8zUGNOF2Li4g9T7Ku0kRkeD1APVEduzDu2k////v6e55tIKL4MlV0bm0vTQe9qdDWyl////v/PI4QJUAoXExdDYtP///79kuoct////vxLPLrb///+/IkAcrP///z/5T3Y4////PzM/sKz///8/SU7EN////z8cQnSq////P11P1jj///8//j3Hqf///z8FUDg4////P5HUg7T///+/9U0zOP///z+8ROeq////P9RPrzb///8/Hc7jrP///z/cu5ws////v+NG1qX///8/OcuKtP///z/1UOc3////P/LmUdH///+/BHv2tP///z+WzBH6////vxLUAfP///+/EdT/8v///78U1AHz////vxDU/vL///+/FNT98v///78b1P3y////vx7U+/L///+/HdT98v///78Y1AHz////vxrU//L///+/7aDpNP///z/vX2Ym////P5FjJpX///8/le0uL////7+ZPdvX////vzgv2LT///+/7DAutv///7+aRYct////v75Fvy3///+/Dy/1uP///79bMBi3////v3dFrS7///+/7kTxLf///7/RL8e1////v+ZEHy7///+/aC7jt////7+1RIcu////v1bEraj///8/Qrvnqv///z/ERQsv////v+Ex46z///8/bLH2N////z8budal////P2gzEfr///+/1qR9Cv///78MGVHR////v+wrAfP///+/6isB8////7/tK//y////v+or/fL///+/7iv+8v///7/jK/3y////v+Ar+/L///+/5isB8////7/hK/3y////v+Qr//L///+/Geb4DP///797n7X0////vxFf6DT///8/bZwmlf///z+08guj////v3XoN9D///+/ocO73VkgCCbWQN0tgtO6XTKE//89/gbA4UDK0pLRj9wcv8rSbC5vIxG4//9K/ybAzheDPP///79xQlKr////P+BCOqv///8/os8Xt////7/v0PS4////v6HJ3rP///8/LdDHtf///7/OufuQ////P5bR47f///+/qDutqP///z//u5wu////v0hGCqf///8/w87fq////z8Wu+cs////vylIwKv///8/rIGP1////z8oW30K////vwlG7p7///8/5Rn4DP///7+4tDfU////v429Uqv///8/Hr06q////z/cvxys////P8rAsKz///8/4r10qv///z9cNt6z////PwDCx6n///8/YJ5Zkv///z9tK4O0////v16zLTn///8/OjHfq////z+2uQqn////P2GwRDj///8/xTSKtP///z/Vt8Cr////Pz9Gziz///+/Un6P1////z/6hPa0////P2Phusv///+/rht0uP///79RvyIuFy1Gokrx7aT///+/tvIHpf///79MvzsudC1aoii/3S20LFiit4kAAOf/ZD8niQAA3v8cPwq/6i1rLDyiKfQOo////797v94uJS4ooqO+qi5FLo+ioMJALjcsLKGfgP//Bf//vzDogzwDT0qT5v7leud++oAA5vCY////P6HVZ7f///+/AtTTqv///z8kxP3kfRIrKc6wG8kKNR0nlo7//wX/DcD/f2rx+v8SwDBPG8n0yuHY+yvTqv///z/aO/3kge3S1v4Z8Jj///8/XCpnt////78XAeR6F4EEf0oNC6P///+/XT1ALjXTpV5bQaou0dF5XYNA3i7w0d9dskA7LrPStF2tQCIuDdPGXUgNB6X///+//3+t+u399L/0QOotxNPVXV6JAADO/7I+1QsOo////7+cv2sulyzVoaTDzzA4LbKfYkBrLqXTP154rf//MwQ/P1k8zzD70lxg5ddnI4EWoaRyyAAALP5iPuzb//////+/CzfhAqr9eTsZKGcjfeldW1w8u93///+/H08dOf///z9Aur8t////v4e6rS7///+/ELvxLf///786ugsv////v5JO9jf///8/F7sfLv///79Ju4Yu////v/JMbDj///8/aL3CLP///7+eYVmS////P6BMLTn///8/nU9FOP///z+/uc4s////v490b0r///8/grUGBP///7+aHrrL////vxt+OzT///8/DdIe8f///7+00pjw////v6PS9PD///+/KtLA8P///7/20Xvx////v4/SXfH///+/ZNGW8f///7930UPx////v4rR7fD///+/E9T/8v///78Z1P/y////v87rURT///+/g2C19P///7/S7J0U////v1l/fhj///8/DBHny////7+dO4Bb////Pw9EFYr///8/cH9KF////z8ddYeY////P8maRfX///+/7ZpzkP///z9P5HS4////vx20Imf///8/5td/6f///7/T2CXo////v2jYc+n///+/Kdhr6P///7+h15bq////vxrYZ+r///+/99bW6v///79t137p////v7vXmej///+/37AeOf///z8FsHY4////P7SxxTf///8/obDWOP///z8qsK82////P/mvODj///8/IkScLP///78JsjM4////P5ZCwiz///+/MEb7kP///z8Ms2w4////P/5Dmy7///+/50TnLP///78Jr+g3////P2+LcEr///8/44E7NP///z98SgYE////v/W57p7///8/8S0e8f///79JLZjw////v9QtwPD///+/Wi308P///7+HLkPx////v3Mu7fD///+/mi6W8f///78ILnvx////v28tXfH///+/6yv/8v///7/lK//y////vy8UURT///+/NWVF9f///7/hioeY////P0ZLN9T///+/EWVzkP///z/hSyJn////P2kSLi////+/joBKF////z+lgH4Y////PysTnRT///+/D6BnJv///z9kwtvX////v/Lu58v///+/77sViv///z9hxIBb////Pxgof+n///+/Kicl6P///7/VJ2vo////v5Ync+n///+/kSh+6f///79CKJno////vwcp1ur///+/XCiW6v///7/kJ2fq////vw==")
 }]
 
+[sub_resource type="Animation" id="Animation_ltjt1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayerAbove/Control/Control2/Label:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayerAbove/Control/Control2/Label:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayerAbove/Control/Control3/ScoreLabel:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayerAbove/Control/Control3/ScoreLabel:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayerAbove/Control:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera3D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.48813534, 9.769174)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Camera3D:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.14708772, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jlacx"]
+resource_name = "end_exit"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayerAbove/Control:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.48813534, 9.769174), Vector3(0, 10, 9.769)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"load_mainmenu"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.14708772, 0, 0), Vector3(0.34906584, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m713j"]
+resource_name = "end_loop"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayerAbove/Control/Control2/Label:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6.0000005, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.98, 0.98), Vector2(1, 1), Vector2(0.98, 0.98), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayerAbove/Control/Control2/Label:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4, 8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.017453292519943295, -0.017453292519943295, 0.017453292519943295]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayerAbove/Control/Control3/ScoreLabel:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4, 8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.017453292519943295, -0.017453292519943295, 0.017453292519943295]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayerAbove/Control/Control3/ScoreLabel:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2, 4, 6.0000005, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.98, 0.98), Vector2(1, 1), Vector2(0.98, 0.98), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jlacx"]
+_data = {
+&"RESET": SubResource("Animation_ltjt1"),
+&"end_exit": SubResource("Animation_jlacx"),
+&"end_loop": SubResource("Animation_m713j")
+}
+
 [node name="ModelScene" type="Node3D" unique_id=2061389642]
 script = ExtResource("1_ltjt1")
 
@@ -158,25 +359,35 @@ environment = SubResource("Environment_rxjn2")
 
 [node name="CanvasLayerAbove" type="CanvasLayer" parent="." unique_id=2073006829]
 
-[node name="Control2" type="Control" parent="CanvasLayerAbove" unique_id=1272907432]
-custom_minimum_size = Vector2(0, 65)
+[node name="Control" type="Control" parent="CanvasLayerAbove" unique_id=1107619828]
 layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="Control2" type="Control" parent="CanvasLayerAbove/Control" unique_id=1272907432]
+custom_minimum_size = Vector2(0, 65)
+layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 56.0
-offset_bottom = 121.0
+offset_top = 39.525
+offset_bottom = 104.525
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="CanvasLayerAbove/Control2" unique_id=193157179]
+[node name="Label" type="Label" parent="CanvasLayerAbove/Control/Control2" unique_id=193157179]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -197.0
+offset_left = -239.5
 offset_top = -33.5
-offset_right = 199.0
+offset_right = 241.5
 offset_bottom = 31.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -186,16 +397,16 @@ label_settings = SubResource("LabelSettings_uholm")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control3" type="Control" parent="CanvasLayerAbove" unique_id=388356327]
+[node name="Control3" type="Control" parent="CanvasLayerAbove/Control" unique_id=388356327]
 custom_minimum_size = Vector2(0, 65)
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 120.0
-offset_bottom = 185.0
+offset_top = 100.0
+offset_bottom = 165.0
 grow_horizontal = 2
 
-[node name="ScoreLabel" type="Label" parent="CanvasLayerAbove/Control3" unique_id=205537617]
+[node name="ScoreLabel" type="Label" parent="CanvasLayerAbove/Control/Control3" unique_id=205537617]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -215,26 +426,28 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_jo6pb")
 
-[node name="Button" type="Button" parent="CanvasLayerAbove" unique_id=2035447405]
+[node name="Button" type="Button" parent="CanvasLayerAbove/Control" unique_id=2035447405]
 custom_minimum_size = Vector2(256, 52)
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -205.0
-offset_top = -97.0
-offset_right = 205.0
-offset_bottom = -45.0
+offset_top = -80.0
+offset_right = 205.00049
+offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
 size_flags_horizontal = 4
 theme_override_styles/normal = ExtResource("4_hcm0k")
 theme_override_styles/pressed = ExtResource("5_ltjt1")
 theme_override_styles/hover = ExtResource("6_m713j")
 metadata/_edit_group_ = true
 
-[node name="Panel" type="Panel" parent="CanvasLayerAbove/Button" unique_id=1803277953]
+[node name="Panel" type="Panel" parent="CanvasLayerAbove/Control/Button" unique_id=1803277953]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -251,7 +464,7 @@ grow_vertical = 2
 scale = Vector2(0.25, 0.25)
 theme_override_styles/panel = SubResource("StyleBoxTexture_yf058")
 
-[node name="Label" type="Label" parent="CanvasLayerAbove/Button" unique_id=1006104095]
+[node name="Label" type="Label" parent="CanvasLayerAbove/Control/Button" unique_id=1006104095]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -293,4 +506,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ub4s1")
 mesh = SubResource("ArrayMesh_6368u")
 surface_material_override/0 = SubResource("StandardMaterial3D_ub4s1")
 
-[connection signal="pressed" from="CanvasLayerAbove/Button" to="." method="_on_button_pressed"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1844762030]
+libraries/ = SubResource("AnimationLibrary_jlacx")
+autoplay = &"end_loop"
+
+[connection signal="pressed" from="CanvasLayerAbove/Control/Button" to="." method="_on_button_pressed"]
