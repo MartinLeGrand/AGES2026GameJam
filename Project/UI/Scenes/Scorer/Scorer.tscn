@@ -23,7 +23,7 @@ shadow_offset = Vector2(2.5, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_qyyxw"]
 font = ExtResource("1_cc1k8")
-font_size = 13
+font_size = 28
 outline_size = 12
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 12
@@ -89,9 +89,9 @@ label_settings = SubResource("LabelSettings_qyyxw")
 
 [node name="TotalScoreLabel" type="Label" parent="." unique_id=1050988624]
 layout_mode = 0
-offset_left = 374.0
-offset_top = -139.0
-offset_right = 520.0
-offset_bottom = -89.0
+offset_left = 343.0
+offset_top = -127.0
+offset_right = 490.0
+offset_bottom = -77.0
 text = "0000000"
 label_settings = SubResource("LabelSettings_qyyxw")
