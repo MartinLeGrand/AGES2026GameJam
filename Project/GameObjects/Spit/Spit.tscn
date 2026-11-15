@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://doxyyns3r0prm" path="res://Project/GameObjects/Spit/spit.gd" id="1_k2vkn"]
 [ext_resource type="PackedScene" uid="uid://bg100ddstdsnd" path="res://Project/Prefabs/spit_outlined.tscn" id="2_b58mm"]
 [ext_resource type="PackedScene" uid="uid://cxxka62yq5xnt" path="res://Project/GameObjects/Spit/Tip/Tip.tscn" id="2_roqmr"]
+[ext_resource type="Script" uid="uid://b878qp8iqf3oo" path="res://Project/GameObjects/Spit/hook_block.gd" id="4_l1otm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7whva"]
 radius = 0.045
@@ -10,6 +11,9 @@ height = 7.9484863
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wd5ij"]
 size = Vector3(10.180092, 8.832688, 7.911865)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wd5ij"]
+size = Vector3(8.278, 8.944127, 4.5634766)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7whva"]
 points = PackedVector3Array(0.06418221, 1.1271225, -2.9477527, -0.08072378, 0.49903265, -3.6241572, 0.06418221, 0.49903265, -3.6241572, -0.03239025, 1.078737, -3.285955, -0.1290573, 0.93382627, -2.9477527, 0.11251573, 0.49903265, -3.3824897, 0.11251573, 0.8854407, -3.4791567, 0.11251573, 0.8854407, -2.9477527, -0.1290573, 0.83711666, -3.4791567, -0.1290573, 0.49903265, -3.4308894, -0.1290573, 1.078737, -3.1410205, -0.03239025, 0.7890385, -3.5758238, 0.11251573, 1.078737, -3.1894202, -0.08072378, 0.8854407, -2.9477527, -0.08072378, 1.1271225, -2.9477527, 0.11251573, 0.6923289, -3.5758238, -0.08072378, 0.49903265, -3.3824897, -0.1290573, 0.6440048, -3.5758238, -0.03239025, 1.1271225, -3.1410205, 0.11251573, 1.078737, -2.9477527, 0.06418221, 0.6440048, -3.6241572, -0.08072378, 1.0304744, -3.3342223, 0.11251573, 0.49903265, -3.5758238, 0.11251573, 0.9821503, -3.3824897, -0.1290573, 1.078737, -2.9477527, -0.08072378, 0.5957422, -3.6241572, -0.1290573, 0.49903265, -3.5758238, 0.06418221, 1.1271225, -3.0927532, 0.015872331, 1.078737, -3.285955, -0.1290573, 0.9821503, -3.3342223, -0.08072378, 0.83711666, -3.5274901, 0.015872331, 0.7890385, -3.5758238)
@@ -27,7 +31,7 @@ points = PackedVector3Array(-0.1290573, -0.08072378, 4.1053095, 0.11251573, 0.01
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_k2vkn")
-brake_force = 25.0
+brake_force = 31.985
 max_move_x = 15.0
 
 [node name="Pivot" type="Node3D" parent="." unique_id=820222577]
@@ -44,14 +48,20 @@ spit = NodePath("..")
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 2.4322321, -0.020763297, 0)
 shape = SubResource("CapsuleShape3D_7whva")
 
-[node name="HookBlock" type="StaticBody3D" parent="." unique_id=1889978815]
+[node name="HookBlock" type="CharacterBody3D" parent="." unique_id=1424814504]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4726458, -0.006015897, 0)
 collision_layer = 8
 collision_mask = 4
+script = ExtResource("4_l1otm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HookBlock" unique_id=950106190]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.213512, 0.72965765, 0)
 shape = SubResource("BoxShape3D_wd5ij")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="HookBlock" unique_id=1465531864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3152666, 0.7442455, -1.7817383)
+visible = false
+mesh = SubResource("BoxMesh_wd5ij")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=1632354624]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.60666156, 0, 2.651802e-08)
