@@ -34,7 +34,7 @@ signal combo_mult_applied ## When mult is applied at the end
 
 @export_category("Game")
 @export var game_running: bool = false ## why is this export?
-@export var game_time: int = 60 ## Seconds until game ends
+@export var game_time: int = 120 ## Seconds until game ends
 
 @export_category("Eating")
 ## When croc eats food, it reviews it from 1-4 based on request.
@@ -79,6 +79,7 @@ var score: int = 0
 func _ready() -> void:
 	camera = get_viewport().get_camera_3d()
 	
+	entire_spit_eaten.connect(func(): countdown_timer.start(countdown_timer.time_left + 15))
 
 
 func init_game() -> void:
