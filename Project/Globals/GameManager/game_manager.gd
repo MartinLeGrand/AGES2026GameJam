@@ -10,18 +10,23 @@ enum Review {
 }
 
 
-## Man idk man whats this even
+## SPIT
 signal food_got_spitted ## bad name
 
+### GAME
 signal timer_finished ## When countdown timer finished. Use game end instead!
 signal game_started ## When gameplay part of game starts
 signal game_ended ## When gameplay part of game ends
 
+#### ORDER 
 signal order_created ## When order is created
 signal order_changed ## Hopefully when order is changed
 
+##### EATING
 signal food_eaten(food: Food, review: Review) ## When a food is eaten
 signal score_added(gained: int) ## When points are gained
+signal feed_combo_gain ## When nr is added to feed_combo
+signal feed_combo_reset ## When feed combo is reset
 
 
 @export_category("Game")
@@ -34,7 +39,13 @@ signal score_added(gained: int) ## When points are gained
 
 ## Once player feeds the croc it'll eat everything on the spit, then create a new order.
 @export var time_to_feed: float = 0.5 ## Grace period until new order, once feed has started
-@export var feed_combo: int = 0 ## Multiplied to score. +1 When feeding correct food, else set to zero
+@export var feed_combo: int = 0: ## Multiplied to score. +1 When feeding correct food, else set to zero
+	set(value):
+		feed_combo = value
+		if feed_combo <= 0:
+			feed_combo_reset.emit()
+		else:
+			feed_combo_gain.emit()
 
 @export_category("Request")
 @export var max_order_size: int = 6

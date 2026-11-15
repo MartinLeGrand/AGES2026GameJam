@@ -213,6 +213,7 @@ environment = SubResource("Environment_d2qli")
 process_mode = 3
 
 [node name="UiOrderThought" parent="CanvasLayerForeground" unique_id=1780630391 instance=ExtResource("1_wot6h")]
+process_mode = 1
 
 [node name="CanvasLayerBackground" parent="." unique_id=1184656298 instance=ExtResource("1_mg1f3")]
 

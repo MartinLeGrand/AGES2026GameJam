@@ -16,6 +16,7 @@ eat_pause = 0.4
 [node name="ResetTimer" type="Timer" parent="." unique_id=2108583334]
 process_mode = 1
 wait_time = 0.5
+one_shot = true
 
 [node name="CrunchSound" type="AudioStreamPlayer" parent="." unique_id=1358505565]
 stream = ExtResource("2_x5b0v")

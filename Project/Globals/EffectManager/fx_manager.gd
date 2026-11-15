@@ -49,6 +49,8 @@ var _playing_frying: Array[int] = []
 func _ready() -> void:
 	frying_sound.play()
 	frying_poly_playback = frying_sound.get_stream_playback()
+	
+	GameManager.feed_combo_reset.connect(reset_combo)
 
 
 ## Freezes cam and plays audio
@@ -128,8 +130,12 @@ func _add_to_combo() -> void:
 	reset_timer.start(reset_time)
 
 
-func _on_reset_timer_timeout() -> void:
+func reset_combo() -> void:
+	print("RESET!")
 	combo_mult = BASE_MULT
+
+func _on_reset_timer_timeout() -> void:
+	reset_combo()
 
 
 func play_a_frying_sound() -> void:
