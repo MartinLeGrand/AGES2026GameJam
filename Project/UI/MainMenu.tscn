@@ -447,7 +447,7 @@ angular_velocity_max = 45.0
 angle_max = 360.0
 
 [node name="Particles_Mushroom" type="CPUParticles2D" parent="Panel" unique_id=1884820622]
-position = Vector2(317, 100.09)
+position = Vector2(317, -49)
 amount = 32
 texture = ExtResource("9_w0bjs")
 lifetime = 60.0
