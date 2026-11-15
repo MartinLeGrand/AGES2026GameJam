@@ -4,7 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://ceujt10bqw625" path="res://Project/Prefabs/scrolling_bg_canvas_layer.tscn" id="1_mg1f3"]
 [ext_resource type="PackedScene" uid="uid://dk6kbpeod80hb" path="res://Project/UI/Scenes/UI_OrderThought.tscn" id="1_wot6h"]
 [ext_resource type="PackedScene" uid="uid://b228nggyl5wud" path="res://Project/GameObjects/Spawner/Spawner.tscn" id="2_wot6h"]
+[ext_resource type="LabelSettings" uid="uid://cij2mbiqocumf" path="res://Project/UI/Styles/Labels/LS_Button_MainMenu.tres" id="3_d2qli"]
 [ext_resource type="PackedScene" uid="uid://clta7w2jsxbq4" path="res://Project/GameObjects/Spit/Spit.tscn" id="3_d62tq"]
+[ext_resource type="Script" uid="uid://m4flvqqgldkv" path="res://Project/Scripts/timer_label.gd" id="4_6opy2"]
 [ext_resource type="PackedScene" uid="uid://crkma5gafw4qf" path="res://Project/Prefabs/text_effect_spawner.tscn" id="4_e8hnt"]
 [ext_resource type="Script" uid="uid://na5ryfkm6iaj" path="res://Project/Scripts/text_test.gd" id="5_q8uac"]
 [ext_resource type="Material" uid="uid://cx6utliwik3uh" path="res://Project/Materials/vertex_unshaded.tres" id="6_p7xys"]
@@ -129,6 +131,21 @@ process_mode = 3
 
 [node name="UiOrderThought" parent="CanvasLayerForeground" unique_id=1780630391 instance=ExtResource("1_wot6h")]
 process_mode = 1
+
+[node name="TimerLabel" type="Label" parent="CanvasLayerForeground" unique_id=811185736]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.0
+offset_top = 24.0
+offset_right = 67.0
+offset_bottom = 47.0
+grow_horizontal = 2
+text = "00:00"
+label_settings = ExtResource("3_d2qli")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_6opy2")
 
 [node name="CanvasLayerBackground" parent="." unique_id=1184656298 instance=ExtResource("1_mg1f3")]
 
