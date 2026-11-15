@@ -9,4 +9,4 @@ func load_mainmenu() -> void:
 
 
 func _on_button_pressed() -> void:
-	animPlayer.play("end_exit")
+	load_mainmenu()

@@ -270,7 +270,7 @@ horizontal_alignment = 1
 
 [node name="Spawner" parent="." unique_id=1467685239 instance=ExtResource("2_wot6h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -5)
-spawn_time = 0.4
+spawn_time = 1.0
 
 [node name="Spear" parent="." unique_id=1700181818 instance=ExtResource("3_d62tq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.72889566, -3.8391643, -5)
@@ -310,7 +310,7 @@ mesh = SubResource("ArrayMesh_y80wx")
 surface_material_override/0 = SubResource("StandardMaterial3D_bcaam")
 
 [node name="Fire" parent="." unique_id=88479697 instance=ExtResource("10_q8uac")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6265745, -6.6969757, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4493499, -6.6969757, -5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1259900917]
 libraries/ = SubResource("AnimationLibrary_gctcx")
