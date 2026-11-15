@@ -1,13 +1,57 @@
 extends Node
 
-const CRUNCH_RANDOMIZER = preload("uid://b56g15d71rpr7")
+
+## Food Score
+enum Review {
+	AMAZING,
+	DECENT,
+	TERRIBLY_COOKED,
+	WRONG_FOOD,
+}
 
 
-signal order_created
+## SPIT
+signal food_got_spitted ## bad name
+
+### GAME
+signal timer_finished ## When countdown timer finished. Use game end instead!
+signal game_started ## When gameplay part of game starts
+signal game_ended ## When gameplay part of game ends
+
+#### ORDER 
+signal order_created ## When order is created
+signal order_changed ## Hopefully when order is changed
+
+##### EATING
+signal food_eaten(food: Food, review: Review) ## When a food is eaten
+signal score_added(gained: int) ## When points are gained
+signal feed_combo_gain ## When nr is added to feed_combo
+signal feed_combo_reset ## When feed combo is reset
+
+
+@export_category("Game")
+@export var game_running: bool = false ## why is this export?
+@export var game_time: int = 60 ## Seconds until game ends
+
+@export_category("Eating")
+## When croc eats food, it reviews it from 1-4 based on request.
+@export var review_mult: float = 1.25 ## Food_new_value = Food_base_value * (review_score * review_mult)
+
+## Once player feeds the croc it'll eat everything on the spit, then create a new order.
+@export var time_to_feed: float = 0.5 ## Grace period until new order, once feed has started
+@export var feed_combo: int = 0: ## Multiplied to score. +1 When feeding correct food, else set to zero
+	set(value):
+		feed_combo = value
+		if feed_combo <= 0:
+			feed_combo_reset.emit()
+		else:
+			feed_combo_gain.emit()
+
+@export_category("Request")
+@export var max_order_size: int = 6
 
 
 @export_category("Modifiers")
-@export var use_modifiers: bool = false
 @export var gravity_mult: float = 1.0 ## Multiples gravity for NEW foods
 @export var spawn_speed_mult: float = 1.0 ## Less means more frequent spawns!
 @export var spit_speed_mult: float = 1.0
@@ -15,67 +59,158 @@ signal order_created
 var foods_on_spit: Array[Food] = [] ## Could just be array of enum...
 var spawned_food_counter: int = 0 ## Updated by Food when it's added to tree
 var order: Array[Food.Request] = []
+var camera: ShakyCamera = null
+
+
+#region Player
+var score: int = 0
+#endregion
+
+
+@onready var countdown_timer: Timer = $CountdownTimer
+@onready var feed_event_timer: Timer = $FeedEventTimer
 
 
 func _ready() -> void:
+	camera = get_viewport().get_camera_3d()
+	start_game()
+
+
+func start_game() -> void:
 	create_order()
+	countdown_timer.start(game_time) 
+	game_started.emit()
+	game_running = true
 
 
-func _process(delta: float) -> void:
-	#print(foods_on_spit)
-	#if not foods_on_spit.is_empty():
-		#foods_on_spit[0].cooked_score()
-	pass
-
-func spitted_food_count() -> void:
-	return foods_on_spit.size()
+## Called on countdown timer timeout
+func end_game() -> void:
+	game_ended.emit()
+	game_running = false
 
 
+#region spit
 ## Called by Food when food is added to spit
 func food_spitted(food: Food) -> void:
-	## NOTE: ADD SCREEN SHAKE HERE 
+	var fx: FXManager.FX
+	match food.type:
+		Food.Type.MUSHROOM:
+			fx = FXManager.FX.SPITTED_SHROOM
+		Food.Type.PINEAPPLE:
+			fx = FXManager.FX.SPITTED_PINE
+		Food.Type.TOMATO:
+			fx = FXManager.FX.SPITTED_TOMATO
+		Food.Type.ZUCCHINI:
+			fx = FXManager.FX.SPITTED_ZUCC
+	FXManager.request_fx(fx)
+	
 	
 	if not foods_on_spit.has(food):
 		foods_on_spit.append(food)
-		if use_modifiers:
-			apply_modifier(food, true)
+	
+	food_got_spitted.emit()
 
 
+## Called by Food when food falls off spit
+func food_fell_off(food: Food) -> void:
+	if foods_on_spit.has(food):
+		foods_on_spit.erase(food)
+
+
+func spitted_food_count() -> int:
+	return foods_on_spit.size()
+#endregion
+
+#region Feeding
 func eat_food(food: Food) -> void:
+	if feed_event_timer.is_stopped():
+		feed_event_timer.start(time_to_feed)
+	
 	## Is in order?
 	var food_in_order: bool = false
 	var req_index: int = 0
 	for request: Food.Request in order:
 		if is_food_in_request(food, request):
 			food_in_order = true
+			feed_combo += 1
 			break
 		req_index += 1
 	
 	## Taste test
+	var review: Review = Review.TERRIBLY_COOKED
 	if food_in_order:
-		order[req_index].amount -= 1 ## Remove one amount from order
-		
 		## How was it cooked
 		if food.prepared == order[req_index].prepared:
-			print("amazing")
-			## Await something
+			#print("amazing")
+			calculate_and_add_score(food, Review.AMAZING)
+			review = Review.AMAZING
+
 		elif food.prepared + 1 == order[req_index].prepared or food.prepared - 1 == order[req_index].prepared:
-			print("decent")
-			## Await something
+			#print("decent")
+			calculate_and_add_score(food, Review.DECENT)
+			review = Review.DECENT
+
 		else:
-			print("terribly cooked")
-			## Await something
+			#print("terribly cooked")
+			review = Review.TERRIBLY_COOKED
+			calculate_and_add_score(food, Review.TERRIBLY_COOKED)
+		
+		## Remove from order
+		order[req_index].amount -= 1 ## Remove one amount from order
+		if order[req_index].amount <= 0:
+			order.remove_at(req_index)
+		order_changed.emit()
 	else:
-		print("Not in order at all!")
-		## Await something
-	FXManager.play_eat()
+		## Not in order at all!
+		feed_combo = 0
+		calculate_and_add_score(food, Review.WRONG_FOOD)
+	
+	FXManager.request_fx(FXManager.FX.EAT)
+	food_eaten.emit(food, review)
 	food.queue_free()
 
 
+func calculate_and_add_score(food: Food, review: Review) -> void:
+	var mult: float = 1.0
+	var s: int = food.points
+	match review:
+		Review.AMAZING:
+			mult = review_mult * 12
+		Review.DECENT:
+			mult = review_mult * 6
+		Review.TERRIBLY_COOKED:
+			mult = review_mult * 3
+		Review.WRONG_FOOD:
+			mult = 1.0
+		_:
+			pass ## Error!
+	
+	var actual_feed_combo: int = feed_combo if feed_combo > 0 else 1
+	s = int(float(s) * mult * actual_feed_combo)
+	add_score(s)
+
+
+## Called on FeedEventTimer timeout (function way down here)
+func end_feeding() -> void:
+	create_order()
+
+
+func add_score(gained: int) -> void:
+	score += gained
+	score_added.emit(gained)
+	print(score)
+#endregion
+
+#region Order
 func create_order() -> void:
+	
 	var new_order: Array[Food.Request]
+	var foods_in_order: int = 0
 	for r: int in randi_range(1, 4):
 		for attempt: int in 40:
+			if foods_in_order >= max_order_size:
+				break
+			
 			var ingredient: int = randi_range(0, Food.Type.size()-1)
 			var is_used: bool = false
 			for request: Food.Request in new_order:
@@ -83,8 +218,8 @@ func create_order() -> void:
 					is_used = true
 					break
 			if not is_used:
-				print(ingredient)
-				var request: Food.Request = Food.Request.rnd_request(ingredient)
+				var request: Food.Request = Food.Request.rnd_request(ingredient, max_order_size-foods_in_order)
+				foods_in_order += request.amount
 				new_order.append(request)
 				break
 	if new_order.is_empty():
@@ -110,67 +245,13 @@ func is_food_in_order(food: Food) -> bool:
 		if is_food_in_request(food, request):
 			return true
 	return false
-
-
-## Called by Food when food falls off spit
-func food_fell_off(food: Food) -> void:
-	if foods_on_spit.has(food):
-		foods_on_spit.erase(food)
-		if use_modifiers:
-			apply_modifier(food, false)
-
-#region ARCHIVE
-func apply_modifier(food: Food, spitted: bool) -> void:
-	match food.type:
-		Food.Type.MUSHROOM:
-			#if spitted 
-			if spitted:
-				gravity_mult += 1
-			else:
-				gravity_mult -= 1
-			
-		Food.Type.ZUCCHINI:
-			if spitted:
-				spit_speed_mult += 0.2
-				print(spit_speed_mult)
-			else:
-				spit_speed_mult -= 0.2
-		Food.Type.TOMATO:
-			pass
-		Food.Type.PINEAPPLE:
-			pass
-#
-#
-### Returns true if food was good
-#func compare_food_to_request(food: Food, request: Food.Request) -> bool:
-	#if food.type == request.type:
-		#if not request.amount > 0:
-			#print("Full!")
-			#return 0
-		#
-		#if food.prepared == request.prepared:
-			#print("amazing")
-			#return 1
-		#elif food.prepared + 1 == request.prepared or food.prepared - 1 == request.prepared:
-			#print("decent")
-			#return 1
-		#print("cooked badly")
-	#
-	#print("wrong vegetable")
-	#return 0
-
-
-#func check_results() -> void:
-	#for request: Food.Request in order:
-		#var food_accepted: bool = false
-		#for food: Food in foods_on_spit:
-			#food_accepted = compare_food_to_request(food, request)
-		#if not food_accepted:
-			#print("Literally puking rn")
-#
-#
-#func compare_food_to_order(food: Food) -> void:
-	#for request: Food.Request in order:
-		#compare_food_to_request(food, request)
-
 #endregion
+
+
+func _on_countdown_timer_timeout() -> void:
+	timer_finished.emit()
+	end_game()
+
+
+func _on_feed_event_timer_timeout() -> void:
+	end_feeding()

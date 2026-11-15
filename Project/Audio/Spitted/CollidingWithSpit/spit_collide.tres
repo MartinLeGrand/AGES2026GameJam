@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://dhasbkfvn7fde"]
+
+[ext_resource type="AudioStream" uid="uid://c3o2oxucfx4fi" path="res://Project/Audio/Spitted/CollidingWithSpit/chill_thump1_better.wav" id="1_6t5ke"]
+[ext_resource type="AudioStream" uid="uid://dmtowp6hkdrf5" path="res://Project/Audio/Spitted/CollidingWithSpit/chill_thump2.wav" id="2_kjqop"]
+
+[resource]
+playback_mode = 1
+random_pitch = 1.1684397
+streams_count = 2
+stream_0/stream = ExtResource("1_6t5ke")
+stream_1/stream = ExtResource("2_kjqop")

@@ -1,0 +1,12 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://d1lshd1msyf85"]
+
+[ext_resource type="AudioStream" uid="uid://pmbxjjrfiapj" path="res://Project/Audio/Spitted/SpittedShrooms/v2impale_shroom_1.wav" id="1_w7fe4"]
+[ext_resource type="AudioStream" uid="uid://dhgrhfit71d6i" path="res://Project/Audio/Spitted/SpittedShrooms/v2impale_shroom_2.wav" id="2_kvr5v"]
+[ext_resource type="AudioStream" uid="uid://ch1saishxtpak" path="res://Project/Audio/Spitted/SpittedShrooms/v2impale_shroom_3.wav" id="3_hxthg"]
+
+[resource]
+random_pitch = 1.0665241
+streams_count = 3
+stream_0/stream = ExtResource("1_w7fe4")
+stream_1/stream = ExtResource("2_kvr5v")
+stream_2/stream = ExtResource("3_hxthg")

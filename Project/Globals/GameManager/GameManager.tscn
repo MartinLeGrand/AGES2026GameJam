@@ -5,3 +5,13 @@
 [node name="GameManager" type="Node" unique_id=84281026]
 process_mode = 3
 script = ExtResource("1_vb1cc")
+
+[node name="CountdownTimer" type="Timer" parent="." unique_id=250983023]
+one_shot = true
+
+[node name="FeedEventTimer" type="Timer" parent="." unique_id=613989980]
+process_mode = 1
+one_shot = true
+
+[connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]
+[connection signal="timeout" from="FeedEventTimer" to="." method="_on_feed_event_timer_timeout"]

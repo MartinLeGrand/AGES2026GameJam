@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://bx56j4pfw5yaq"]
+
+[ext_resource type="AudioStream" uid="uid://bim5elfd8cw7" path="res://Project/Audio/Spitted/SpittedZucc/impale_zucc_1.wav" id="1_y8s2l"]
+[ext_resource type="AudioStream" uid="uid://dg2ljw8rcj7h5" path="res://Project/Audio/Spitted/SpittedZucc/impale_zucc_2.wav" id="2_vfkba"]
+[ext_resource type="AudioStream" uid="uid://dhdpa2rubwthi" path="res://Project/Audio/Spitted/SpittedZucc/impale_zucc_3.wav" id="3_d61p1"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_y8s2l")
+stream_1/stream = ExtResource("2_vfkba")
+stream_2/stream = ExtResource("3_d61p1")

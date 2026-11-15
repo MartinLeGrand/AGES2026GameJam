@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://bk7m2ifpl8vbh"]
 
+[ext_resource type="Script" uid="uid://crroxg6q5ov43" path="res://Project/Scripts/shaker.gd" id="1_d62tq"]
 [ext_resource type="PackedScene" uid="uid://ceujt10bqw625" path="res://Project/Prefabs/scrolling_bg_canvas_layer.tscn" id="1_mg1f3"]
 [ext_resource type="PackedScene" uid="uid://dk6kbpeod80hb" path="res://Project/UI/Scenes/UI_OrderThought.tscn" id="1_wot6h"]
 [ext_resource type="PackedScene" uid="uid://b228nggyl5wud" path="res://Project/GameObjects/Spawner/Spawner.tscn" id="2_wot6h"]
@@ -7,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://crkma5gafw4qf" path="res://Project/Prefabs/text_effect_spawner.tscn" id="4_e8hnt"]
 [ext_resource type="Script" uid="uid://na5ryfkm6iaj" path="res://Project/Scripts/text_test.gd" id="5_q8uac"]
 [ext_resource type="Material" uid="uid://cx6utliwik3uh" path="res://Project/Materials/vertex_unshaded.tres" id="6_p7xys"]
+[ext_resource type="PackedScene" uid="uid://jhui4717qmye" path="res://Project/GameObjects/Collector/Collector.tscn" id="9_e8hnt"]
+[ext_resource type="PackedScene" uid="uid://dr6dff44m6wmu" path="res://Project/GameObjects/Fire/Fire.tscn" id="10_q8uac"]
 
 [sub_resource type="Environment" id="Environment_d2qli"]
 background_mode = 3
@@ -201,13 +204,16 @@ _data = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 current = true
 fov = 90.0
+script = ExtResource("1_d62tq")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1149292521]
 environment = SubResource("Environment_d2qli")
 
 [node name="CanvasLayerForeground" type="CanvasLayer" parent="." unique_id=1095764003]
+process_mode = 3
 
 [node name="UiOrderThought" parent="CanvasLayerForeground" unique_id=1780630391 instance=ExtResource("1_wot6h")]
+process_mode = 1
 
 [node name="CanvasLayerBackground" parent="." unique_id=1184656298 instance=ExtResource("1_mg1f3")]
 
@@ -215,11 +221,11 @@ environment = SubResource("Environment_d2qli")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -5)
 
 [node name="Spear" parent="." unique_id=1700181818 instance=ExtResource("3_d62tq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, -3.5, -5)
-max_move_x = 20.0
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.72889566, -3.8391643, -5)
+max_move_x = 14.0
 
 [node name="TextEffectSpawner" parent="Spear" unique_id=902985388 node_paths=PackedStringArray("canvasLayer") instance=ExtResource("4_e8hnt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3413887, 0, 0)
 canvasLayer = NodePath("../../CanvasLayerForeground")
 
 [node name="Node3D" type="Node3D" parent="." unique_id=1527390588]
@@ -227,6 +233,9 @@ script = ExtResource("5_q8uac")
 
 [node name="Crocodile" type="Node3D" parent="." unique_id=215106420]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12, -3.855, -5)
+
+[node name="Collector" parent="Crocodile" unique_id=1923489956 instance=ExtResource("9_e8hnt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4391284, -2.816393)
 
 [node name="Croc_Top" type="MeshInstance3D" parent="Crocodile" unique_id=1743015791]
 mesh = SubResource("ArrayMesh_6opy2")
@@ -246,3 +255,12 @@ surface_material_override/0 = SubResource("StandardMaterial3D_bcaam")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1465568509]
 libraries/ = SubResource("AnimationLibrary_gctcx")
 autoplay = &"croc_idle"
+
+[node name="Fire" parent="." unique_id=88479697 instance=ExtResource("10_q8uac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.6969757, -5)
+
+[node name="Fire2" parent="." unique_id=1384899858 instance=ExtResource("10_q8uac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8637524, -6.6969757, -5)
+
+[node name="Fire3" parent="." unique_id=917897789 instance=ExtResource("10_q8uac")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.607111, -6.6969757, -5)

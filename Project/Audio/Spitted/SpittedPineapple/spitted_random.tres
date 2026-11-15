@@ -1,0 +1,13 @@
+[gd_resource type="AudioStreamRandomizer" format=3 uid="uid://cvvur8xb5k2xv"]
+
+[ext_resource type="AudioStream" uid="uid://upwy4bfwuo5b" path="res://Project/Audio/Spitted/SpittedPineapple/impale1.wav" id="1_ihhxa"]
+[ext_resource type="AudioStream" uid="uid://cers6vpsrtruo" path="res://Project/Audio/Spitted/SpittedPineapple/impale2.wav" id="2_tbuh2"]
+[ext_resource type="AudioStream" uid="uid://be7i2rsn0k0rg" path="res://Project/Audio/Spitted/SpittedPineapple/impale3.wav" id="3_lghqe"]
+[ext_resource type="AudioStream" uid="uid://bbn06myao2jfp" path="res://Project/Audio/Spitted/SpittedPineapple/impale4.wav" id="4_8t78j"]
+
+[resource]
+streams_count = 4
+stream_0/stream = ExtResource("1_ihhxa")
+stream_1/stream = ExtResource("2_tbuh2")
+stream_2/stream = ExtResource("3_lghqe")
+stream_3/stream = ExtResource("4_8t78j")
