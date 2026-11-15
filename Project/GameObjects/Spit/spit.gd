@@ -35,7 +35,8 @@ func _physics_process(_delta: float) -> void:
 		velocity.x = -dash_speed
 	
 	if is_dashing:
-		if global_position.x <= start_dash_pos-dash_length:
+		if global_position.x <= start_dash_pos-dash_length or \
+		is_equal_approx(position.x, _min_x):
 			is_dashing = false
 	else:
 		## PLAYER INPUT
