@@ -112,8 +112,11 @@ func _process(delta: float) -> void:
 		stop_a_frying_sound()
 
 
-func request_fx(fx: FX) -> void:
-	_fx_queue.append(fx)
+func request_fx(fx: FX, force_first: bool = false) -> void:
+	if force_first:
+		_fx_queue.insert(0, fx)
+	else:
+		_fx_queue.append(fx)
 
 
 func request_screenshake() -> void:
