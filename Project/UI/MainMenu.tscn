@@ -64,7 +64,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [0.017453292519943295]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -185,6 +185,18 @@ tracks/12/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Panel/VBoxContainer:scale")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_urpi8"]
@@ -384,12 +396,126 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_s3krv"]
+resource_name = "anim_mainmenu_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/Particles_Zuchini:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/Particles_Tomato:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel/Particles_Pineapple:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/Particles_Mushroom:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel/VBoxContainer:scale")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.98, 0.98), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Panel/VBoxContainer:modulate")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_mainmenu_loop"
+}]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Panel/VBoxContainer/Control2/Label:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5, 3)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Panel/VBoxContainer/Control2/Label:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.017453292]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rwcad"]
 _data = {
 &"RESET": SubResource("Animation_rwcad"),
 &"anim_mainmenu_gamestart": SubResource("Animation_urpi8"),
 &"anim_mainmenu_loop": SubResource("Animation_w0bjs"),
-&"anim_mainmenu_quit": SubResource("Animation_yjyue")
+&"anim_mainmenu_quit": SubResource("Animation_yjyue"),
+&"anim_mainmenu_start": SubResource("Animation_s3krv")
 }
 
 [node name="MainMenu" type="Control" unique_id=1202245050]
@@ -415,7 +541,6 @@ position = Vector2(317, -49)
 amount = 32
 texture = ExtResource("7_a4vlu")
 lifetime = 60.0
-preprocess = 60.0
 local_coords = true
 emission_shape = 3
 emission_rect_extents = Vector2(340, 1)
@@ -433,7 +558,6 @@ position = Vector2(317, -49)
 amount = 32
 texture = ExtResource("8_plj7o")
 lifetime = 60.0
-preprocess = 60.0
 local_coords = true
 emission_shape = 3
 emission_rect_extents = Vector2(340, 1)
@@ -451,7 +575,6 @@ position = Vector2(317, -49)
 amount = 32
 texture = ExtResource("9_w0bjs")
 lifetime = 60.0
-preprocess = 60.0
 local_coords = true
 emission_shape = 3
 emission_rect_extents = Vector2(340, 1)
@@ -469,7 +592,6 @@ position = Vector2(317, -49)
 amount = 32
 texture = ExtResource("4_a4vlu")
 lifetime = 60.0
-preprocess = 60.0
 local_coords = true
 emission_shape = 3
 emission_rect_extents = Vector2(340, 1)
@@ -495,6 +617,7 @@ offset_right = 171.0
 offset_bottom = 125.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 theme_override_constants/separation = 37
 
 [node name="Control2" type="Control" parent="Panel/VBoxContainer" unique_id=792245355]
@@ -514,6 +637,7 @@ offset_right = 173.0
 offset_bottom = 32.5
 grow_horizontal = 2
 grow_vertical = 2
+rotation = 0.017453292
 pivot_offset_ratio = Vector2(0.5, 1)
 text = "Crocokebab"
 label_settings = ExtResource("2_ptxru")
@@ -618,6 +742,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_1cydk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=706828109]
 libraries/ = SubResource("AnimationLibrary_rwcad")
+autoplay = &"anim_mainmenu_start"
 
 [connection signal="pressed" from="Panel/VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

@@ -3,7 +3,11 @@ var animPlayer : AnimationPlayer
 
 func _ready() -> void:
 	animPlayer = $AnimationPlayer
+
+
+func start_mainmenu_loop() -> void:
 	animPlayer.play("anim_mainmenu_loop")
+
 
 func _on_button_pressed() -> void:
 	animPlayer.play("anim_mainmenu_gamestart")
