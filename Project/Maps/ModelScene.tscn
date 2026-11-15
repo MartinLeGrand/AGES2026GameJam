@@ -125,6 +125,8 @@ transform = Transform3D(-4.3651482e-08, -2.2876774e-09, -1, -0.05233596, 0.99862
 script = ExtResource("3_rr3j8")
 croc_top = NodePath("Croc_Top")
 croc_bottom = NodePath("Croc_Top/Croc_Bottom")
+jaw_open_time = null
+jaw_close_time = null
 metadata/_custom_type_script = "uid://bhuyt7axr0w2s"
 
 [node name="Collector" parent="Crocodile" unique_id=1923489956 instance=ExtResource("10_5avfo")]

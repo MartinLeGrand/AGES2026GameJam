@@ -7,6 +7,7 @@ class_name Chomper extends Node3D
 @export var jaw_close_time: float = 0.7
 
 var start_y: float = 0.0
+var 
 
 func _ready() -> void:
 	GameManager.order_created.connect(open_jaw)
@@ -28,8 +29,8 @@ func _ready() -> void:
 
 func open_jaw():
 	print("open")
-	get_tree().create_tween().tween_property(croc_top, "global_rotation:x", deg_to_rad(14.0), 1.0).set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
-	get_tree().create_tween().tween_property(croc_bottom, "global_rotation:x", deg_to_rad(-14.0), 1.0).set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
+	get_tree().create_tween().tween_property(croc_top, "global_rotation:x", deg_to_rad(14.0), 1.0).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	get_tree().create_tween().tween_property(croc_bottom, "global_rotation:x", deg_to_rad(-14.0), 1.0).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 func close_jaw():
 	get_tree().create_tween().tween_property(croc_top, "global_rotation:x", deg_to_rad(0.0), 0.7).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
