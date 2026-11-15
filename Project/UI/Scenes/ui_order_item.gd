@@ -25,17 +25,21 @@ func setFoodType(food : Food.Type):
 func setTargetPrepared(food : Food.Prepared):
 	match food:
 		Food.Prepared.RAW:
-			print_debug("RAW")
-			modulate = Color(1.0, 1.0, 1.0) # Normal
+			#print_debug("RAW")
+			#modulate = Color(1.0, 1.0, 1.0) # Normal
+			modulate = Color(1.0, 1.0, 1.0)
 		Food.Prepared.MEDIUM_RARE:
-			print_debug("RARE")
-			modulate = Color(1.0, 0.85, 0.85) # Slightly warm
+			#print_debug("RARE")
+			#modulate = Color(1.0, 0.85, 0.85) # Slightly warm
+			modulate = Color("f4bfa6ff")
 		Food.Prepared.COOKED:
-			print_debug("COOKED")
-			modulate = Color(0.85, 0.65, 0.65) # Darker, cooked look
+			#print_debug("COOKED")
+			#modulate = Color(0.85, 0.65, 0.65) # Darker, cooked look
+			modulate = Color("cd7345")
 		Food.Prepared.BURNT:
-			print_debug("BURNT")
-			modulate = Color(0.5, 0.25, 0.25) # Dark and reddish-brown
+			#print_debug("BURNT")
+			#modulate = Color(0.5, 0.25, 0.25) # Dark and reddish-brown
+			modulate = Color("583726ff")
 		Food.Prepared.COAL:
-			print_debug("COAL")
-			modulate = Color(0.2, 0.2, 0.2) # Charcoal dark gray
+			#print_debug("COAL")
+			modulate = Color("333333") # Charcoal dark gray

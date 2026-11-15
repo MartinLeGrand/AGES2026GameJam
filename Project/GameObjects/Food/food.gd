@@ -28,7 +28,7 @@ enum Prepared {
 @export var cook_time: float = 5.0 ## Seconds until perfectly cooked
 #@export var burn_time: float  2.0 ## Seconds after cooked until burnt.
 @export var cooked_color: Color = Color(0.804, 0.45, 0.27, 1.0)
-@export var burnt_color: Color = Color()
+@export var burnt_color: Color = Color("333333")
 
 
 @export_category("Spit")
