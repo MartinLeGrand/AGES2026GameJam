@@ -34,7 +34,7 @@ signal combo_mult_applied ## When mult is applied at the end
 
 @export_category("Game")
 @export var game_running: bool = false ## why is this export?
-@export var game_time: int = 10 ## Seconds until game ends
+@export var game_time: int = 120 ## Seconds until game ends
 
 @export_category("Eating")
 ## When croc eats food, it reviews it from 1-4 based on request.

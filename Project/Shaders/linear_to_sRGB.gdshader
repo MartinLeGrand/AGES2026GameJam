@@ -9,7 +9,7 @@ void fragment() {
 	vec3 c = COLOR.rgb; // NOTE: this is always linear
 	
 	// If output wants colors as sRGB, convert linear to sRGB
-	if (OUTPUT_IS_SRGB) { // This is true for web
+	if (OUTPUT_IS_SRGB) { // This is true for web, false for desktop
 		c = mix(1.055 * pow(c, vec3(1.0 / 2.4)) - 0.055,
 		        c * 12.92,
 		        lessThan(c, vec3(0.0031308)));
