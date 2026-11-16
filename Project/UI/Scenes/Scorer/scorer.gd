@@ -17,7 +17,7 @@ var get_final_score_tween: Tween
 @onready var points_from_spit_label: Label = $PointsFromSpitLabel
 @onready var combo_label: Label = $ComboPivot/ComboLabel
 @onready var combo_pivot: Control = $ComboPivot
-@onready var total_score_label: Label = $TotalScoreLabel
+@onready var total_score_label: Label = $MarginContainer/TotalScoreLabel
 
 
 func _ready() -> void:

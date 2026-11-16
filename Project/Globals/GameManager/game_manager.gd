@@ -82,6 +82,7 @@ func _ready() -> void:
 	entire_spit_eaten.connect(func(): try_add_time())
 
 func init_game() -> void:
+	score = 0
 	get_tree().create_timer(1).timeout.connect(start_game)
 
 func _process(_delta: float) -> void:

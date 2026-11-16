@@ -12,7 +12,7 @@ material = SubResource("StandardMaterial3D_qxvjs")
 size = Vector3(2.663147, 1.0202332, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m148c"]
-size = Vector3(2.3925781, 4.964855, 1)
+size = Vector3(2.3925781, 3.658331, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0y8mm"]
 shading_mode = 0
@@ -34,7 +34,7 @@ visible = false
 mesh = SubResource("BoxMesh_wd5ij")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1947991531]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11074829, 1.9824276, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11074829, 1.3291655, 0)
 shape = SubResource("BoxShape3D_m148c")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=674607671]

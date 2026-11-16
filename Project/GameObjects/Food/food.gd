@@ -25,11 +25,16 @@ enum Prepared {
 
 @export var type: Type
 @export var points: int = 1000 ## Value of food when calculating score
-@export var cook_time: float = 5.0 ## Seconds until perfectly cooked
+@export var cook_time: float = 2.3 ## Seconds until perfectly cooked
 #@export var burn_time: float  2.0 ## Seconds after cooked until burnt.
 @export var cooked_color: Color = Color(0.804, 0.45, 0.27, 1.0)
 @export var burnt_color: Color = Color("333333")
 
+@export var depth_color: Color = Color("9d7cc1")
+@export var max_depth: float = 1.3
+var cook_albedo: Color
+var outline_albedo: Color
+var start_z: float = 0
 
 @export_category("Spit")
 @export_range(0.0, 100.0, 1.0) var spit_velocity_needed: float = 30.0 ## Velocity needed to penetrate food 
@@ -81,13 +86,20 @@ func _ready() -> void:
 					outline_material = mesh_child.get_surface_override_material(0).duplicate()
 					outline_clr = outline_material.albedo_color
 					mesh_child.set_surface_override_material(0, outline_material)
+					outline_albedo = outline_clr
 			
 			child.mesh = child.mesh.duplicate_deep()
 			food_material = STANDARD_MATERIAL.duplicate()
 			
 			child.mesh.surface_set_material(0, food_material)
 			start_color = food_material.albedo_color ## it's just white my dude
+			cook_albedo = start_color
 			break
+	food_material.emission_enabled= true
+	outline_material.emission_enabled = true
+	start_z = position.z
+	apply_color()
+	
 	
 	
 	GameManager.spawned_food_counter += 1
@@ -109,7 +121,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if over_fire:
 		cooked_amount += delta
-		
+	apply_color()
 		#print(cooked_amount)
 	
 
@@ -132,6 +144,13 @@ func _physics_process(_delta: float) -> void:
 			linear_velocity.x = 0
 		pass
 
+
+func apply_color() -> void:
+	if not food_material or not outline_material:
+		return
+	var t: float = clampf(absf(position.z - start_z) / max_depth, 0.0, 1.0)
+	food_material.albedo_color = cook_albedo.lerp(depth_color, t)
+	outline_material.albedo_color = outline_albedo.lerp(depth_color * outline_clr, t)
 
 func try_get_spitted(tip: Tip) -> void:
 	if not tip:
@@ -166,16 +185,28 @@ func rnd_float(min_max: float = max_spin_force) -> float:
 func move_with_spear(follow: bool = true) -> void:
 	follow_spear = follow
 
+#
+#func set_cooked_color() -> void:
+	#if cooked_amount <= cook_time:
+			#var t: float = clampf(cooked_amount / cook_time, 0.0, 1.0)
+			#food_material.albedo_color = start_color.lerp(cooked_color, t)
+			#outline_material.albedo_color = outline_clr.lerp(cooked_color*outline_clr, t)
+	#else:
+		#var t: float = clampf((cooked_amount - cook_time) / cook_time, 0.0, 1.0)
+		#food_material.albedo_color = cooked_color.lerp(burnt_color, t)
+		#outline_material.albedo_color = (cooked_color*outline_clr).lerp(burnt_color*outline_clr, t)
+
 
 func set_cooked_color() -> void:
 	if cooked_amount <= cook_time:
-			var t: float = clampf(cooked_amount / cook_time, 0.0, 1.0)
-			food_material.albedo_color = start_color.lerp(cooked_color, t)
-			outline_material.albedo_color = outline_clr.lerp(cooked_color*outline_clr, t)
+		var t: float = clampf(cooked_amount / cook_time, 0.0, 1.0)
+		cook_albedo = start_color.lerp(cooked_color, t)
+		outline_albedo = outline_clr.lerp(cooked_color * outline_clr, t)
 	else:
 		var t: float = clampf((cooked_amount - cook_time) / cook_time, 0.0, 1.0)
-		food_material.albedo_color = cooked_color.lerp(burnt_color, t)
-		outline_material.albedo_color = (cooked_color*outline_clr).lerp(burnt_color*outline_clr, t)
+		cook_albedo = cooked_color.lerp(burnt_color, t)
+		outline_albedo = (cooked_color * outline_clr).lerp(burnt_color * outline_clr, t)
+
 
 func set_prepared_status() -> void:
 	if cooked_amount <= (cook_time * (0.25)):

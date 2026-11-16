@@ -229,7 +229,15 @@ process_mode = 3
 
 [node name="UiOrderThought" parent="CanvasLayerForeground" unique_id=1780630391 instance=ExtResource("1_wot6h")]
 process_mode = 1
-visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -240.0
+offset_right = 320.0
+offset_bottom = 240.0
 
 [node name="TimerLabel" type="Label" parent="CanvasLayerForeground" unique_id=811185736]
 anchors_preset = 5

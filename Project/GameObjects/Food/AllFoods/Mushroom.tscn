@@ -70,6 +70,7 @@ points = PackedVector3Array(-0.23700206, -0.42619467, 0.40668547, 0.16401818, 0.
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_wvomq")
+max_depth = 2.0
 metadata/_custom_type_script = "uid://ccyllul52jtme"
 
 [node name="Mushroom2" type="MeshInstance3D" parent="." unique_id=540613714]
