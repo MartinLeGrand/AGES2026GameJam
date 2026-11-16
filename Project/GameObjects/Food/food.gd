@@ -156,7 +156,7 @@ func try_get_spitted(tip: Tip) -> void:
 	if not tip:
 		push_error("tip null")
 		return
-	if not is_speared and absf(tip.spit.velocity.x + tip.spit.velocity.x) > spit_velocity_needed:
+	if not is_speared and absf(tip.spit.velocity.x + tip.spit.velocity.x) > spit_velocity_needed or not is_speared and tip.spit.is_dashing:
 		is_speared = true
 		#freeze = true
 		_speared_y = position.y

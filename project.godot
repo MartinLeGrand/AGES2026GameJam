@@ -59,6 +59,7 @@ empty_spit={
 
 3d/physics_engine="Jolt Physics"
 3d/default_gravity=4.0
+3d/solver/solver_iterations=32
 
 [rendering]
 
