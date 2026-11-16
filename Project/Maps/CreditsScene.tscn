@@ -8,7 +8,6 @@
 [ext_resource type="StyleBox" uid="uid://csmqufy16n5j2" path="res://Project/UI/Styles/StyleBoxFlat/SBT_Button_MainMenu_Hovered.tres" id="7_drurp"]
 [ext_resource type="Texture2D" uid="uid://bqcofw1yjm68s" path="res://Project/UI/Inkscape/Button_Background_HQ.svg" id="8_q37px"]
 [ext_resource type="LabelSettings" uid="uid://cij2mbiqocumf" path="res://Project/UI/Styles/Labels/LS_Button_MainMenu.tres" id="9_71d4h"]
-[ext_resource type="PackedScene" uid="uid://ceujt10bqw625" path="res://Project/Prefabs/scrolling_bg_canvas_layer.tscn" id="10_5cr7s"]
 
 [sub_resource type="Environment" id="Environment_rxjn2"]
 background_mode = 3
@@ -200,7 +199,5 @@ text = "Return to Main Menu"
 label_settings = ExtResource("9_71d4h")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="CanvasLayer" parent="." unique_id=1184656298 instance=ExtResource("10_5cr7s")]
 
 [connection signal="pressed" from="CanvasLayerAbove/Button" to="." method="_on_button_pressed"]

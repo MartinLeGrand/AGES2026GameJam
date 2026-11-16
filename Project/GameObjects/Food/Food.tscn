@@ -13,5 +13,5 @@ axis_lock_angular_z = true
 mass = 0.2
 continuous_cd = true
 script = ExtResource("1_j05b8")
-cook_time = 2.5
+spit_velocity_needed = 15.0
 slide_off_resistance = 0.865

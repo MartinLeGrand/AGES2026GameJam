@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://dhasbkfvn7fde" path="res://Project/Audio/Spitted/CollidingWithSpit/spit_collide.tres" id="5_tpnj6"]
 [ext_resource type="AudioStream" uid="uid://top5ufireixr" path="res://Project/Audio/Cooking/frying_poly.tres" id="6_mns4h"]
 [ext_resource type="AudioStream" uid="uid://dc1x4yuoft8il" path="res://Project/Audio/splat.mp3" id="7_f6g8c"]
+[ext_resource type="PackedScene" uid="uid://ceujt10bqw625" path="res://Project/Prefabs/scrolling_bg_canvas_layer.tscn" id="8_us3jr"]
 
 [node name="EffectManager" type="Node" unique_id=1494129916]
 process_mode = 3
@@ -36,10 +37,13 @@ stream = ExtResource("5_tpnj6")
 volume_db = -10.0
 
 [node name="FryingSound" type="AudioStreamPlayer" parent="." unique_id=917541814]
+process_mode = 1
 stream = ExtResource("6_mns4h")
 volume_db = -2.5
 
 [node name="EmptySpit" type="AudioStreamPlayer" parent="." unique_id=2123143201]
 stream = ExtResource("7_f6g8c")
+
+[node name="CanvasLayerBackground" parent="." unique_id=1184656298 instance=ExtResource("8_us3jr")]
 
 [connection signal="timeout" from="ResetTimer" to="." method="_on_reset_timer_timeout"]

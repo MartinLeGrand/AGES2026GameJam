@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://ylau7d2xph3x" path="res://Project/UI/Inkscape/Ingredient_Tomat.png" id="7_a4vlu"]
 [ext_resource type="Texture2D" uid="uid://bxqnfexv410f5" path="res://Project/UI/Inkscape/Ingredient_Pineapple.png" id="8_plj7o"]
 [ext_resource type="Texture2D" uid="uid://c675ka82qhofj" path="res://Project/UI/Inkscape/Ingredient_Mushroom.png" id="9_w0bjs"]
-[ext_resource type="PackedScene" uid="uid://ceujt10bqw625" path="res://Project/Prefabs/scrolling_bg_canvas_layer.tscn" id="11_plj7o"]
 [ext_resource type="FontFile" uid="uid://dpvb2tp2gx5p5" path="res://Project/UI/Fonts/friendlyscribbles.ttf" id="12_rwcad"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1cydk"]
@@ -788,8 +787,6 @@ layout_mode = 2
 text = "©2026 Glögg Stain Studios"
 label_settings = SubResource("LabelSettings_urpi8")
 horizontal_alignment = 1
-
-[node name="CanvasLayerBackground" parent="." unique_id=1184656298 instance=ExtResource("11_plj7o")]
 
 [node name="Fader" type="Panel" parent="." unique_id=568981270]
 modulate = Color(1, 1, 1, 0)
