@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Ages 2026 Game Jam"
+config/name="Crocokebab"
 run/main_scene="uid://cfv8kn57cs3su"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://Project/Art/icon.svg"

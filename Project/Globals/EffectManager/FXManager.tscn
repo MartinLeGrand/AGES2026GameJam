@@ -39,7 +39,7 @@ volume_db = -10.0
 [node name="FryingSound" type="AudioStreamPlayer" parent="." unique_id=917541814]
 process_mode = 1
 stream = ExtResource("6_mns4h")
-volume_db = -2.5
+volume_db = -4.0
 
 [node name="EmptySpit" type="AudioStreamPlayer" parent="." unique_id=2123143201]
 stream = ExtResource("7_f6g8c")
