@@ -28,7 +28,7 @@ meshes/generate_lods=true
 meshes/create_shadow_meshes=true
 meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
-meshes/force_disable_compression=false
+meshes/force_disable_compression=true
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
@@ -43,8 +43,8 @@ _subresources={
 "materials": {
 "Material.001": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://Project/Materials/vertex_unshaded.tres",
-"use_external/path": "uid://cx6utliwik3uh"
+"use_external/fallback_path": "res://EskilsTest/linear_to_sRGB_fix.tres",
+"use_external/path": "uid://dgcvuavqchakj"
 }
 }
 }

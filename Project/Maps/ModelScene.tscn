@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://crroxg6q5ov43" path="res://Project/Scripts/shaker.gd" id="1_0ewho"]
 [ext_resource type="Script" uid="uid://bhuyt7axr0w2s" path="res://Project/Scripts/chomper.gd" id="3_rr3j8"]
-[ext_resource type="Material" uid="uid://cx6utliwik3uh" path="res://Project/Materials/vertex_unshaded.tres" id="3_ttnfw"]
+[ext_resource type="Material" uid="uid://cx6utliwik3uh" path="res://Project/Materials/OLD_DONT_USE_vertex_unshaded.tres" id="3_ttnfw"]
 [ext_resource type="PackedScene" uid="uid://ceujt10bqw625" path="res://Project/Prefabs/scrolling_bg_canvas_layer.tscn" id="6_3bf4a"]
 [ext_resource type="PackedScene" uid="uid://jhui4717qmye" path="res://Project/GameObjects/Collector/Collector.tscn" id="10_5avfo"]
 

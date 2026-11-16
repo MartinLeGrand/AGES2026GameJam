@@ -1,8 +1,9 @@
 class_name Food extends RigidBody3D
 ## Base class for food
 
-
-const STANDARD_MATERIAL = preload("uid://cx6utliwik3uh")
+#
+#const STANDARD_MATERIAL = preload("uid://cx6utliwik3uh") ## OLD BAD shame on you
+const STANDARD_MATERIAL = preload("uid://dgcvuavqchakj")
 
 
 enum Type {
@@ -54,7 +55,7 @@ var over_fire: bool = false ## Set by fire when food collides with fire area
 var prepared: Prepared = Prepared.RAW ## How the food was cooked
 
 var food_mesh: MeshInstance3D = null
-var food_material: StandardMaterial3D = null ## 
+var food_material: ShaderMaterial = null ## 
 var outline_material: StandardMaterial3D = null
 var outline_clr: Color = Color.WHITE
 var start_color: Color = Color.WHITE
@@ -92,10 +93,10 @@ func _ready() -> void:
 			food_material = STANDARD_MATERIAL.duplicate()
 			
 			child.mesh.surface_set_material(0, food_material)
-			start_color = food_material.albedo_color ## it's just white my dude
+			food_material.set_shader_parameter("albedo_color", start_color) ## it's just white my dude
 			cook_albedo = start_color
 			break
-	food_material.emission_enabled= true
+	#food_material.emission_enabled= true
 	outline_material.emission_enabled = true
 	start_z = position.z
 	apply_color()
@@ -149,7 +150,7 @@ func apply_color() -> void:
 	if not food_material or not outline_material:
 		return
 	var t: float = clampf(absf(position.z - start_z) / max_depth, 0.0, 1.0)
-	food_material.albedo_color = cook_albedo.lerp(depth_color, t)
+	food_material.set_shader_parameter("albedo_color", cook_albedo.lerp(depth_color, t))
 	outline_material.albedo_color = outline_albedo.lerp(depth_color * outline_clr, t)
 
 func try_get_spitted(tip: Tip) -> void:

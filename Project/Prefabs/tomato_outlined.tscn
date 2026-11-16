@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bwep6i7hrjwkg"]
 
-[ext_resource type="Material" uid="uid://cx6utliwik3uh" path="res://Project/Materials/vertex_unshaded.tres" id="1_5j2ha"]
+[ext_resource type="Material" uid="uid://cx6utliwik3uh" path="res://Project/Materials/OLD_DONT_USE_vertex_unshaded.tres" id="1_5j2ha"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_2llb2"]
 _surfaces = [{
